@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <style>
+      .c0 { fill: hsl(0,75%,89%); stroke: hsl(0,65%,60%); }
+      .c1 { fill: hsl(36,78%,88%); stroke: hsl(36,70%,55%); }
+      .c2 { fill: hsl(72,70%,85%); stroke: hsl(72,55%,45%); }
+      .c3 { fill: hsl(108,62%,86%); stroke: hsl(108,50%,45%); }
+      .c4 { fill: hsl(144,58%,86%); stroke: hsl(144,45%,43%); }
+      .c5 { fill: hsl(180,55%,86%); stroke: hsl(180,45%,42%); }
+      .c6 { fill: hsl(216,72%,89%); stroke: hsl(216,58%,55%); }
+      .c7 { fill: hsl(252,72%,90%); stroke: hsl(252,55%,60%); }
+      .c8 { fill: hsl(288,68%,90%); stroke: hsl(288,50%,58%); }
+      .cell { stroke-width: 2; }
+      .txt { font-family: 'PingFang SC','Microsoft YaHei',ui-sans-serif,system-ui,sans-serif; font-size: 15px; font-weight: 700; fill: #1b1b2f; text-anchor: middle; dominant-baseline: middle; }
+      .small { font-size: 9px; font-weight: 600; fill: #666; text-anchor: middle; dominant-baseline: middle; }
+      .seq-txt { font-size: 13px; font-weight: 700; fill: #1b1b2f; text-anchor: middle; dominant-baseline: middle; }
+      .title { font-family: 'PingFang SC','Microsoft YaHei',ui-sans-serif,system-ui,sans-serif; font-size: 16px; font-weight: 700; fill: #1b1b2f; text-anchor: middle; }
+      .subtitle { font-size: 12px; font-weight: 400; fill: #777; }
+      .formula { font-family: ui-monospace, Consolas, monospace; font-size: 14px; fill: #444; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- 矩阵标题 -->
+  <text x="400" y="40" class="title">矩阵 A（3 × 3，i 为行号，j 为列号）</text>
+
+  <!-- 3x3 矩阵 -->
+  <!-- 第 0 行 -->
+  <rect x="315" y="60" width="50" height="50" rx="10" ry="10" class="cell c0" />
+  <text x="340" y="85" class="txt">a₀₀</text>
+  <rect x="375" y="60" width="50" height="50" rx="10" ry="10" class="cell c1" />
+  <text x="400" y="85" class="txt">a₀₁</text>
+  <rect x="435" y="60" width="50" height="50" rx="10" ry="10" class="cell c2" />
+  <text x="460" y="85" class="txt">a₀₂</text>
+  <!-- 第 1 行 -->
+  <rect x="315" y="120" width="50" height="50" rx="10" ry="10" class="cell c3" />
+  <text x="340" y="145" class="txt">a₁₀</text>
+  <rect x="375" y="120" width="50" height="50" rx="10" ry="10" class="cell c4" />
+  <text x="400" y="145" class="txt">a₁₁</text>
+  <rect x="435" y="120" width="50" height="50" rx="10" ry="10" class="cell c5" />
+  <text x="460" y="145" class="txt">a₁₂</text>
+  <!-- 第 2 行 -->
+  <rect x="315" y="180" width="50" height="50" rx="10" ry="10" class="cell c6" />
+  <text x="340" y="205" class="txt">a₂₀</text>
+  <rect x="375" y="180" width="50" height="50" rx="10" ry="10" class="cell c7" />
+  <text x="400" y="205" class="txt">a₂₁</text>
+  <rect x="435" y="180" width="50" height="50" rx="10" ry="10" class="cell c8" />
+  <text x="460" y="205" class="txt">a₂₂</text>
+
+  <!-- 行主序标题 -->
+  <text x="400" y="260" class="title">① 行主序 Row-major <tspan font-size="12" font-weight="400" fill="#777">C / C++ / Rust / NumPy 默认</tspan></text>
+
+  <!-- 行主序内存序列 -->
+  <!-- 序号 0 -->
+  <rect x="155" y="285" width="50" height="50" rx="8" ry="8" class="cell c0" />
+  <text x="180" y="300" class="small">0</text>
+  <text x="180" y="320" class="seq-txt">a₀₀</text>
+  <!-- 序号 1 -->
+  <rect x="210" y="285" width="50" height="50" rx="8" ry="8" class="cell c1" />
+  <text x="235" y="300" class="small">1</text>
+  <text x="235" y="320" class="seq-txt">a₀₁</text>
+  <!-- 序号 2 -->
+  <rect x="265" y="285" width="50" height="50" rx="8" ry="8" class="cell c2" />
+  <text x="290" y="300" class="small">2</text>
+  <text x="290" y="320" class="seq-txt">a₀₂</text>
+  <!-- 序号 3 -->
+  <rect x="320" y="285" width="50" height="50" rx="8" ry="8" class="cell c3" />
+  <text x="345" y="300" class="small">3</text>
+  <text x="345" y="320" class="seq-txt">a₁₀</text>
+  <!-- 序号 4 -->
+  <rect x="375" y="285" width="50" height="50" rx="8" ry="8" class="cell c4" />
+  <text x="400" y="300" class="small">4</text>
+  <text x="400" y="320" class="seq-txt">a₁₁</text>
+  <!-- 序号 5 -->
+  <rect x="430" y="285" width="50" height="50" rx="8" ry="8" class="cell c5" />
+  <text x="455" y="300" class="small">5</text>
+  <text x="455" y="320" class="seq-txt">a₁₂</text>
+  <!-- 序号 6 -->
+  <rect x="485" y="285" width="50" height="50" rx="8" ry="8" class="cell c6" />
+  <text x="510" y="300" class="small">6</text>
+  <text x="510" y="320" class="seq-txt">a₂₀</text>
+  <!-- 序号 7 -->
+  <rect x="540" y="285" width="50" height="50" rx="8" ry="8" class="cell c7" />
+  <text x="565" y="300" class="small">7</text>
+  <text x="565" y="320" class="seq-txt">a₂₁</text>
+  <!-- 序号 8 -->
+  <rect x="595" y="285" width="50" height="50" rx="8" ry="8" class="cell c8" />
+  <text x="620" y="300" class="small">8</text>
+  <text x="620" y="320" class="seq-txt">a₂₂</text>
+
+  <!-- 行主序公式 -->
+  <text x="400" y="365" class="formula">offset = i × 3 + j</text>
+
+  <!-- 列主序标题 -->
+  <text x="400" y="420" class="title">② 列主序 Column-major <tspan font-size="12" font-weight="400" fill="#777">Fortran / MATLAB / Julia / OpenGL</tspan></text>
+
+  <!-- 列主序内存序列 -->
+  <!-- 序号 0 -->
+  <rect x="155" y="445" width="50" height="50" rx="8" ry="8" class="cell c0" />
+  <text x="180" y="460" class="small">0</text>
+  <text x="180" y="480" class="seq-txt">a₀₀</text>
+  <!-- 序号 1 -->
+  <rect x="210" y="445" width="50" height="50" rx="8" ry="8" class="cell c3" />
+  <text x="235" y="460" class="small">1</text>
+  <text x="235" y="480" class="seq-txt">a₁₀</text>
+  <!-- 序号 2 -->
+  <rect x="265" y="445" width="50" height="50" rx="8" ry="8" class="cell c6" />
+  <text x="290" y="460" class="small">2</text>
+  <text x="290" y="480" class="seq-txt">a₂₀</text>
+  <!-- 序号 3 -->
+  <rect x="320" y="445" width="50" height="50" rx="8" ry="8" class="cell c1" />
+  <text x="345" y="460" class="small">3</text>
+  <text x="345" y="480" class="seq-txt">a₀₁</text>
+  <!-- 序号 4 -->
+  <rect x="375" y="445" width="50" height="50" rx="8" ry="8" class="cell c4" />
+  <text x="400" y="460" class="small">4</text>
+  <text x="400" y="480" class="seq-txt">a₁₁</text>
+  <!-- 序号 5 -->
+  <rect x="430" y="445" width="50" height="50" rx="8" ry="8" class="cell c7" />
+  <text x="455" y="460" class="small">5</text>
+  <text x="455" y="480" class="seq-txt">a₂₁</text>
+  <!-- 序号 6 -->
+  <rect x="485" y="445" width="50" height="50" rx="8" ry="8" class="cell c2" />
+  <text x="510" y="460" class="small">6</text>
+  <text x="510" y="480" class="seq-txt">a₀₂</text>
+  <!-- 序号 7 -->
+  <rect x="540" y="445" width="50" height="50" rx="8" ry="8" class="cell c5" />
+  <text x="565" y="460" class="small">7</text>
+  <text x="565" y="480" class="seq-txt">a₁₂</text>
+  <!-- 序号 8 -->
+  <rect x="595" y="445" width="50" height="50" rx="8" ry="8" class="cell c8" />
+  <text x="620" y="460" class="small">8</text>
+  <text x="620" y="480" class="seq-txt">a₂₂</text>
+
+  <!-- 列主序公式 -->
+  <text x="400" y="525" class="formula">offset = j × 3 + i</text>
+</svg>
