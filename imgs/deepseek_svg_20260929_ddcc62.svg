@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 720" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arrBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#dc2626"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+  </defs>
+
+  <!-- ==================== 上半部分：朴素 i-j-k ==================== -->
+  <text x="470" y="30" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">朴素实现：C[i,j] = Σₖ A[i,k] · B[k,j]</text>
+
+  <!-- A 矩阵 -->
+  <g transform="translate(60, 70)">
+    <text x="55" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#2563eb">A</text>
+    <rect x="0" y="0" width="110" height="120" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" rx="3"/>
+    <line x1="0" y1="30" x2="110" y2="30" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="0" y1="60" x2="110" y2="60" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="0" y1="90" x2="110" y2="90" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="27" y1="0" x2="27" y2="120" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="55" y1="0" x2="55" y2="120" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="82" y1="0" x2="82" y2="120" stroke="#93c5fd" stroke-width="0.8"/>
+    <rect x="0" y="30" width="110" height="30" fill="#3b82f6" fill-opacity="0.35" rx="2"/>
+    <text x="-14" y="50" text-anchor="middle" font-size="12" fill="#2563eb" font-weight="bold">i</text>
+  </g>
+  <g transform="translate(60, 195)">
+    <line x1="5" y1="0" x2="105" y2="0" stroke="#2563eb" stroke-width="1.5" marker-end="url(#arrBlue)"/>
+    <text x="55" y="15" text-anchor="middle" font-size="10" fill="#2563eb">沿 k 连续</text>
+  </g>
+
+  <!-- 乘 -->
+  <text x="205" y="135" text-anchor="middle" font-size="22" fill="#555">×</text>
+
+  <!-- B 矩阵 -->
+  <g transform="translate(240, 70)">
+    <text x="55" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#d97706">B</text>
+    <rect x="0" y="0" width="110" height="120" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" rx="3"/>
+    <line x1="0" y1="30" x2="110" y2="30" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="0" y1="60" x2="110" y2="60" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="0" y1="90" x2="110" y2="90" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="27" y1="0" x2="27" y2="120" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="55" y1="0" x2="55" y2="120" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="82" y1="0" x2="82" y2="120" stroke="#fcd34d" stroke-width="0.8"/>
+    <rect x="55" y="0" width="27" height="120" fill="#f59e0b" fill-opacity="0.45" rx="2"/>
+    <text x="68" y="-10" text-anchor="middle" font-size="12" fill="#d97706" font-weight="bold">j</text>
+  </g>
+  <g transform="translate(240, 195)">
+    <line x1="68" y1="0" x2="68" y2="20" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrRed)"/>
+    <text x="68" y="35" text-anchor="middle" font-size="10" fill="#dc2626">步长 N</text>
+  </g>
+
+  <!-- = -->
+  <text x="390" y="135" text-anchor="middle" font-size="22" fill="#555">=</text>
+
+  <!-- C 元素 -->
+  <g transform="translate(420, 105)">
+    <rect x="0" y="0" width="55" height="55" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8" rx="4"/>
+    <text x="27" y="33" text-anchor="middle" font-size="14" fill="#166534" font-weight="bold">C[i,j]</text>
+  </g>
+
+  <!-- 依赖链示意 -->
+  <g transform="translate(520, 70)">
+    <rect x="0" y="0" width="380" height="130" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2" rx="6"/>
+    <text x="190" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#dc2626">问题：单累加器依赖链</text>
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="55" height="32" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="27" y="21" text-anchor="middle" font-size="11" fill="#991b1b">FMA₁</text>
+      <line x1="55" y1="16" x2="78" y2="16" stroke="#dc2626" stroke-width="1.2" marker-end="url(#arrRed)"/>
+      <rect x="78" y="0" width="55" height="32" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="105" y="21" text-anchor="middle" font-size="11" fill="#991b1b">FMA₂</text>
+      <line x1="133" y1="16" x2="156" y2="16" stroke="#dc2626" stroke-width="1.2" marker-end="url(#arrRed)"/>
+      <rect x="156" y="0" width="55" height="32" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="183" y="21" text-anchor="middle" font-size="11" fill="#991b1b">FMA₃</text>
+      <line x1="211" y1="16" x2="234" y2="16" stroke="#dc2626" stroke-width="1.2" marker-end="url(#arrRed)"/>
+      <rect x="234" y="0" width="55" height="32" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="261" y="21" text-anchor="middle" font-size="11" fill="#991b1b">FMA₄</text>
+    </g>
+    <text x="190" y="112" text-anchor="middle" font-size="11" fill="#dc2626">每条 FMA 必须等待前一条完成 → 流水线空闲</text>
+  </g>
+
+  <!-- ==================== 分隔线 ==================== -->
+  <line x1="50" y1="280" x2="890" y2="280" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="10,5"/>
+  <text x="470" y="272" text-anchor="middle" font-size="12" fill="#9ca3af">循环交换 i-k-j</text>
+
+  <!-- ==================== 下半部分：i-k-j ==================== -->
+  <text x="470" y="315" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">优化：C[i,:] += A[i,k] × B[k,:]</text>
+
+  <!-- A 标量 -->
+  <g transform="translate(70, 360)">
+    <text x="35" y="-10" text-anchor="middle" font-size="12" fill="#2563eb" font-weight="bold">A[i,k]</text>
+    <rect x="0" y="0" width="70" height="70" fill="#dbeafe" stroke="#2563eb" stroke-width="2" rx="4"/>
+    <text x="35" y="44" text-anchor="middle" font-size="18" fill="#1e40af" font-weight="bold">a</text>
+  </g>
+
+  <!-- 乘 -->
+  <text x="175" y="410" text-anchor="middle" font-size="22" fill="#555">×</text>
+
+  <!-- B 的一行 -->
+  <g transform="translate(210, 370)">
+    <text x="120" y="-12" text-anchor="middle" font-size="12" fill="#d97706" font-weight="bold">B[k, :]</text>
+    <rect x="0" y="0" width="240" height="50" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" rx="3"/>
+    <line x1="48" y1="0" x2="48" y2="50" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="96" y1="0" x2="96" y2="50" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="144" y1="0" x2="144" y2="50" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="192" y1="0" x2="192" y2="50" stroke="#fcd34d" stroke-width="0.8"/>
+  </g>
+  <g transform="translate(210, 430)">
+    <line x1="12" y1="0" x2="228" y2="0" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr)"/>
+    <text x="120" y="15" text-anchor="middle" font-size="10" fill="#d97706">沿 j 连续</text>
+  </g>
+
+  <!-- + -->
+  <text x="490" y="410" text-anchor="middle" font-size="22" fill="#555">+</text>
+
+  <!-- C 的一行 -->
+  <g transform="translate(525, 370)">
+    <text x="120" y="-12" text-anchor="middle" font-size="12" fill="#16a34a" font-weight="bold">C[i, :]</text>
+    <rect x="0" y="0" width="240" height="50" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" rx="3"/>
+    <line x1="48" y1="0" x2="48" y2="50" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="96" y1="0" x2="96" y2="50" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="144" y1="0" x2="144" y2="50" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="192" y1="0" x2="192" y2="50" stroke="#86efac" stroke-width="0.8"/>
+  </g>
+  <g transform="translate(525, 430)">
+    <line x1="12" y1="0" x2="228" y2="0" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrGreen)"/>
+    <text x="120" y="15" text-anchor="middle" font-size="10" fill="#16a34a">沿 j 连续读改写</text>
+  </g>
+
+  <!-- 多累加器示意 -->
+  <g transform="translate(60, 490)">
+    <rect x="0" y="0" width="820" height="135" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2" rx="6"/>
+    <text x="410" y="26" text-anchor="middle" font-size="13" font-weight="bold" fill="#166534">内层 j 循环产生多个独立更新 → 可并行发射</text>
+    <g transform="translate(60, 50)">
+      <rect x="0" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="29" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₁</text>
+      <rect x="80" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="109" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₂</text>
+      <rect x="160" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="189" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₃</text>
+      <rect x="240" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="269" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₄</text>
+      <rect x="320" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="349" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₅</text>
+      <rect x="400" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="429" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₆</text>
+      <rect x="480" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="509" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₇</text>
+      <rect x="560" y="0" width="58" height="30" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="589" y="20" text-anchor="middle" font-size="10" fill="#166534">FMA₈</text>
+      <line x1="0" y1="38" x2="618" y2="38" stroke="#16a34a" stroke-width="1.2"/>
+      <line x1="0" y1="38" x2="0" y2="45" stroke="#16a34a" stroke-width="1.2"/>
+      <line x1="618" y1="38" x2="618" y2="45" stroke="#16a34a" stroke-width="1.2"/>
+      <text x="309" y="62" text-anchor="middle" font-size="11" fill="#16a34a">8 条独立 FMA 可填满流水线</text>
+    </g>
+  </g>
+
+  <!-- 底部结论 -->
+  <g transform="translate(60, 655)">
+    <text x="410" y="15" text-anchor="middle" font-size="12" fill="#6b7280">但仍未解决 A、B 的全局复用问题 → 后续分块与打包</text>
+  </g>
+</svg>
