@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 780" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arrBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+    <marker id="arrPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="960" height="780" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="480" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">2.4 分块（Blocked）：让数据在 L3/L2/L1 中复用</text>
+
+  <!-- ==================== 分块矩阵示意 ==================== -->
+
+  <!-- A 矩阵（分块） -->
+  <g transform="translate(50, 80)">
+    <text x="90" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#2563eb">A（M×K）</text>
+    <rect x="0" y="0" width="180" height="180" fill="#eff6ff" stroke="#2563eb" stroke-width="1.5" rx="2"/>
+    <!-- 分块网格 -->
+    <line x1="60" y1="0" x2="60" y2="180" stroke="#93c5fd" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="180" stroke="#93c5fd" stroke-width="1"/>
+    <line x1="0" y1="60" x2="180" y2="60" stroke="#93c5fd" stroke-width="1"/>
+    <line x1="0" y1="120" x2="180" y2="120" stroke="#93c5fd" stroke-width="1"/>
+    <!-- 高亮 A 面板 MC×KC（第2行, 第2列块） -->
+    <rect x="60" y="60" width="60" height="60" fill="#3b82f6" fill-opacity="0.4" rx="2"/>
+    <text x="90" y="95" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="bold">MC×KC</text>
+    <!-- 行标/列标 -->
+    <text x="-12" y="35" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">ic</text>
+    <text x="35" y="-18" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="bold">pc</text>
+  </g>
+
+  <!-- 乘号 -->
+  <text x="255" y="180" text-anchor="middle" font-size="24" fill="#555">×</text>
+
+  <!-- B 矩阵（分块） -->
+  <g transform="translate(280, 80)">
+    <text x="90" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#d97706">B（K×N）</text>
+    <rect x="0" y="0" width="180" height="180" fill="#fffbeb" stroke="#d97706" stroke-width="1.5" rx="2"/>
+    <line x1="60" y1="0" x2="60" y2="180" stroke="#fcd34d" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="180" stroke="#fcd34d" stroke-width="1"/>
+    <line x1="0" y1="60" x2="180" y2="60" stroke="#fcd34d" stroke-width="1"/>
+    <line x1="0" y1="120" x2="180" y2="120" stroke="#fcd34d" stroke-width="1"/>
+    <!-- 高亮 B 面板 KC×NC（第2行, 第2列块） -->
+    <rect x="60" y="60" width="60" height="60" fill="#f59e0b" fill-opacity="0.5" rx="2"/>
+    <text x="90" y="95" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">KC×NC</text>
+    <text x="-12" y="35" text-anchor="middle" font-size="11" fill="#d97706" font-weight="bold">pc</text>
+    <text x="35" y="-18" text-anchor="middle" font-size="11" fill="#d97706" font-weight="bold">jc</text>
+  </g>
+
+  <!-- 等号 -->
+  <text x="485" y="180" text-anchor="middle" font-size="24" fill="#555">=</text>
+
+  <!-- C 矩阵（分块） -->
+  <g transform="translate(510, 80)">
+    <text x="90" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#16a34a">C（M×N）</text>
+    <rect x="0" y="0" width="180" height="180" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" rx="2"/>
+    <line x1="60" y1="0" x2="60" y2="180" stroke="#86efac" stroke-width="1"/>
+    <line x1="120" y1="0" x2="120" y2="180" stroke="#86efac" stroke-width="1"/>
+    <line x1="0" y1="60" x2="180" y2="60" stroke="#86efac" stroke-width="1"/>
+    <line x1="0" y1="120" x2="180" y2="120" stroke="#86efac" stroke-width="1"/>
+    <!-- 高亮 C 块 MC×NC（第2行, 第2列块） -->
+    <rect x="60" y="60" width="60" height="60" fill="#22c55e" fill-opacity="0.55" rx="2"/>
+    <text x="90" y="95" text-anchor="middle" font-size="11" fill="#14532d" font-weight="bold">MC×NC</text>
+    <text x="-12" y="35" text-anchor="middle" font-size="11" fill="#16a34a" font-weight="bold">ic</text>
+    <text x="35" y="-18" text-anchor="middle" font-size="11" fill="#16a34a" font-weight="bold">jc</text>
+  </g>
+
+  <!-- 右侧缓存层次说明 -->
+  <g transform="translate(730, 80)">
+    <rect x="0" y="0" width="200" height="180" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2" rx="6"/>
+    <text x="100" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#334155">分块对应的缓存</text>
+    <line x1="15" y1="35" x2="185" y2="35" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="15" y="58" font-size="11" fill="#2563eb" font-weight="bold">ic, jc → L3/L2</text>
+    <text x="25" y="76" font-size="10" fill="#64748b">A、B 面板在 L2/L3 复用</text>
+    <text x="15" y="102" font-size="11" fill="#d97706" font-weight="bold">pc → L2/L1</text>
+    <text x="25" y="120" font-size="10" fill="#64748b">K 维切块减少 DRAM 流量</text>
+    <text x="15" y="146" font-size="11" fill="#16a34a" font-weight="bold">内层 i,p,j → L1/寄存器</text>
+    <text x="25" y="164" font-size="10" fill="#64748b">连续访问，复用充分</text>
+  </g>
+
+  <!-- ==================== 分隔线 ==================== -->
+  <line x1="40" y1="310" x2="920" y2="310" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="8,4"/>
+
+  <!-- ==================== 循环结构（左） ==================== -->
+  <g transform="translate(40, 340)">
+    <text x="230" y="0" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">三层分块循环 + 内层计算</text>
+
+    <!-- jc 循环 -->
+    <rect x="0" y="20" width="460" height="320" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2" rx="6"/>
+    <text x="10" y="42" font-size="12" fill="#166534" font-weight="bold">for jc（N 维分块，块大小 NC）</text>
+
+    <!-- pc 循环 -->
+    <rect x="20" y="55" width="420" height="270" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2" rx="4"/>
+    <text x="30" y="77" font-size="12" fill="#92400e" font-weight="bold">for pc（K 维分块，块大小 KC）</text>
+
+    <!-- ic 循环 -->
+    <rect x="40" y="90" width="380" height="220" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2" rx="4"/>
+    <text x="50" y="112" font-size="12" fill="#1e40af" font-weight="bold">for ic（M 维分块，块大小 MC）</text>
+
+    <!-- 内层 i 循环 -->
+    <rect x="60" y="125" width="340" height="170" fill="#e0e7ff" stroke="#a5b4fc" stroke-width="1" rx="4"/>
+    <text x="70" y="147" font-size="11" fill="#3730a3" font-weight="bold">for i = ic .. ic+mc-1（行）</text>
+
+    <!-- 内层 p 循环 -->
+    <rect x="80" y="160" width="300" height="120" fill="#c7d2fe" stroke="#818cf8" stroke-width="1" rx="4"/>
+    <text x="90" y="182" font-size="11" fill="#312e81" font-weight="bold">for p = pc .. pc+kc-1（K 维）</text>
+
+    <!-- 标量加载 -->
+    <rect x="100" y="195" width="260" height="26" fill="#dbeafe" stroke="#3b82f6" stroke-width="0.8" rx="3"/>
+    <text x="230" y="213" text-anchor="middle" font-size="10" fill="#1e40af">a = A[i,p]  ← 标量</text>
+
+    <!-- 内层 j 循环 -->
+    <rect x="100" y="228" width="260" height="42" fill="#fef3c7" stroke="#d97706" stroke-width="0.8" rx="3"/>
+    <text x="230" y="245" text-anchor="middle" font-size="10" fill="#92400e">for j = 0 .. n-1</text>
+    <text x="230" y="262" text-anchor="middle" font-size="10" fill="#92400e">C[i,j] += a * B[p,j]</text>
+  </g>
+
+  <!-- ==================== 数据复用示意（右） ==================== -->
+  <g transform="translate(530, 340)">
+    <rect x="0" y="0" width="400" height="320" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.2" rx="6"/>
+    <text x="200" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#374151">分块后的数据复用</text>
+
+    <!-- A 面板复用示意 -->
+    <g transform="translate(20, 50)">
+      <text x="0" y="0" font-size="12" fill="#2563eb" font-weight="bold">A 面板（MC×KC）复用：</text>
+      <!-- 一个 A 面板 -->
+      <rect x="0" y="12" width="80" height="50" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="2"/>
+      <text x="40" y="42" text-anchor="middle" font-size="10" fill="#1e40af">A 面板</text>
+      <!-- 箭头指向多个 C 块 -->
+      <line x1="80" y1="37" x2="130" y2="20" stroke="#2563eb" stroke-width="1" marker-end="url(#arrBlue)"/>
+      <line x1="80" y1="37" x2="130" y2="37" stroke="#2563eb" stroke-width="1" marker-end="url(#arrBlue)"/>
+      <line x1="80" y1="37" x2="130" y2="54" stroke="#2563eb" stroke-width="1" marker-end="url(#arrBlue)"/>
+      <!-- 多个 C 块 -->
+      <rect x="135" y="8" width="50" height="22" fill="#dcfce7" stroke="#16a34a" stroke-width="1" rx="2"/>
+      <text x="160" y="23" text-anchor="middle" font-size="9" fill="#166534">C 块 1</text>
+      <rect x="135" y="34" width="50" height="22" fill="#dcfce7" stroke="#16a34a" stroke-width="1" rx="2"/>
+      <text x="160" y="49" text-anchor="middle" font-size="9" fill="#166534">C 块 2</text>
+      <rect x="135" y="60" width="50" height="22" fill="#dcfce7" stroke="#16a34a" stroke-width="1" rx="2"/>
+      <text x="160" y="75" text-anchor="middle" font-size="9" fill="#166534">C 块 3</text>
+      <text x="210" y="45" font-size="10" fill="#2563eb">→ 复用 NC/NR 次</text>
+    </g>
+
+    <!-- B 面板复用示意 -->
+    <g transform="translate(20, 145)">
+      <text x="0" y="0" font-size="12" fill="#d97706" font-weight="bold">B 面板（KC×NC）复用：</text>
+      <rect x="0" y="12" width="80" height="50" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="2"/>
+      <text x="40" y="42" text-anchor="middle" font-size="10" fill="#92400e">B 面板</text>
+      <line x1="80" y1="37" x2="130" y2="20" stroke="#d97706" stroke-width="1" marker-end="url(#arrOrange)"/>
+      <line x1="80" y1="37" x2="130" y2="37" stroke="#d97706" stroke-width="1" marker-end="url(#arrOrange)"/>
+      <line x1="80" y1="37" x2="130" y2="54" stroke="#d97706" stroke-width="1" marker-end="url(#arrOrange)"/>
+      <rect x="135" y="8" width="50" height="22" fill="#dcfce7" stroke="#16a34a" stroke-width="1" rx="2"/>
+      <text x="160" y="23" text-anchor="middle" font-size="9" fill="#166534">C 块 1</text>
+      <rect x="135" y="34" width="50" height="22" fill="#dcfce7" stroke="#16a34a" stroke-width="1" rx="2"/>
+      <text x="160" y="49" text-anchor="middle" font-size="9" fill="#166534">C 块 2</text>
+      <rect x="135" y="60" width="50" height="22" fill="#dcfce7" stroke="#16a34a" stroke-width="1" rx="2"/>
+      <text x="160" y="75" text-anchor="middle" font-size="9" fill="#166534">C 块 3</text>
+      <text x="210" y="45" font-size="10" fill="#d97706">→ 复用 MC/MR 次</text>
+    </g>
+
+    <!-- 算术强度提升 -->
+    <g transform="translate(20, 245)">
+      <rect x="0" y="0" width="360" height="60" fill="#f0fdf4" stroke="#86efac" stroke-width="1" rx="4"/>
+      <text x="180" y="22" text-anchor="middle" font-size="11" fill="#166534" font-weight="bold">算术强度提升</text>
+      <text x="180" y="42" text-anchor="middle" font-size="10" fill="#166534">从仅按 DRAM 的 n/6 提升到按缓存容量的水平</text>
+      <text x="180" y="56" text-anchor="middle" font-size="10" fill="#16a34a">→ 性能提升 2–5 倍</text>
+    </g>
+  </g>
+
+  <!-- 底部结论 -->
+  <g transform="translate(40, 690)">
+    <rect x="0" y="0" width="880" height="70" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="6"/>
+    <text x="440" y="25" text-anchor="middle" font-size="12" fill="#374151" font-weight="bold">分块的收益与遗留问题</text>
+    <text x="20" y="48" font-size="11" fill="#16a34a">✓ A、B 子块在 L3/L2 中被多个 C 元素复用，算术强度显著提高</text>
+    <text x="20" y="65" font-size="11" fill="#dc2626">✗ 内层每次仍从 A 取标量、从 B 取整行，加载频率较高 → 需要打包</text>
+  </g>
+</svg>
