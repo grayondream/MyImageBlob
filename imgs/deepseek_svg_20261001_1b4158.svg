@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="900" height="700" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="450" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">2.3 循环交换 i-k-j：C[i,:] += A[i,k] × B[k,:]</text>
+
+  <!-- ==================== 矩阵运算区域 ==================== -->
+
+  <!-- A 矩阵 -->
+  <g transform="translate(60, 80)">
+    <text x="60" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#2563eb">A（行主序，M×K）</text>
+    <rect x="0" y="0" width="120" height="140" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" rx="2"/>
+    <line x1="0" y1="35" x2="120" y2="35" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="0" y1="70" x2="120" y2="70" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="0" y1="105" x2="120" y2="105" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="30" y1="0" x2="30" y2="140" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="60" y1="0" x2="60" y2="140" stroke="#93c5fd" stroke-width="0.8"/>
+    <line x1="90" y1="0" x2="90" y2="140" stroke="#93c5fd" stroke-width="0.8"/>
+    <!-- 高亮第 i 行 -->
+    <rect x="0" y="35" width="120" height="35" fill="#3b82f6" fill-opacity="0.3" rx="1"/>
+    <!-- 高亮 A[i,k] 单个元素 -->
+    <rect x="60" y="35" width="30" height="35" fill="#1d4ed8" fill-opacity="0.6" rx="2"/>
+    <text x="75" y="58" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">a</text>
+    <text x="-15" y="58" text-anchor="middle" font-size="13" fill="#2563eb" font-weight="bold">i</text>
+    <text x="75" y="-25" text-anchor="middle" font-size="11" fill="#2563eb">k →</text>
+  </g>
+
+  <!-- 乘号 -->
+  <text x="215" y="165" text-anchor="middle" font-size="26" fill="#555">×</text>
+
+  <!-- B 矩阵 -->
+  <g transform="translate(240, 80)">
+    <text x="60" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#d97706">B（行主序，K×N）</text>
+    <rect x="0" y="0" width="120" height="140" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" rx="2"/>
+    <line x1="0" y1="35" x2="120" y2="35" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="0" y1="70" x2="120" y2="70" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="0" y1="105" x2="120" y2="105" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="30" y1="0" x2="30" y2="140" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="60" y1="0" x2="60" y2="140" stroke="#fcd34d" stroke-width="0.8"/>
+    <line x1="90" y1="0" x2="90" y2="140" stroke="#fcd34d" stroke-width="0.8"/>
+    <!-- 高亮第 k 行整行 -->
+    <rect x="0" y="70" width="120" height="35" fill="#f59e0b" fill-opacity="0.5" rx="1"/>
+    <text x="-15" y="93" text-anchor="middle" font-size="13" fill="#d97706" font-weight="bold">k</text>
+  </g>
+  <!-- B 行连续访问箭头 -->
+  <g transform="translate(240, 235)">
+    <line x1="10" y1="0" x2="110" y2="0" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrowOrange)"/>
+    <text x="60" y="15" text-anchor="middle" font-size="11" fill="#d97706">沿 j 连续访问</text>
+  </g>
+
+  <!-- 等号 -->
+  <text x="395" y="165" text-anchor="middle" font-size="26" fill="#555">+</text>
+
+  <!-- C 矩阵 -->
+  <g transform="translate(430, 80)">
+    <text x="60" y="-10" text-anchor="middle" font-size="13" font-weight="bold" fill="#16a34a">C（行主序，M×N）</text>
+    <rect x="0" y="0" width="120" height="140" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" rx="2"/>
+    <line x1="0" y1="35" x2="120" y2="35" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="0" y1="70" x2="120" y2="70" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="0" y1="105" x2="120" y2="105" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="30" y1="0" x2="30" y2="140" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="60" y1="0" x2="60" y2="140" stroke="#86efac" stroke-width="0.8"/>
+    <line x1="90" y1="0" x2="90" y2="140" stroke="#86efac" stroke-width="0.8"/>
+    <!-- 高亮第 i 行整行 -->
+    <rect x="0" y="35" width="120" height="35" fill="#22c55e" fill-opacity="0.45" rx="1"/>
+    <text x="-15" y="58" text-anchor="middle" font-size="13" fill="#16a34a" font-weight="bold">i</text>
+  </g>
+  <!-- C 行连续读改写 -->
+  <g transform="translate(430, 235)">
+    <line x1="10" y1="0" x2="110" y2="0" stroke="#16a34a" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+    <text x="60" y="15" text-anchor="middle" font-size="11" fill="#16a34a">沿 j 连续读改写</text>
+  </g>
+
+  <!-- 右侧说明框 -->
+  <g transform="translate(600, 100)">
+    <rect x="0" y="0" width="270" height="140" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.2" rx="6"/>
+    <text x="135" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#0369a1">计算模式</text>
+    <text x="15" y="50" font-size="11" fill="#0c4a6e">固定 i、k：</text>
+    <text x="15" y="72" font-size="11" fill="#2563eb">• 取 A[i,k] 一个标量</text>
+    <text x="15" y="94" font-size="11" fill="#d97706">• B[k,:] 一整行连续</text>
+    <text x="15" y="116" font-size="11" fill="#16a34a">• C[i,:] 一整行连续读改写</text>
+  </g>
+
+  <!-- ==================== 分隔线 ==================== -->
+  <line x1="40" y1="300" x2="860" y2="300" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="8,4"/>
+
+  <!-- ==================== 循环结构（左） ==================== -->
+  <g transform="translate(40, 320)">
+    <text x="200" y="0" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">循环结构：i → k → j</text>
+
+    <!-- i 循环框 -->
+    <rect x="0" y="20" width="360" height="250" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2" rx="6"/>
+    <text x="10" y="42" font-size="12" fill="#475569" font-weight="bold">for i = 0 .. M-1</text>
+
+    <!-- k 循环框 -->
+    <rect x="20" y="55" width="320" height="200" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" rx="4"/>
+    <text x="30" y="77" font-size="12" fill="#475569" font-weight="bold">for k = 0 .. K-1</text>
+
+    <!-- 标量加载 -->
+    <rect x="40" y="90" width="280" height="28" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" rx="3"/>
+    <text x="180" y="109" text-anchor="middle" font-size="11" fill="#1e40af">float a = A[i,k]  ← 标量广播</text>
+
+    <!-- j 循环框 -->
+    <rect x="40" y="130" width="280" height="110" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1" rx="4"/>
+    <text x="50" y="152" font-size="12" fill="#475569" font-weight="bold">for j = 0 .. N-1</text>
+
+    <!-- 向量 FMA -->
+    <rect x="60" y="165" width="240" height="32" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="3"/>
+    <text x="180" y="186" text-anchor="middle" font-size="11" fill="#92400e">C[i,j] += a * B[k,j]</text>
+
+    <!-- 并行度说明 -->
+    <text x="180" y="215" text-anchor="middle" font-size="10" fill="#6b7280">j 次迭代彼此独立</text>
+    <text x="180" y="230" text-anchor="middle" font-size="10" fill="#16a34a">→ 可并行发射</text>
+  </g>
+
+  <!-- ==================== FMA 流水线（右） ==================== -->
+  <g transform="translate(460, 320)">
+    <rect x="0" y="0" width="400" height="250" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2" rx="6"/>
+    <text x="200" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">多个独立 FMA 填满流水线</text>
+
+    <!-- 8 条并行 FMA -->
+    <g transform="translate(30, 50)">
+      <rect x="0" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="19" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₁</text>
+      <rect x="46" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="65" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₂</text>
+      <rect x="92" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="111" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₃</text>
+      <rect x="138" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="157" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₄</text>
+      <rect x="184" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="203" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₅</text>
+      <rect x="230" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="249" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₆</text>
+      <rect x="276" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="295" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₇</text>
+      <rect x="322" y="0" width="38" height="32" fill="#bbf7d0" stroke="#16a34a" stroke-width="1" rx="3"/>
+      <text x="341" y="21" text-anchor="middle" font-size="10" fill="#166534">FMA₈</text>
+      <!-- 并行括号 -->
+      <line x1="0" y1="40" x2="360" y2="40" stroke="#16a34a" stroke-width="1.2"/>
+      <line x1="0" y1="40" x2="0" y2="47" stroke="#16a34a" stroke-width="1.2"/>
+      <line x1="360" y1="40" x2="360" y2="47" stroke="#16a34a" stroke-width="1.2"/>
+    </g>
+
+    <!-- 流水线示意 -->
+    <g transform="translate(30, 120)">
+      <text x="0" y="0" font-size="12" fill="#166534" font-weight="bold">流水线时间轴（4 周期延迟，2 条/周期发射）：</text>
+      <!-- 流水线方块 -->
+      <g transform="translate(0, 15)">
+        <rect x="0" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="20" y="14" text-anchor="middle" font-size="9" fill="#166534">1</text>
+        <rect x="40" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="60" y="14" text-anchor="middle" font-size="9" fill="#166534">2</text>
+        <rect x="80" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="100" y="14" text-anchor="middle" font-size="9" fill="#166534">3</text>
+        <rect x="120" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="140" y="14" text-anchor="middle" font-size="9" fill="#166534">4</text>
+        <rect x="160" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="180" y="14" text-anchor="middle" font-size="9" fill="#166534">5</text>
+        <rect x="200" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="220" y="14" text-anchor="middle" font-size="9" fill="#166534">6</text>
+        <rect x="240" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="260" y="14" text-anchor="middle" font-size="9" fill="#166534">7</text>
+        <rect x="280" y="0" width="40" height="20" fill="#86efac" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="300" y="14" text-anchor="middle" font-size="9" fill="#166534">8</text>
+        <rect x="320" y="0" width="40" height="20" fill="#4ade80" stroke="#16a34a" stroke-width="0.8" rx="2"/>
+        <text x="340" y="14" text-anchor="middle" font-size="9" fill="#166534">…</text>
+      </g>
+      <text x="0" y="55" font-size="10" fill="#16a34a">每周期发射 2 条，8 条独立 FMA 覆盖 4 周期延迟 → 无空闲</text>
+    </g>
+  </g>
+
+  <!-- 底部结论 -->
+  <g transform="translate(40, 600)">
+    <rect x="0" y="0" width="820" height="70" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="6"/>
+    <text x="410" y="25" text-anchor="middle" font-size="12" fill="#374151" font-weight="bold">循环交换的收益与遗留问题</text>
+    <text x="20" y="48" font-size="11" fill="#16a34a">✓ B 和 C 均连续访问，适合向量化；内层 j 的独立更新可隐藏 FMA 延迟</text>
+    <text x="20" y="65" font-size="11" fill="#dc2626">✗ A、B 的全局复用仍不足：矩阵超过 L2/L3 时，仍会反复从内存加载 → 需要分块</text>
+  </g>
+</svg>
