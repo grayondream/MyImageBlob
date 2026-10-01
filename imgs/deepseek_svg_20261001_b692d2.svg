@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 840" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arrBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+    <marker id="arrPurple" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrGray" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="840" fill="#ffffff"/>
+
+  <text x="480" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">2.7 SIMD 向量化：AVX2 微内核（MR=8, NR=8）</text>
+
+  <!-- ==================== 上半部分：寄存器与数据流 ==================== -->
+  <text x="480" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#334155">一次 p 迭代中的数据流</text>
+
+  <!-- 左侧：Ap 广播 -->
+  <g transform="translate(40, 95)">
+    <text x="80" y="-8" text-anchor="middle" font-size="12" font-weight="bold" fill="#2563eb">Ap 列（MR=8 个标量）</text>
+    <rect x="0" y="0" width="160" height="240" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" rx="3"/>
+    <line x1="0" y1="30" x2="160" y2="30" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="60" x2="160" y2="60" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="90" x2="160" y2="90" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="120" x2="160" y2="120" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="150" x2="160" y2="150" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="180" x2="160" y2="180" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="210" x2="160" y2="210" stroke="#93c5fd" stroke-width="0.6"/>
+    <text x="80" y="20" text-anchor="middle" font-size="10" fill="#1e40af">a₀ = Ap[0*kc+p]</text>
+    <text x="80" y="50" text-anchor="middle" font-size="10" fill="#1e40af">a₁ = Ap[1*kc+p]</text>
+    <text x="80" y="80" text-anchor="middle" font-size="10" fill="#1e40af">a₂ = Ap[2*kc+p]</text>
+    <text x="80" y="110" text-anchor="middle" font-size="10" fill="#1e40af">a₃ = Ap[3*kc+p]</text>
+    <text x="80" y="140" text-anchor="middle" font-size="10" fill="#1e40af">a₄ = Ap[4*kc+p]</text>
+    <text x="80" y="170" text-anchor="middle" font-size="10" fill="#1e40af">a₅ = Ap[5*kc+p]</text>
+    <text x="80" y="200" text-anchor="middle" font-size="10" fill="#1e40af">a₆ = Ap[6*kc+p]</text>
+    <text x="80" y="230" text-anchor="middle" font-size="10" fill="#1e40af">a₇ = Ap[7*kc+p]</text>
+  </g>
+
+  <!-- 广播箭头 -->
+  <g transform="translate(210, 200)">
+    <line x1="0" y1="0" x2="50" y2="0" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arrPurple)"/>
+    <text x="25" y="-6" text-anchor="middle" font-size="10" fill="#7c3aed">广播</text>
+  </g>
+
+  <!-- 中间：b 向量加载 -->
+  <g transform="translate(270, 95)">
+    <text x="100" y="-8" text-anchor="middle" font-size="12" font-weight="bold" fill="#d97706">Bp 行 → b 向量</text>
+    <rect x="0" y="0" width="200" height="50" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" rx="3"/>
+    <!-- 8 个通道 -->
+    <line x1="25" y1="0" x2="25" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="50" y1="0" x2="50" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="75" y1="0" x2="75" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="100" y1="0" x2="100" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="125" y1="0" x2="125" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="150" y1="0" x2="150" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="175" y1="0" x2="175" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <text x="12" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₀</text>
+    <text x="37" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₁</text>
+    <text x="62" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₂</text>
+    <text x="87" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₃</text>
+    <text x="112" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₄</text>
+    <text x="137" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₅</text>
+    <text x="162" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₆</text>
+    <text x="187" y="32" text-anchor="middle" font-size="10" fill="#92400e">b₇</text>
+    <text x="100" y="68" text-anchor="middle" font-size="10" fill="#d97706">_mm256_loadu_ps(Bp + p*n)</text>
+    <text x="100" y="84" text-anchor="middle" font-size="9" fill="#b45309">一条指令加载 8 个连续浮点数</text>
+  </g>
+
+  <!-- b 向量复制到多个 FMA -->
+  <g transform="translate(270, 200)">
+    <line x1="100" y1="0" x2="100" y2="30" stroke="#d97706" stroke-width="1.5"/>
+    <line x1="20" y1="30" x2="180" y2="30" stroke="#d97706" stroke-width="1.5"/>
+    <line x1="20" y1="30" x2="20" y2="50" stroke="#d97706" stroke-width="1.2" marker-end="url(#arrOrange)"/>
+    <line x1="100" y1="30" x2="100" y2="50" stroke="#d97706" stroke-width="1.2" marker-end="url(#arrOrange)"/>
+    <line x1="180" y1="30" x2="180" y2="50" stroke="#d97706" stroke-width="1.2" marker-end="url(#arrOrange)"/>
+    <text x="100" y="65" text-anchor="middle" font-size="10" fill="#d97706">b 向量被所有 FMA 复用</text>
+  </g>
+
+  <!-- 右侧：8 个累加器 -->
+  <g transform="translate(540, 95)">
+    <text x="100" y="-8" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">8 个 __m256 累加器</text>
+    <rect x="0" y="0" width="200" height="240" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5" rx="3"/>
+    <!-- 分隔线 -->
+    <line x1="0" y1="30" x2="200" y2="30" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="60" x2="200" y2="60" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="90" x2="200" y2="90" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="120" x2="200" y2="120" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="150" x2="200" y2="150" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="180" x2="200" y2="180" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="210" x2="200" y2="210" stroke="#86efac" stroke-width="0.6"/>
+    <!-- 累加器标签 -->
+    <text x="100" y="20" text-anchor="middle" font-size="10" fill="#166534">c[0] = _mm256_loadu_ps(C + 0*ldc)</text>
+    <text x="100" y="50" text-anchor="middle" font-size="10" fill="#166534">c[1] = _mm256_loadu_ps(C + 1*ldc)</text>
+    <text x="100" y="80" text-anchor="middle" font-size="10" fill="#166534">c[2] = _mm256_loadu_ps(C + 2*ldc)</text>
+    <text x="100" y="110" text-anchor="middle" font-size="10" fill="#166534">c[3] = _mm256_loadu_ps(C + 3*ldc)</text>
+    <text x="100" y="140" text-anchor="middle" font-size="10" fill="#166534">c[4] = _mm256_loadu_ps(C + 4*ldc)</text>
+    <text x="100" y="170" text-anchor="middle" font-size="10" fill="#166534">c[5] = _mm256_loadu_ps(C + 5*ldc)</text>
+    <text x="100" y="200" text-anchor="middle" font-size="10" fill="#166534">c[6] = _mm256_loadu_ps(C + 6*ldc)</text>
+    <text x="100" y="230" text-anchor="middle" font-size="10" fill="#166534">c[7] = _mm256_loadu_ps(C + 7*ldc)</text>
+  </g>
+
+  <!-- FMA 操作说明 -->
+  <g transform="translate(770, 95)">
+    <rect x="0" y="0" width="150" height="240" fill="#f5f3ff" stroke="#a78bfa" stroke-width="1.2" rx="6"/>
+    <text x="75" y="22" text-anchor="middle" font-size="11" font-weight="bold" fill="#5b21b6">FMA 操作</text>
+    <line x1="15" y1="32" x2="135" y2="32" stroke="#ddd6fe" stroke-width="1"/>
+    <text x="15" y="55" font-size="10" fill="#5b21b6">for i = 0..7:</text>
+    <text x="15" y="78" font-size="10" fill="#7c3aed">a = broadcast</text>
+    <text x="15" y="98" font-size="10" fill="#7c3aed">   Ap[i*kc+p]</text>
+    <text x="15" y="125" font-size="10" fill="#16a34a">c[i] =</text>
+    <text x="15" y="145" font-size="10" fill="#16a34a">  _mm256_fmadd_ps(</text>
+    <text x="15" y="163" font-size="10" fill="#16a34a">    a, b, c[i])</text>
+    <line x1="15" y1="180" x2="135" y2="180" stroke="#ddd6fe" stroke-width="1"/>
+    <text x="15" y="202" font-size="10" fill="#5b21b6">8 次 FMA</text>
+    <text x="15" y="220" font-size="10" fill="#5b21b6">= 64 次标量乘加</text>
+  </g>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="370" x2="920" y2="370" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="8,4"/>
+
+  <!-- ==================== 下半部分：SIMD 对比与流水线 ==================== -->
+  <text x="480" y="405" text-anchor="middle" font-size="14" font-weight="bold" fill="#334155">SIMD 与标量对比</text>
+
+  <!-- 左侧：标量 FMA -->
+  <g transform="translate(60, 430)">
+    <text x="180" y="0" text-anchor="middle" font-size="13" font-weight="bold" fill="#dc2626">标量 FMA（每次 1 个元素）</text>
+    <rect x="0" y="15" width="360" height="80" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2" rx="6"/>
+    <g transform="translate(20, 35)">
+      <rect x="0" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="18" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₁</text>
+      <rect x="42" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="60" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₂</text>
+      <rect x="84" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="102" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₃</text>
+      <rect x="126" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="144" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₄</text>
+      <rect x="168" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="186" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₅</text>
+      <rect x="210" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="228" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₆</text>
+      <rect x="252" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="270" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₇</text>
+      <rect x="294" y="0" width="36" height="36" fill="#fecaca" stroke="#dc2626" stroke-width="1" rx="3"/>
+      <text x="312" y="23" text-anchor="middle" font-size="9" fill="#991b1b">FMA₈</text>
+    </g>
+    <text x="180" y="112" text-anchor="middle" font-size="11" fill="#dc2626">8 条指令处理 8 个元素</text>
+  </g>
+
+  <!-- 右侧：AVX2 FMA -->
+  <g transform="translate(500, 430)">
+    <text x="180" y="0" text-anchor="middle" font-size="13" font-weight="bold" fill="#16a34a">AVX2 FMA（每次 8 个元素）</text>
+    <rect x="0" y="15" width="360" height="80" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2" rx="6"/>
+    <g transform="translate(20, 35)">
+      <!-- 一条 AVX2 FMA 指令 -->
+      <rect x="0" y="0" width="320" height="36" fill="#bbf7d0" stroke="#16a34a" stroke-width="1.2" rx="3"/>
+      <text x="160" y="23" text-anchor="middle" font-size="10" fill="#166534" font-weight="bold">_mm256_fmadd_ps(a, b, c[i])</text>
+    </g>
+    <text x="180" y="112" text-anchor="middle" font-size="11" fill="#16a34a">1 条指令处理 8 个元素</text>
+  </g>
+
+  <!-- 中间对比 -->
+  <g transform="translate(430, 480)">
+    <text x="30" y="0" text-anchor="middle" font-size="20" fill="#555">vs</text>
+  </g>
+
+  <!-- 加速比说明 -->
+  <g transform="translate(60, 545)">
+    <rect x="0" y="0" width="800" height="70" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.2" rx="6"/>
+    <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#0369a1">SIMD 带来的吞吐提升</text>
+    <text x="400" y="48" text-anchor="middle" font-size="11" fill="#0c4a6e">同样处理 8 个元素：标量需要 8 条 FMA 指令，AVX2 只需 1 条 → 理论上单指令吞吐提升 8 倍</text>
+    <text x="400" y="64" text-anchor="middle" font-size="11" fill="#16a34a">实际受限于加载/存储带宽和 FMA 端口，通常能获得 3–6 倍加速</text>
+  </g>
+
+  <!-- 底部：流水线与遗留问题 -->
+  <g transform="translate(60, 635)">
+    <rect x="0" y="0" width="800" height="100" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.2" rx="6"/>
+    <text x="400" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#374151">流水线效果与遗留问题</text>
+    <line x1="20" y1="35" x2="780" y2="35" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="20" y="58" font-size="11" fill="#16a34a">✓ 8 个 __m256 累加器 = 64 个独立标量累加器，并行度极高</text>
+    <text x="20" y="78" font-size="11" fill="#16a34a">✓ 每条 FMA 处理 8 个元素，FMA 单元利用率大幅提升</text>
+    <text x="20" y="98" font-size="11" fill="#dc2626">✗ 单核算力仍然有限，需要多线程分摊工作 → 下一节 OpenMP 并行</text>
+  </g>
+
+  <!-- 最终结论 -->
+  <g transform="translate(60, 755)">
+    <rect x="0" y="0" width="800" height="55" fill="#fef3c7" stroke="#fcd34d" stroke-width="1.2" rx="6"/>
+    <text x="400" y="22" text-anchor="middle" font-size="12" fill="#92400e" font-weight="bold">AVX2 微内核的关键点</text>
+    <text x="400" y="42" text-anchor="middle" font-size="11" fill="#78350f">广播 A 标量 + 向量化加载 B 行 + 8 个向量累加器 → 同时填满 FMA 端口和 SIMD 通道</text>
+  </g>
+</svg>
