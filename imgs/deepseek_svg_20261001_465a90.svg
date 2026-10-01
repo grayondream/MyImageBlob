@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 820" font-family="Arial, sans-serif">
+  <defs>
+    <marker id="arrBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#d97706"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#16a34a"/>
+    </marker>
+    <marker id="arrRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="820" fill="#ffffff"/>
+
+  <text x="480" y="35" text-anchor="middle" font-size="18" font-weight="bold" fill="#222">2.6 寄存器分块与微内核：MR×NR 累加器填满 FMA 流水线</text>
+
+  <!-- ==================== 上半部分：循环结构 ==================== -->
+  <text x="240" y="72" text-anchor="middle" font-size="14" font-weight="bold" fill="#334155">外层分块循环 + 微内核调用</text>
+
+  <g transform="translate(40, 90)">
+    <!-- jc 循环 -->
+    <rect x="0" y="0" width="420" height="300" fill="#f0fdf4" stroke="#86efac" stroke-width="1.2" rx="6"/>
+    <text x="10" y="22" font-size="12" fill="#166534" font-weight="bold">for jc（N 维分块）</text>
+
+    <!-- pc 循环 -->
+    <rect x="20" y="35" width="380" height="255" fill="#fffbeb" stroke="#fcd34d" stroke-width="1.2" rx="4"/>
+    <text x="30" y="57" font-size="12" fill="#92400e" font-weight="bold">for pc（K 维分块）</text>
+
+    <!-- 打包 B -->
+    <rect x="40" y="70" width="340" height="38" fill="#fef3c7" stroke="#d97706" stroke-width="1" rx="3"/>
+    <text x="50" y="88" font-size="11" fill="#92400e" font-weight="bold">打包 B：Bp[p,j] = B[(pc+p)*N + jc + j]</text>
+    <text x="50" y="102" font-size="10" fill="#b45309">KC×NC → 连续面板</text>
+
+    <!-- ic 循环 -->
+    <rect x="40" y="118" width="340" height="165" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.2" rx="4"/>
+    <text x="50" y="140" font-size="12" fill="#1e40af" font-weight="bold">for ic（M 维分块）</text>
+
+    <!-- 打包 A -->
+    <rect x="60" y="152" width="300" height="38" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="3"/>
+    <text x="70" y="170" font-size="11" fill="#1e40af" font-weight="bold">打包 A：Ap[i,p] = A[(ic+i)*K + pc + p]</text>
+    <text x="70" y="184" font-size="10" fill="#2563eb">MC×KC → 连续面板</text>
+
+    <!-- 微内核调用 -->
+    <rect x="60" y="200" width="300" height="68" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.2" rx="3"/>
+    <text x="70" y="220" font-size="11" fill="#3730a3" font-weight="bold">for ir += MR, jr += NR</text>
+    <text x="70" y="238" font-size="10" fill="#4338ca">micro_kernel(kc, n,</text>
+    <text x="70" y="252" font-size="10" fill="#4338ca">             Ap+ir*kc, Bp+jr, C+..., N)</text>
+    <text x="70" y="266" font-size="9" fill="#dc2626">边角：MR/NR 不整除的部分单独处理</text>
+  </g>
+
+  <!-- 右侧：循环层次与缓存对应 -->
+  <g transform="translate(490, 90)">
+    <rect x="0" y="0" width="430" height="300" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1.2" rx="6"/>
+    <text x="215" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="#374151">循环层次与数据位置</text>
+
+    <line x1="20" y1="40" x2="410" y2="40" stroke="#cbd5e1" stroke-width="1"/>
+
+    <!-- 层次表 -->
+    <g transform="translate(30, 60)">
+      <rect x="0" y="0" width="100" height="30" fill="#f0fdf4" stroke="#86efac" stroke-width="1" rx="3"/>
+      <text x="50" y="20" text-anchor="middle" font-size="11" fill="#166534" font-weight="bold">jc, ic</text>
+      <text x="120" y="20" font-size="11" fill="#64748b">→ A、B 面板在 L3/L2 复用</text>
+    </g>
+
+    <g transform="translate(30, 105)">
+      <rect x="0" y="0" width="100" height="30" fill="#fffbeb" stroke="#fcd34d" stroke-width="1" rx="3"/>
+      <text x="50" y="20" text-anchor="middle" font-size="11" fill="#92400e" font-weight="bold">pc</text>
+      <text x="120" y="20" font-size="11" fill="#64748b">→ K 维切块，减少 DRAM 流量</text>
+    </g>
+
+    <g transform="translate(30, 150)">
+      <rect x="0" y="0" width="100" height="30" fill="#dbeafe" stroke="#2563eb" stroke-width="1" rx="3"/>
+      <text x="50" y="20" text-anchor="middle" font-size="11" fill="#1e40af" font-weight="bold">Ap, Bp</text>
+      <text x="120" y="20" font-size="11" fill="#64748b">→ 连续面板，位于 L2/L1</text>
+    </g>
+
+    <g transform="translate(30, 195)">
+      <rect x="0" y="0" width="100" height="30" fill="#e0e7ff" stroke="#6366f1" stroke-width="1" rx="3"/>
+      <text x="50" y="20" text-anchor="middle" font-size="11" fill="#3730a3" font-weight="bold">ir, jr</text>
+      <text x="120" y="20" font-size="11" fill="#64748b">→ MR×NR 小块进入 L1/寄存器</text>
+    </g>
+
+    <g transform="translate(30, 240)">
+      <rect x="0" y="0" width="100" height="30" fill="#fce7f3" stroke="#db2777" stroke-width="1" rx="3"/>
+      <text x="50" y="20" text-anchor="middle" font-size="11" fill="#9d174d" font-weight="bold">micro_kernel</text>
+      <text x="120" y="20" font-size="11" fill="#64748b">→ 48 个累加器常驻寄存器</text>
+    </g>
+  </g>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="415" x2="920" y2="415" stroke="#d1d5db" stroke-width="1.5" stroke-dasharray="8,4"/>
+
+  <!-- ==================== 下半部分：微内核细节 ==================== -->
+  <text x="480" y="450" text-anchor="middle" font-size="15" font-weight="bold" fill="#333">微内核内部：MR×NR 累加器</text>
+
+  <!-- 左侧：数据来源 -->
+  <g transform="translate(60, 480)">
+    <!-- Ap 的 MR 个元素 -->
+    <text x="60" y="-8" text-anchor="middle" font-size="12" font-weight="bold" fill="#2563eb">Ap 列（MR 个）</text>
+    <rect x="0" y="0" width="120" height="200" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5" rx="3"/>
+    <line x1="0" y1="25" x2="120" y2="25" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="50" x2="120" y2="50" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="75" x2="120" y2="75" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="100" x2="120" y2="100" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="125" x2="120" y2="125" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="150" x2="120" y2="150" stroke="#93c5fd" stroke-width="0.6"/>
+    <line x1="0" y1="175" x2="120" y2="175" stroke="#93c5fd" stroke-width="0.6"/>
+    <text x="60" y="18" text-anchor="middle" font-size="9" fill="#1e40af">a₀</text>
+    <text x="60" y="43" text-anchor="middle" font-size="9" fill="#1e40af">a₁</text>
+    <text x="60" y="68" text-anchor="middle" font-size="9" fill="#1e40af">a₂</text>
+    <text x="60" y="93" text-anchor="middle" font-size="9" fill="#1e40af">a₃</text>
+    <text x="60" y="118" text-anchor="middle" font-size="9" fill="#1e40af">a₄</text>
+    <text x="60" y="143" text-anchor="middle" font-size="9" fill="#1e40af">a₅</text>
+    <text x="60" y="168" text-anchor="middle" font-size="9" fill="#1e40af">a₆</text>
+    <text x="60" y="193" text-anchor="middle" font-size="9" fill="#1e40af">a₇</text>
+    <text x="60" y="215" text-anchor="middle" font-size="10" fill="#2563eb">沿 k 连续</text>
+  </g>
+
+  <!-- 乘号 -->
+  <text x="205" y="585" text-anchor="middle" font-size="24" fill="#555">×</text>
+
+  <!-- Bp 的 NR 个元素 -->
+  <g transform="translate(230, 480)">
+    <text x="60" y="-8" text-anchor="middle" font-size="12" font-weight="bold" fill="#d97706">Bp 行（NR 个）</text>
+    <rect x="0" y="0" width="120" height="200" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" rx="3"/>
+    <line x1="0" y1="25" x2="120" y2="25" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="0" y1="50" x2="120" y2="50" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="0" y1="75" x2="120" y2="75" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="0" y1="100" x2="120" y2="100" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="0" y1="125" x2="120" y2="125" stroke="#fcd34d" stroke-width="0.6"/>
+    <line x1="0" y1="150" x2="120" y2="150" stroke="#fcd34d" stroke-width="0.6"/>
+    <text x="60" y="18" text-anchor="middle" font-size="9" fill="#92400e">b₀</text>
+    <text x="60" y="43" text-anchor="middle" font-size="9" fill="#92400e">b₁</text>
+    <text x="60" y="68" text-anchor="middle" font-size="9" fill="#92400e">b₂</text>
+    <text x="60" y="93" text-anchor="middle" font-size="9" fill="#92400e">b₃</text>
+    <text x="60" y="118" text-anchor="middle" font-size="9" fill="#92400e">b₄</text>
+    <text x="60" y="143" text-anchor="middle" font-size="9" fill="#92400e">b₅</text>
+    <text x="60" y="215" text-anchor="middle" font-size="10" fill="#d97706">沿 j 连续</text>
+  </g>
+
+  <!-- 等号/箭头 -->
+  <text x="375" y="585" text-anchor="middle" font-size="24" fill="#555">→</text>
+
+  <!-- 右侧：MR×NR 累加器矩阵 -->
+  <g transform="translate(410, 480)">
+    <text x="105" y="-8" text-anchor="middle" font-size="12" font-weight="bold" fill="#16a34a">C 的 MR×NR 累加器</text>
+    <rect x="0" y="0" width="210" height="200" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8" rx="4"/>
+    <!-- 网格 8 行 × 6 列 -->
+    <line x1="35" y1="0" x2="35" y2="200" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="70" y1="0" x2="70" y2="200" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="105" y1="0" x2="105" y2="200" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="140" y1="0" x2="140" y2="200" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="175" y1="0" x2="175" y2="200" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="25" x2="210" y2="25" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="50" x2="210" y2="50" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="75" x2="210" y2="75" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="100" x2="210" y2="100" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="125" x2="210" y2="125" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="150" x2="210" y2="150" stroke="#86efac" stroke-width="0.6"/>
+    <line x1="0" y1="175" x2="210" y2="175" stroke="#86efac" stroke-width="0.6"/>
+    <!-- 累加器标记 -->
+    <text x="105" y="215" text-anchor="middle" font-size="10" fill="#16a34a">48 个独立累加器（MR=8, NR=6）</text>
+  </g>
+
+  <!-- 右侧说明 -->
+  <g transform="translate(660, 480)">
+    <rect x="0" y="0" width="260" height="200" fill="#fef2f2" stroke="#fca5a5" stroke-width="1.2" rx="6"/>
+    <text x="130" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#dc2626">为什么能填满流水线</text>
+    <line x1="15" y1="35" x2="245" y2="35" stroke="#fecaca" stroke-width="1"/>
+    <text x="15" y="58" font-size="11" fill="#7f1d1d">• 48 个累加器彼此独立</text>
+    <text x="15" y="80" font-size="11" fill="#7f1d1d">• 48 条 FMA 之间无依赖链</text>
+    <text x="15" y="102" font-size="11" fill="#7f1d1d">• FMA 延迟 4 周期，吞吐 2 条/周期</text>
+    <text x="15" y="124" font-size="11" fill="#7f1d1d">• 理论只需 8 条独立 FMA</text>
+    <text x="15" y="146" font-size="11" fill="#16a34a" font-weight="bold">• 48 &gt;&gt; 8，流水线持续满</text>
+    <text x="15" y="175" font-size="10" fill="#7f1d1d">每轮 k 迭代发射 48 条独立 FMA</text>
+    <text x="15" y="192" font-size="10" fill="#7f1d1d">延迟完全被并行度掩盖</text>
+  </g>
+
+  <!-- 底部结论 -->
+  <g transform="translate(40, 740)">
+    <rect x="0" y="0" width="880" height="60" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="6"/>
+    <text x="440" y="22" text-anchor="middle" font-size="12" fill="#374151" font-weight="bold">微内核的收益与遗留问题</text>
+    <text x="20" y="44" font-size="11" fill="#16a34a">✓ 48 个独立累加器填满 FMA 流水线，单核标量性能接近峰值</text>
+    <text x="20" y="60" font-size="11" fill="#dc2626">✗ 每个 FMA 仍只处理一个浮点数 → 需要 SIMD 向量化提升单指令吞吐</text>
+  </g>
+</svg>
