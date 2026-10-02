@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 700" font-family="'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6f9"/>
+      <stop offset="100%" stop-color="#f0f4ff"/>
+    </linearGradient>
+    <linearGradient id="gradV2" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#8ecae6"/>
+      <stop offset="100%" stop-color="#b8e0f0"/>
+    </linearGradient>
+    <linearGradient id="gradV3" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#c8b6e2"/>
+      <stop offset="100%" stop-color="#e0d4f0"/>
+    </linearGradient>
+    <linearGradient id="gradV4" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#a8d8b9"/>
+      <stop offset="100%" stop-color="#c8e8d4"/>
+    </linearGradient>
+    <filter id="shadowBar" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000022"/>
+    </filter>
+  </defs>
+
+  <rect width="980" height="700" fill="url(#bg)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="490" y="46" text-anchor="middle" font-size="22" font-weight="700" fill="#3a3a5c">GEMM v2 / v3 / v4 综合对比</text>
+  <text x="490" y="72" text-anchor="middle" font-size="13" fill="#8888a8">柱状：GFLOPS（越高越好） · 折线：耗时 ms（越低越好） · 单线程 · 对数坐标</text>
+
+  <!-- 图例 -->
+  <g transform="translate(150, 92)">
+    <rect x="0" y="0" width="15" height="15" rx="4" fill="url(#gradV2)" filter="url(#shadowBar)"/>
+    <text x="20" y="12" font-size="12" fill="#555577">v2 GFLOPS</text>
+    <rect x="125" y="0" width="15" height="15" rx="4" fill="url(#gradV3)" filter="url(#shadowBar)"/>
+    <text x="145" y="12" font-size="12" fill="#555577">v3 GFLOPS</text>
+    <rect x="250" y="0" width="15" height="15" rx="4" fill="url(#gradV4)" filter="url(#shadowBar)"/>
+    <text x="270" y="12" font-size="12" fill="#555577">v4 GFLOPS</text>
+    <line x1="400" y1="7" x2="428" y2="7" stroke="#5a9ab5" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <circle cx="414" cy="7" r="4" fill="#5a9ab5"/>
+    <text x="436" y="12" font-size="12" fill="#555577">v2 耗时</text>
+    <line x1="520" y1="7" x2="548" y2="7" stroke="#9b8ab8" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <circle cx="534" cy="7" r="4" fill="#9b8ab8"/>
+    <text x="556" y="12" font-size="12" fill="#555577">v3 耗时</text>
+    <line x1="640" y1="7" x2="668" y2="7" stroke="#6aab7a" stroke-width="2.5" stroke-dasharray="6,3"/>
+    <circle cx="654" cy="7" r="4" fill="#6aab7a"/>
+    <text x="676" y="12" font-size="12" fill="#555577">v4 耗时</text>
+  </g>
+
+  <!-- 图表区域 -->
+  <g transform="translate(110, 130)">
+
+    <!-- ===== 左侧 Y轴：GFLOPS ===== -->
+    <line x1="0" y1="430" x2="740" y2="430" stroke="#e8e8f0" stroke-width="1"/>
+    <text x="-10" y="434" text-anchor="end" font-size="11" fill="#aaaacc">10</text>
+
+    <line x1="0" y1="323" x2="740" y2="323" stroke="#e8e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="-10" y="327" text-anchor="end" font-size="11" fill="#aaaacc">20</text>
+
+    <line x1="0" y1="215" x2="740" y2="215" stroke="#e8e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="-10" y="219" text-anchor="end" font-size="11" fill="#aaaacc">40</text>
+
+    <line x1="0" y1="108" x2="740" y2="108" stroke="#e8e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="-10" y="112" text-anchor="end" font-size="11" fill="#aaaacc">80</text>
+
+    <line x1="0" y1="0" x2="740" y2="0" stroke="#e8e8f0" stroke-width="1" stroke-dasharray="4,4"/>
+    <text x="-10" y="4" text-anchor="end" font-size="11" fill="#aaaacc">160</text>
+
+    <text x="-60" y="215" text-anchor="middle" font-size="13" fill="#8888a8" transform="rotate(-90, -60, 215)">GFLOPS（柱状）</text>
+
+    <!-- ===== 右侧 Y轴：耗时（ms） ===== -->
+    <line x1="740" y1="430" x2="740" y2="0" stroke="#d0d0e0" stroke-width="1.5"/>
+    <!-- 映射：ms ∈ [0.3, 1000] → y ∈ [430, 0] -->
+    <!-- y = 430 - (log10(ms) + 0.5) * 122.86 -->
+    <text x="750" y="434" text-anchor="start" font-size="11" fill="#aaaacc">0.3</text>
+    <text x="750" y="369" text-anchor="start" font-size="11" fill="#aaaacc">1</text>
+    <text x="750" y="246" text-anchor="start" font-size="11" fill="#aaaacc">10</text>
+    <text x="750" y="123" text-anchor="start" font-size="11" fill="#aaaacc">100</text>
+    <text x="750" y="4" text-anchor="start" font-size="11" fill="#aaaacc">1000</text>
+
+    <text x="815" y="215" text-anchor="middle" font-size="13" fill="#8888a8" transform="rotate(90, 815, 215)">耗时 ms（折线）</text>
+
+    <!-- ===== 计算坐标 ===== -->
+
+    <!--
+      GFLOPS → y = 430 - (log10(g) - 1) * 122.86
+      （g ∈ [10, 160]）
+
+      v2: 34.89 → log=1.543 → y=430-0.543*122.86=363.3
+          29.99 → log=1.477 → y=430-0.477*122.86=371.4
+          32.76 → log=1.515 → y=430-0.515*122.86=366.7
+
+      v3: 35.71 → log=1.553 → y=430-0.553*122.86=362.0
+          24.91 → log=1.396 → y=430-0.396*122.86=381.3
+          22.12 → log=1.345 → y=430-0.345*122.86=387.6
+
+      v4: 47.42 → log=1.676 → y=430-0.676*122.86=346.9
+          34.44 → log=1.537 → y=430-0.537*122.86=364.0
+          39.60 → log=1.598 → y=430-0.598*122.86=356.5
+
+      耗时 ms → y = 430 - (log10(ms) + 0.5) * 122.86
+
+      v2: 0.962 → log=-0.017 → y=370.7
+          71.6  → log=1.855 → y=140.7
+          524.4 → log=2.720 → y=34.4
+
+      v3: 0.940 → log=-0.027 → y=371.9
+          86.2  → log=1.936 → y=130.7
+          776.6 → log=2.890 → y=13.5
+
+      v4: 0.708 → log=-0.150 → y=387.0
+          62.4  → log=1.795 → y=148.0
+          433.8 → log=2.637 → y=44.6
+    -->
+
+    <!-- 第一组：256³ -->
+    <g>
+      <rect x="40" y="363" width="40" height="67" rx="5" fill="url(#gradV2)" filter="url(#shadowBar)"/>
+      <text x="60" y="356" text-anchor="middle" font-size="9" font-weight="600" fill="#5a9ab5">34.89</text>
+
+      <rect x="90" y="362" width="40" height="68" rx="5" fill="url(#gradV3)" filter="url(#shadowBar)"/>
+      <text x="110" y="355" text-anchor="middle" font-size="9" font-weight="600" fill="#9b8ab8">35.71</text>
+
+      <rect x="140" y="347" width="40" height="83" rx="5" fill="url(#gradV4)" filter="url(#shadowBar)"/>
+      <text x="160" y="340" text-anchor="middle" font-size="9" font-weight="600" fill="#6aab7a">47.42</text>
+
+      <!-- 耗时点 -->
+      <circle cx="60" cy="371" r="4.5" fill="#5a9ab5" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="110" cy="372" r="4.5" fill="#9b8ab8" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="160" cy="387" r="4.5" fill="#6aab7a" stroke="#fff" stroke-width="1.5"/>
+
+      <text x="110" y="456" text-anchor="middle" font-size="13" font-weight="600" fill="#666688">256³</text>
+    </g>
+
+    <!-- 第二组：1024³ -->
+    <g>
+      <rect x="285" y="371" width="40" height="59" rx="5" fill="url(#gradV2)" filter="url(#shadowBar)"/>
+      <text x="305" y="364" text-anchor="middle" font-size="9" font-weight="600" fill="#5a9ab5">29.99</text>
+
+      <rect x="335" y="381" width="40" height="49" rx="5" fill="url(#gradV3)" filter="url(#shadowBar)"/>
+      <text x="355" y="374" text-anchor="middle" font-size="9" font-weight="600" fill="#9b8ab8">24.91</text>
+
+      <rect x="385" y="364" width="40" height="66" rx="5" fill="url(#gradV4)" filter="url(#shadowBar)"/>
+      <text x="405" y="357" text-anchor="middle" font-size="9" font-weight="600" fill="#6aab7a">34.44</text>
+
+      <!-- 耗时点 -->
+      <circle cx="305" cy="141" r="4.5" fill="#5a9ab5" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="355" cy="131" r="4.5" fill="#9b8ab8" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="405" cy="148" r="4.5" fill="#6aab7a" stroke="#fff" stroke-width="1.5"/>
+
+      <text x="355" y="456" text-anchor="middle" font-size="13" font-weight="600" fill="#666688">1024³</text>
+    </g>
+
+    <!-- 第三组：2048³ -->
+    <g>
+      <rect x="530" y="367" width="40" height="63" rx="5" fill="url(#gradV2)" filter="url(#shadowBar)"/>
+      <text x="550" y="360" text-anchor="middle" font-size="9" font-weight="600" fill="#5a9ab5">32.76</text>
+
+      <rect x="580" y="388" width="40" height="42" rx="5" fill="url(#gradV3)" filter="url(#shadowBar)"/>
+      <text x="600" y="381" text-anchor="middle" font-size="9" font-weight="600" fill="#9b8ab8">22.12</text>
+
+      <rect x="630" y="357" width="40" height="73" rx="5" fill="url(#gradV4)" filter="url(#shadowBar)"/>
+      <text x="650" y="350" text-anchor="middle" font-size="9" font-weight="600" fill="#6aab7a">39.60</text>
+
+      <!-- 耗时点 -->
+      <circle cx="550" cy="34" r="4.5" fill="#5a9ab5" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="600" cy="13" r="4.5" fill="#9b8ab8" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="650" cy="45" r="4.5" fill="#6aab7a" stroke="#fff" stroke-width="1.5"/>
+
+      <text x="600" y="456" text-anchor="middle" font-size="13" font-weight="600" fill="#666688">2048³</text>
+    </g>
+
+    <!-- 折线连接 -->
+    <polyline points="60,371 305,141 550,34" fill="none" stroke="#5a9ab5" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.85"/>
+    <polyline points="110,372 355,131 600,13" fill="none" stroke="#9b8ab8" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.85"/>
+    <polyline points="160,387 405,148 650,45" fill="none" stroke="#6aab7a" stroke-width="2.5" stroke-dasharray="6,3" opacity="0.85"/>
+
+    <!-- X轴 -->
+    <line x1="0" y1="430" x2="740" y2="430" stroke="#c0c0d8" stroke-width="1.5"/>
+  </g>
+
+  <!-- 底部数据摘要 -->
+  <g transform="translate(110, 600)">
+    <rect x="0" y="0" width="740" height="86" rx="8" fill="#ffffff88" stroke="#e0e0f0" stroke-width="1"/>
+
+    <text x="18" y="22" font-size="12" font-weight="700" fill="#5a9ab5">v2（ikj 循环交换）</text>
+    <text x="18" y="42" font-size="11" fill="#8888a8">GFLOPS：34.89 → 29.99 → 32.76</text>
+    <text x="18" y="60" font-size="11" fill="#8888a8">耗时：0.96ms → 71.6ms → 524.4ms</text>
+
+    <text x="270" y="22" font-size="12" font-weight="700" fill="#9b8ab8">v3（缓存分块）</text>
+    <text x="270" y="42" font-size="11" fill="#8888a8">GFLOPS：35.71 → 24.91 → 22.12（随规模下降）</text>
+    <text x="270" y="60" font-size="11" fill="#8888a8">耗时：0.94ms → 86.2ms → 776.6ms</text>
+
+    <text x="520" y="22" font-size="12" font-weight="700" fill="#6aab7a">v4（分块 + 打包）</text>
+    <text x="520" y="42" font-size="11" fill="#8888a8">GFLOPS：47.42 → 34.44 → 39.60（全面领先）</text>
+    <text x="520" y="60" font-size="11" fill="#8888a8">耗时：0.71ms → 62.4ms → 433.8ms</text>
+  </g>
+</svg>
