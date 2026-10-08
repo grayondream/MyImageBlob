@@ -1,0 +1,408 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#a78bfa" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf2f8"/>
+      <stop offset="100%" stop-color="#fce7f3"/>
+    </linearGradient>
+    <linearGradient id="titleBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fce7f3"/>
+      <stop offset="50%" stop-color="#e0e7ff"/>
+      <stop offset="100%" stop-color="#ccfbf1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="640" fill="#fffdfb"/>
+
+  <!-- 顶部装饰条 -->
+  <rect x="0" y="0" width="1200" height="6" fill="url(#titleBg)"/>
+
+  <!-- 标题 -->
+  <text x="600" y="48" text-anchor="middle" font-size="26" font-weight="700" fill="#6b21a8">GPU Shared Memory：Bank 与地址的实际对应</text>
+  <text x="600" y="78" text-anchor="middle" font-size="14" fill="#a78bfa">32 个 Bank 按列排布，线性地址按行递增，每个 Bank 每 32 个字被复用一次</text>
+
+  <!-- 表头背景 -->
+  <rect x="130" y="128" width="1024" height="34" rx="8" fill="url(#headerGrad)" stroke="#f9a8d4" stroke-width="1"/>
+
+  <!-- 列标题：Bank 0 ~ Bank 31 -->
+  <g font-size="10" font-weight="700" fill="#be185d" text-anchor="middle" font-family="'SF Mono','Consolas',monospace">
+    <text x="146" y="150">0</text>
+    <text x="178" y="150">1</text>
+    <text x="210" y="150">2</text>
+    <text x="242" y="150">3</text>
+    <text x="274" y="150">4</text>
+    <text x="306" y="150">5</text>
+    <text x="338" y="150">6</text>
+    <text x="370" y="150">7</text>
+    <text x="402" y="150">8</text>
+    <text x="434" y="150">9</text>
+    <text x="466" y="150">10</text>
+    <text x="498" y="150">11</text>
+    <text x="530" y="150">12</text>
+    <text x="562" y="150">13</text>
+    <text x="594" y="150">14</text>
+    <text x="626" y="150">15</text>
+    <text x="658" y="150">16</text>
+    <text x="690" y="150">17</text>
+    <text x="722" y="150">18</text>
+    <text x="754" y="150">19</text>
+    <text x="786" y="150">20</text>
+    <text x="818" y="150">21</text>
+    <text x="850" y="150">22</text>
+    <text x="882" y="150">23</text>
+    <text x="914" y="150">24</text>
+    <text x="946" y="150">25</text>
+    <text x="978" y="150">26</text>
+    <text x="1010" y="150">27</text>
+    <text x="1042" y="150">28</text>
+    <text x="1074" y="150">29</text>
+    <text x="1106" y="150">30</text>
+    <text x="1138" y="150">31</text>
+  </g>
+
+  <!-- 左侧行标签 -->
+  <g text-anchor="end">
+    <text x="120" y="212" font-size="12" font-weight="600" fill="#9333ea">第 0 组</text>
+    <text x="120" y="228" font-size="10" fill="#c084fc">字 0 – 31</text>
+    <text x="120" y="257" font-size="12" font-weight="600" fill="#9333ea">第 1 组</text>
+    <text x="120" y="273" font-size="10" fill="#c084fc">字 32 – 63</text>
+    <text x="120" y="302" font-size="12" font-weight="600" fill="#9333ea">第 2 组</text>
+    <text x="120" y="318" font-size="10" fill="#c084fc">字 64 – 95</text>
+    <text x="120" y="347" font-size="12" font-weight="600" fill="#9333ea">第 3 组</text>
+    <text x="120" y="363" font-size="10" fill="#c084fc">字 96 – 127</text>
+  </g>
+
+  <!-- 第 0 行：字 0–31（马卡龙粉/薄荷绿交替） -->
+  <!-- 列 0：bank 0，粉 -->
+  <rect x="130" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="146" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">0</text>
+  <!-- 列 1：bank 1，薄荷 -->
+  <rect x="162" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="178" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">1</text>
+  <!-- 列 2：bank 2，粉 -->
+  <rect x="194" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="210" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">2</text>
+  <!-- 列 3：bank 3，薄荷 -->
+  <rect x="226" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="242" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">3</text>
+  <!-- 列 4：bank 4，粉 -->
+  <rect x="258" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="274" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">4</text>
+  <!-- 列 5：bank 5，薄荷 -->
+  <rect x="290" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="306" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">5</text>
+  <!-- 列 6：bank 6，粉 -->
+  <rect x="322" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="338" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">6</text>
+  <!-- 列 7：bank 7，薄荷 -->
+  <rect x="354" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="370" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">7</text>
+  <!-- 列 8：bank 8，粉 -->
+  <rect x="386" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="402" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">8</text>
+  <!-- 列 9：bank 9，薄荷 -->
+  <rect x="418" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="434" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">9</text>
+  <!-- 列 10：bank 10，粉 -->
+  <rect x="450" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="466" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">10</text>
+  <!-- 列 11：bank 11，薄荷 -->
+  <rect x="482" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="498" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">11</text>
+  <!-- 列 12：bank 12，粉 -->
+  <rect x="514" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="530" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">12</text>
+  <!-- 列 13：bank 13，薄荷 -->
+  <rect x="546" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="562" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">13</text>
+  <!-- 列 14：bank 14，粉 -->
+  <rect x="578" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="594" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">14</text>
+  <!-- 列 15：bank 15，薄荷 -->
+  <rect x="610" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="626" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">15</text>
+  <!-- 列 16：bank 16，粉 -->
+  <rect x="642" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="658" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">16</text>
+  <!-- 列 17：bank 17，薄荷 -->
+  <rect x="674" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="690" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">17</text>
+  <!-- 列 18：bank 18，粉 -->
+  <rect x="706" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="722" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">18</text>
+  <!-- 列 19：bank 19，薄荷 -->
+  <rect x="738" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="754" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">19</text>
+  <!-- 列 20：bank 20，粉 -->
+  <rect x="770" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="786" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">20</text>
+  <!-- 列 21：bank 21，薄荷 -->
+  <rect x="802" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="818" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">21</text>
+  <!-- 列 22：bank 22，粉 -->
+  <rect x="834" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="850" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">22</text>
+  <!-- 列 23：bank 23，薄荷 -->
+  <rect x="866" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="882" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">23</text>
+  <!-- 列 24：bank 24，粉 -->
+  <rect x="898" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="914" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">24</text>
+  <!-- 列 25：bank 25，薄荷 -->
+  <rect x="930" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="946" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">25</text>
+  <!-- 列 26：bank 26，粉 -->
+  <rect x="962" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="978" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">26</text>
+  <!-- 列 27：bank 27，薄荷 -->
+  <rect x="994" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="1010" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">27</text>
+  <!-- 列 28：bank 28，粉 -->
+  <rect x="1026" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="1042" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">28</text>
+  <!-- 列 29：bank 29，薄荷 -->
+  <rect x="1058" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="1074" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">29</text>
+  <!-- 列 30：bank 30，粉 -->
+  <rect x="1090" y="168" width="32" height="45" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="1106" y="195" text-anchor="middle" font-size="9" fill="#831843" font-family="monospace">30</text>
+  <!-- 列 31：bank 31，薄荷 -->
+  <rect x="1122" y="168" width="32" height="45" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="1138" y="195" text-anchor="middle" font-size="9" fill="#064e3b" font-family="monospace">31</text>
+
+  <!-- 第 1 行：字 32–63（马卡龙蓝/黄交替） -->
+  <rect x="130" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="146" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">32</text>
+  <rect x="162" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="178" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">33</text>
+  <rect x="194" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="210" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">34</text>
+  <rect x="226" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="242" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">35</text>
+  <rect x="258" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="274" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">36</text>
+  <rect x="290" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="306" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">37</text>
+  <rect x="322" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="338" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">38</text>
+  <rect x="354" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="370" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">39</text>
+  <rect x="386" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="402" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">40</text>
+  <rect x="418" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="434" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">41</text>
+  <rect x="450" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="466" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">42</text>
+  <rect x="482" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="498" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">43</text>
+  <rect x="514" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="530" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">44</text>
+  <rect x="546" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="562" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">45</text>
+  <rect x="578" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="594" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">46</text>
+  <rect x="610" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="626" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">47</text>
+  <rect x="642" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="658" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">48</text>
+  <rect x="674" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="690" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">49</text>
+  <rect x="706" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="722" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">50</text>
+  <rect x="738" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="754" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">51</text>
+  <rect x="770" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="786" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">52</text>
+  <rect x="802" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="818" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">53</text>
+  <rect x="834" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="850" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">54</text>
+  <rect x="866" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="882" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">55</text>
+  <rect x="898" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="914" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">56</text>
+  <rect x="930" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="946" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">57</text>
+  <rect x="962" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="978" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">58</text>
+  <rect x="994" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="1010" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">59</text>
+  <rect x="1026" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="1042" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">60</text>
+  <rect x="1058" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="1074" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">61</text>
+  <rect x="1090" y="213" width="32" height="45" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="1106" y="240" text-anchor="middle" font-size="9" fill="#1e3a8a" font-family="monospace">62</text>
+  <rect x="1122" y="213" width="32" height="45" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="1138" y="240" text-anchor="middle" font-size="9" fill="#713f12" font-family="monospace">63</text>
+
+  <!-- 第 2 行：字 64–95（马卡龙紫/橙交替） -->
+  <rect x="130" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="146" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">64</text>
+  <rect x="162" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="178" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">65</text>
+  <rect x="194" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="210" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">66</text>
+  <rect x="226" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="242" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">67</text>
+  <rect x="258" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="274" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">68</text>
+  <rect x="290" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="306" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">69</text>
+  <rect x="322" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="338" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">70</text>
+  <rect x="354" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="370" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">71</text>
+  <rect x="386" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="402" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">72</text>
+  <rect x="418" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="434" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">73</text>
+  <rect x="450" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="466" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">74</text>
+  <rect x="482" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="498" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">75</text>
+  <rect x="514" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="530" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">76</text>
+  <rect x="546" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="562" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">77</text>
+  <rect x="578" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="594" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">78</text>
+  <rect x="610" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="626" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">79</text>
+  <rect x="642" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="658" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">80</text>
+  <rect x="674" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="690" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">81</text>
+  <rect x="706" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="722" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">82</text>
+  <rect x="738" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="754" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">83</text>
+  <rect x="770" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="786" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">84</text>
+  <rect x="802" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="818" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">85</text>
+  <rect x="834" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="850" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">86</text>
+  <rect x="866" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="882" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">87</text>
+  <rect x="898" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="914" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">88</text>
+  <rect x="930" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="946" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">89</text>
+  <rect x="962" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="978" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">90</text>
+  <rect x="994" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="1010" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">91</text>
+  <rect x="1026" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="1042" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">92</text>
+  <rect x="1058" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="1074" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">93</text>
+  <rect x="1090" y="258" width="32" height="45" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="1106" y="285" text-anchor="middle" font-size="9" fill="#4c1d95" font-family="monospace">94</text>
+  <rect x="1122" y="258" width="32" height="45" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="1138" y="285" text-anchor="middle" font-size="9" fill="#7c2d12" font-family="monospace">95</text>
+
+  <!-- 第 3 行：字 96–127（马卡龙青/玫瑰交替） -->
+  <rect x="130" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="146" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">96</text>
+  <rect x="162" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="178" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">97</text>
+  <rect x="194" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="210" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">98</text>
+  <rect x="226" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="242" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">99</text>
+  <rect x="258" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="274" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">100</text>
+  <rect x="290" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="306" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">101</text>
+  <rect x="322" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="338" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">102</text>
+  <rect x="354" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="370" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">103</text>
+  <rect x="386" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="402" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">104</text>
+  <rect x="418" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="434" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">105</text>
+  <rect x="450" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="466" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">106</text>
+  <rect x="482" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="498" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">107</text>
+  <rect x="514" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="530" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">108</text>
+  <rect x="546" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="562" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">109</text>
+  <rect x="578" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="594" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">110</text>
+  <rect x="610" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="626" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">111</text>
+  <rect x="642" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="658" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">112</text>
+  <rect x="674" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="690" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">113</text>
+  <rect x="706" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="722" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">114</text>
+  <rect x="738" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="754" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">115</text>
+  <rect x="770" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="786" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">116</text>
+  <rect x="802" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="818" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">117</text>
+  <rect x="834" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="850" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">118</text>
+  <rect x="866" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="882" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">119</text>
+  <rect x="898" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="914" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">120</text>
+  <rect x="930" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="946" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">121</text>
+  <rect x="962" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="978" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">122</text>
+  <rect x="994" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="1010" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">123</text>
+  <rect x="1026" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="1042" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">124</text>
+  <rect x="1058" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="1074" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">125</text>
+  <rect x="1090" y="303" width="32" height="45" fill="#a5f3fc" stroke="#67e8f9" stroke-width="0.8"/>
+  <text x="1106" y="330" text-anchor="middle" font-size="9" fill="#164e63" font-family="monospace">126</text>
+  <rect x="1122" y="303" width="32" height="45" fill="#fecdd3" stroke="#fda4af" stroke-width="0.8"/>
+  <text x="1138" y="330" text-anchor="middle" font-size="9" fill="#881337" font-family="monospace">127</text>
+
+  <!-- 表格外框 -->
+  <rect x="130" y="128" width="1024" height="220" rx="8" fill="none" stroke="#c084fc" stroke-width="1.5"/>
+
+  <!-- 图例 -->
+  <rect x="170" y="390" width="16" height="16" rx="4" fill="#fbcfe8" stroke="#f9a8d4" stroke-width="0.8"/>
+  <text x="192" y="403" font-size="12" fill="#831843">第 0 组字（0–31）</text>
+  <rect x="340" y="390" width="16" height="16" rx="4" fill="#a7f3d0" stroke="#6ee7b7" stroke-width="0.8"/>
+  <text x="362" y="403" font-size="12" fill="#064e3b">第 0 组交替</text>
+  <rect x="490" y="390" width="16" height="16" rx="4" fill="#bfdbfe" stroke="#93c5fd" stroke-width="0.8"/>
+  <text x="512" y="403" font-size="12" fill="#1e3a8a">第 1 组字（32–63）</text>
+  <rect x="670" y="390" width="16" height="16" rx="4" fill="#fef08a" stroke="#fde047" stroke-width="0.8"/>
+  <text x="692" y="403" font-size="12" fill="#713f12">第 1 组交替</text>
+  <rect x="830" y="390" width="16" height="16" rx="4" fill="#ddd6fe" stroke="#c4b5fd" stroke-width="0.8"/>
+  <text x="852" y="403" font-size="12" fill="#4c1d95">第 2 组字（64–95）</text>
+  <rect x="1000" y="390" width="16" height="16" rx="4" fill="#fed7aa" stroke="#fdba74" stroke-width="0.8"/>
+  <text x="1022" y="403" font-size="12" fill="#7c2d12">第 2 组交替</text>
+
+  <!-- 公式区 -->
+  <rect x="200" y="435" width="800" height="110" rx="10" fill="#fdf4ff" stroke="#e9d5ff" stroke-width="1"/>
+  <text x="600" y="466" text-anchor="middle" font-size="15" font-weight="600" fill="#6b21a8">地址映射公式</text>
+  <text x="600" y="492" text-anchor="middle" font-size="14" font-family="'SF Mono','Consolas',monospace" fill="#4c1d95">
+    字地址 = 字节地址 / 4
+  </text>
+  <text x="600" y="516" text-anchor="middle" font-size="14" font-family="'SF Mono','Consolas',monospace" fill="#4c1d95">
+    Bank 编号 = 字地址 % 32
+  </text>
+
+  <!-- 底部说明 -->
+  <text x="600" y="578" text-anchor="middle" font-size="12" fill="#a78bfa">
+    同一列（同一 Bank）的字地址相差 32（即 128 字节）；同一行内连续字地址分布在不同 Bank
+  </text>
+  <text x="600" y="600" text-anchor="middle" font-size="12" fill="#a78bfa">
+    例如：字地址 0、32、64、96 都落在 Bank 0；字地址 1、33、65、97 都落在 Bank 1
+  </text>
+</svg>
