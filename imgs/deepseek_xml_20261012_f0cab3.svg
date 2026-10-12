@@ -1,0 +1,285 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 550" width="100%" height="100%">
+  <defs>
+    <!-- 符号位 (Sign bit) 的斜线图案 -->
+    <pattern id="signPattern" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="8" height="8" fill="#d9e8f5" />
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#5d8ab7" stroke-width="2" />
+    </pattern>
+
+    <!-- 指数位 (Exponent) 的折线图案 -->
+    <pattern id="expPattern" width="10" height="8" patternUnits="userSpaceOnUse">
+      <rect width="10" height="8" fill="#e6f5e6" />
+      <path d="M 0 1 L 5 7 L 10 1" fill="none" stroke="#4cbf4c" stroke-width="2" />
+    </pattern>
+
+    <!-- 尾数位 (Mantissa) 的菱形图案 -->
+    <pattern id="mantissaPattern" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#f5dcdc" />
+      <polygon points="5,1 9,5 5,9 1,5" fill="none" stroke="#cc6666" stroke-width="1.5" />
+    </pattern>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#ffffff" />
+
+  <!-- ================= 图例 (Legend) ================= -->
+  <g font-family="Arial, sans-serif" font-size="22">
+    <rect x="150" y="15" width="40" height="24" fill="url(#signPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="200" y="34" fill="#333">Sign bit</text>
+
+    <rect x="330" y="15" width="40" height="24" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="380" y="34" fill="#333">Exponent</text>
+
+    <rect x="530" y="15" width="40" height="24" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="580" y="34" fill="#333">Mantissa</text>
+  </g>
+
+  <!-- ================= 第一行: IEEE 754 binary32 ================= -->
+  <g font-family="Arial, sans-serif">
+    <!-- 左侧标签 -->
+    <text x="130" y="98" text-anchor="end" font-size="20" fill="#333">IEEE 754:</text>
+    <text x="130" y="123" text-anchor="end" font-size="20" fill="#333">binary32</text>
+
+    <!-- 位块和索引 (总共32位，i从0到31，位索引为 31-i) -->
+    <!-- i=0: Sign bit (位索引31) -->
+    <rect x="150" y="80" width="26" height="30" fill="url(#signPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="163" y="75" text-anchor="middle" font-size="14" fill="#333">31</text>
+    
+    <!-- i=1~8: Exponent (位索引30~23) -->
+    <rect x="176" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="189" y="75" text-anchor="middle" font-size="14" fill="#333">30</text>
+    <rect x="202" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="215" y="75" text-anchor="middle" font-size="14" fill="#333">29</text>
+    <rect x="228" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="241" y="75" text-anchor="middle" font-size="14" fill="#333">28</text>
+    <rect x="254" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="267" y="75" text-anchor="middle" font-size="14" fill="#333">27</text>
+    <rect x="280" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="293" y="75" text-anchor="middle" font-size="14" fill="#333">26</text>
+    <rect x="306" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="319" y="75" text-anchor="middle" font-size="14" fill="#333">25</text>
+    <rect x="332" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="345" y="75" text-anchor="middle" font-size="14" fill="#333">24</text>
+    <rect x="358" y="80" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="371" y="75" text-anchor="middle" font-size="14" fill="#333">23</text>
+
+    <!-- i=9~31: Mantissa (位索引22~0) -->
+    <rect x="384" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="397" y="75" text-anchor="middle" font-size="14" fill="#333">22</text>
+    <rect x="410" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="423" y="75" text-anchor="middle" font-size="14" fill="#333">21</text>
+    <rect x="436" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="449" y="75" text-anchor="middle" font-size="14" fill="#333">20</text>
+    <rect x="462" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="475" y="75" text-anchor="middle" font-size="14" fill="#333">19</text>
+    <rect x="488" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="501" y="75" text-anchor="middle" font-size="14" fill="#333">18</text>
+    <rect x="514" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="527" y="75" text-anchor="middle" font-size="14" fill="#333">17</text>
+    <rect x="540" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="553" y="75" text-anchor="middle" font-size="14" fill="#333">16</text>
+    <rect x="566" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="579" y="75" text-anchor="middle" font-size="14" fill="#333">15</text>
+    <rect x="592" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="605" y="75" text-anchor="middle" font-size="14" fill="#333">14</text>
+    <rect x="618" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="631" y="75" text-anchor="middle" font-size="14" fill="#333">13</text>
+    <rect x="644" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="657" y="75" text-anchor="middle" font-size="14" fill="#333">12</text>
+    <rect x="670" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="683" y="75" text-anchor="middle" font-size="14" fill="#333">11</text>
+    <rect x="696" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="709" y="75" text-anchor="middle" font-size="14" fill="#333">10</text>
+    <rect x="722" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="735" y="75" text-anchor="middle" font-size="14" fill="#333">9</text>
+    <rect x="748" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="761" y="75" text-anchor="middle" font-size="14" fill="#333">8</text>
+    <rect x="774" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="787" y="75" text-anchor="middle" font-size="14" fill="#333">7</text>
+    <rect x="800" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="813" y="75" text-anchor="middle" font-size="14" fill="#333">6</text>
+    <rect x="826" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="839" y="75" text-anchor="middle" font-size="14" fill="#333">5</text>
+    <rect x="852" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="865" y="75" text-anchor="middle" font-size="14" fill="#333">4</text>
+    <rect x="878" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="891" y="75" text-anchor="middle" font-size="14" fill="#333">3</text>
+    <rect x="904" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="917" y="75" text-anchor="middle" font-size="14" fill="#333">2</text>
+    <rect x="930" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="943" y="75" text-anchor="middle" font-size="14" fill="#333">1</text>
+    <rect x="956" y="80" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="969" y="75" text-anchor="middle" font-size="14" fill="#333">0</text>
+  </g>
+
+  <!-- ================= 第二行: bfloat16 ================= -->
+  <g font-family="Arial, sans-serif">
+    <!-- 左侧标签 -->
+    <text x="130" y="188" text-anchor="end" font-size="20" fill="#333">bfloat16</text>
+
+    <!-- 位块和索引 (总共16位，i从0到15，位索引为 15-i) -->
+    <!-- i=0: Sign bit (位索引15) -->
+    <rect x="150" y="170" width="26" height="30" fill="url(#signPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="163" y="165" text-anchor="middle" font-size="14" fill="#333">15</text>
+    
+    <!-- i=1~8: Exponent (位索引14~7) -->
+    <rect x="176" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="189" y="165" text-anchor="middle" font-size="14" fill="#333">14</text>
+    <rect x="202" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="215" y="165" text-anchor="middle" font-size="14" fill="#333">13</text>
+    <rect x="228" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="241" y="165" text-anchor="middle" font-size="14" fill="#333">12</text>
+    <rect x="254" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="267" y="165" text-anchor="middle" font-size="14" fill="#333">11</text>
+    <rect x="280" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="293" y="165" text-anchor="middle" font-size="14" fill="#333">10</text>
+    <rect x="306" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="319" y="165" text-anchor="middle" font-size="14" fill="#333">9</text>
+    <rect x="332" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="345" y="165" text-anchor="middle" font-size="14" fill="#333">8</text>
+    <rect x="358" y="170" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="371" y="165" text-anchor="middle" font-size="14" fill="#333">7</text>
+
+    <!-- i=9~15: Mantissa (位索引6~0) -->
+    <rect x="384" y="170" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="397" y="165" text-anchor="middle" font-size="14" fill="#333">6</text>
+    <rect x="410" y="170" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="423" y="165" text-anchor="middle" font-size="14" fill="#333">5</text>
+    <rect x="436" y="170" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="449" y="165" text-anchor="middle" font-size="14" fill="#333">4</text>
+    <rect x="462" y="170" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="475" y="165" text-anchor="middle" font-size="14" fill="#333">3</text>
+    <rect x="488" y="170" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="501" y="165" text-anchor="middle" font-size="14" fill="#333">2</text>
+    <rect x="514" y="170" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="527" y="165" text-anchor="middle" font-size="14" fill="#333">1</text>
+    <rect x="540" y="170" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="553" y="165" text-anchor="middle" font-size="14" fill="#333">0</text>
+  </g>
+
+  <!-- ================= 第三行: IEEE 754 binary16 ================= -->
+  <g font-family="Arial, sans-serif">
+    <!-- 左侧标签 -->
+    <text x="130" y="278" text-anchor="end" font-size="20" fill="#333">IEEE 754:</text>
+    <text x="130" y="303" text-anchor="end" font-size="20" fill="#333">binary16</text>
+
+    <!-- 位块和索引 (总共16位，i从0到15，位索引为 15-i) -->
+    <!-- i=0: Sign bit (位索引15) -->
+    <rect x="150" y="260" width="26" height="30" fill="url(#signPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="163" y="255" text-anchor="middle" font-size="14" fill="#333">15</text>
+    
+    <!-- i=1~5: Exponent (位索引14~10) -->
+    <rect x="176" y="260" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="189" y="255" text-anchor="middle" font-size="14" fill="#333">14</text>
+    <rect x="202" y="260" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="215" y="255" text-anchor="middle" font-size="14" fill="#333">13</text>
+    <rect x="228" y="260" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="241" y="255" text-anchor="middle" font-size="14" fill="#333">12</text>
+    <rect x="254" y="260" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="267" y="255" text-anchor="middle" font-size="14" fill="#333">11</text>
+    <rect x="280" y="260" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="293" y="255" text-anchor="middle" font-size="14" fill="#333">10</text>
+
+    <!-- i=6~15: Mantissa (位索引9~0) -->
+    <rect x="306" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="319" y="255" text-anchor="middle" font-size="14" fill="#333">9</text>
+    <rect x="332" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="345" y="255" text-anchor="middle" font-size="14" fill="#333">8</text>
+    <rect x="358" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="371" y="255" text-anchor="middle" font-size="14" fill="#333">7</text>
+    <rect x="384" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="397" y="255" text-anchor="middle" font-size="14" fill="#333">6</text>
+    <rect x="410" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="423" y="255" text-anchor="middle" font-size="14" fill="#333">5</text>
+    <rect x="436" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="449" y="255" text-anchor="middle" font-size="14" fill="#333">4</text>
+    <rect x="462" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="475" y="255" text-anchor="middle" font-size="14" fill="#333">3</text>
+    <rect x="488" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="501" y="255" text-anchor="middle" font-size="14" fill="#333">2</text>
+    <rect x="514" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="527" y="255" text-anchor="middle" font-size="14" fill="#333">1</text>
+    <rect x="540" y="260" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="553" y="255" text-anchor="middle" font-size="14" fill="#333">0</text>
+  </g>
+
+  <!-- ================= 第四行: E4M3 ================= -->
+  <g font-family="Arial, sans-serif">
+    <!-- 左侧标签 -->
+    <text x="130" y="368" text-anchor="end" font-size="20" fill="#333">E4M3</text>
+
+    <!-- 位块和索引 (总共8位，i从0到7，位索引为 7-i) -->
+    <!-- i=0: Sign bit (位索引7) -->
+    <rect x="150" y="350" width="26" height="30" fill="url(#signPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="163" y="345" text-anchor="middle" font-size="14" fill="#333">7</text>
+    
+    <!-- i=1~4: Exponent (位索引6~3) -->
+    <rect x="176" y="350" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="189" y="345" text-anchor="middle" font-size="14" fill="#333">6</text>
+    <rect x="202" y="350" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="215" y="345" text-anchor="middle" font-size="14" fill="#333">5</text>
+    <rect x="228" y="350" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="241" y="345" text-anchor="middle" font-size="14" fill="#333">4</text>
+    <rect x="254" y="350" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="267" y="345" text-anchor="middle" font-size="14" fill="#333">3</text>
+
+    <!-- i=5~7: Mantissa (位索引2~0) -->
+    <rect x="280" y="350" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="293" y="345" text-anchor="middle" font-size="14" fill="#333">2</text>
+    <rect x="306" y="350" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="319" y="345" text-anchor="middle" font-size="14" fill="#333">1</text>
+    <rect x="332" y="350" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="345" y="345" text-anchor="middle" font-size="14" fill="#333">0</text>
+  </g>
+
+  <!-- ================= 第五行: E5M2 和 E8M0 ================= -->
+  <g font-family="Arial, sans-serif">
+    <!-- 左侧标签 E5M2 -->
+    <text x="130" y="458" text-anchor="end" font-size="20" fill="#333">E5M2</text>
+
+    <!-- E5M2 位块和索引 (总共8位，i从0到7，位索引为 7-i) -->
+    <!-- i=0: Sign bit (位索引7) -->
+    <rect x="150" y="440" width="26" height="30" fill="url(#signPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="163" y="435" text-anchor="middle" font-size="14" fill="#333">7</text>
+    
+    <!-- i=1~5: Exponent (位索引6~2) -->
+    <rect x="176" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="189" y="435" text-anchor="middle" font-size="14" fill="#333">6</text>
+    <rect x="202" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="215" y="435" text-anchor="middle" font-size="14" fill="#333">5</text>
+    <rect x="228" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="241" y="435" text-anchor="middle" font-size="14" fill="#333">4</text>
+    <rect x="254" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="267" y="435" text-anchor="middle" font-size="14" fill="#333">3</text>
+    <rect x="280" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="293" y="435" text-anchor="middle" font-size="14" fill="#333">2</text>
+
+    <!-- i=6~7: Mantissa (位索引1~0) -->
+    <rect x="306" y="440" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="319" y="435" text-anchor="middle" font-size="14" fill="#333">1</text>
+    <rect x="332" y="440" width="26" height="30" fill="url(#mantissaPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="345" y="435" text-anchor="middle" font-size="14" fill="#333">0</text>
+
+    <!-- 中间标签 E8M0 -->
+    <text x="485" y="458" text-anchor="middle" font-size="20" fill="#333">E8M0</text>
+
+    <!-- E8M0 位块和索引 (总共8位，全部为 Exponent) -->
+    <rect x="560" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="573" y="435" text-anchor="middle" font-size="14" fill="#333">7</text>
+    <rect x="586" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="599" y="435" text-anchor="middle" font-size="14" fill="#333">6</text>
+    <rect x="612" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="625" y="435" text-anchor="middle" font-size="14" fill="#333">5</text>
+    <rect x="638" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="651" y="435" text-anchor="middle" font-size="14" fill="#333">4</text>
+    <rect x="664" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="677" y="435" text-anchor="middle" font-size="14" fill="#333">3</text>
+    <rect x="690" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="703" y="435" text-anchor="middle" font-size="14" fill="#333">2</text>
+    <rect x="716" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="729" y="435" text-anchor="middle" font-size="14" fill="#333">1</text>
+    <rect x="742" y="440" width="26" height="30" fill="url(#expPattern)" stroke="#333" stroke-width="1.5" />
+    <text x="755" y="435" text-anchor="middle" font-size="14" fill="#333">0</text>
+  </g>
+
+</svg>
