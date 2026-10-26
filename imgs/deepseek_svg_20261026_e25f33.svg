@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="100%" role="img" aria-label="FlashAttention 版本演进因果链">
+  <title>图 7-1 FlashAttention 演进：每一版重新识别“最先见底的资源”</title>
+  <desc>四个版本用图形化方式对比：FA1 用条形图展示 HBM 字节下降 8 倍，并用小 Roofline 图显示工作点从斜线跳到平台；FA2 用柱状图对比 32% 与 72% 利用率，并用格点表示并行度提升；FA3 用串行/重叠时间条对比，标注 FP8 抬高天花板；FA4 用资源条展示 Tensor Core 2.25× 而 SFU/SMEM 约 1×，并标注 exp→FMA、中间结果→TMEM。底部用一条资源链总结四版各自见底的单元。</desc>
+  <defs>
+    <marker id="arr71" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
+    </marker>
+    <marker id="arr71b" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .t71{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#0f172a}
+      .s71{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#475569}
+      .xs71{font-family:Arial,'Microsoft YaHei',sans-serif;fill:#64748b}
+      .card71{stroke-width:1.8;rx:10}
+      .axis71{stroke:#94a3b8;stroke-width:1.3}
+      .dash71{stroke:#94a3b8;stroke-width:1.2;stroke-dasharray:4,3}
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1200" height="600" fill="#ffffff"/>
+
+  <text x="30" y="36" class="t71" font-size="24" font-weight="700">图 7-1 演进因果链：数学不变，最先见底的资源在变</text>
+  <text x="30" y="62" class="s71" font-size="14">FA1 跨脊点 → FA2 贴平台 → FA3 兑现异步并抬天花板 → FA4 在平台内部移开新短板。</text>
+
+  <!-- ================= FA1 ================= -->
+  <rect x="30" y="90" width="270" height="320" fill="#dbeafe" stroke="#2563eb" class="card71"/>
+  <text x="165" y="122" text-anchor="middle" class="t71" font-size="19" font-weight="700">FA1</text>
+  <text x="165" y="146" text-anchor="middle" class="s71" font-size="12">最先见底：HBM 带宽</text>
+
+  <!-- 字节条 -->
+  <text x="48" y="172" class="xs71" font-size="10">HBM 字节</text>
+  <rect x="48" y="178" width="200" height="20" fill="#fecaca" stroke="#dc2626" stroke-width="1.3" rx="4"/>
+  <text x="148" y="192" text-anchor="middle" class="t71" font-size="11">8N² + 8Nd</text>
+  <line x1="148" y1="200" x2="148" y2="212" stroke="#2563eb" stroke-width="1.6" marker-end="url(#arr71b)"/>
+  <text x="158" y="211" class="t71" font-size="11" font-weight="700">÷8</text>
+  <rect x="48" y="216" width="32" height="20" fill="#93c5fd" stroke="#2563eb" stroke-width="1.3" rx="4"/>
+  <text x="88" y="230" class="t71" font-size="11">≈ 8Nd</text>
+
+  <!-- 小 Roofline -->
+  <line x1="55" y1="335" x2="255" y2="335" class="axis71"/>
+  <line x1="55" y1="335" x2="55" y2="255" class="axis71"/>
+  <line x1="55" y1="330" x2="150" y2="255" stroke="#64748b" stroke-width="1.6"/>
+  <line x1="150" y1="255" x2="250" y2="255" stroke="#64748b" stroke-width="1.6"/>
+  <line x1="150" y1="255" x2="150" y2="335" class="dash71"/>
+  <circle cx="105" cy="291" r="5" fill="#dc2626"/>
+  <circle cx="200" cy="255" r="5" fill="#16a34a"/>
+  <text x="105" y="307" text-anchor="middle" class="t71" font-size="10">64.6</text>
+  <text x="200" y="246" text-anchor="middle" class="t71" font-size="10">516</text>
+  <text x="253" y="350" class="xs71" font-size="10">I</text>
+  <text x="42" y="252" class="xs71" font-size="10">性能</text>
+
+  <text x="165" y="388" text-anchor="middle" class="t71" font-size="13" font-weight="700">跨过脊点</text>
+
+  <!-- ================= FA2 ================= -->
+  <rect x="320" y="90" width="270" height="320" fill="#dcfce7" stroke="#16a34a" class="card71"/>
+  <text x="455" y="122" text-anchor="middle" class="t71" font-size="19" font-weight="700">FA2</text>
+  <text x="455" y="146" text-anchor="middle" class="s71" font-size="12">最先见底：非 matmul + 并行度</text>
+
+  <!-- 柱状图 -->
+  <line x1="350" y1="280" x2="565" y2="280" class="axis71"/>
+  <line x1="350" y1="130" x2="350" y2="280" class="axis71"/>
+  <line x1="350" y1="130" x2="565" y2="130" class="dash71"/>
+  <text x="565" y="124" text-anchor="end" class="xs71" font-size="9">100%</text>
+  <rect x="390" y="232" width="45" height="48" fill="#86efac" stroke="#16a34a" stroke-width="1.3"/>
+  <rect x="470" y="172" width="45" height="108" fill="#16a34a" stroke="#15803d" stroke-width="1.3"/>
+  <text x="412" y="224" text-anchor="middle" class="t71" font-size="11">32%</text>
+  <text x="492" y="164" text-anchor="middle" class="t71" font-size="11" font-weight="700">72%</text>
+  <text x="412" y="296" text-anchor="middle" class="xs71" font-size="10">FA1</text>
+  <text x="492" y="296" text-anchor="middle" class="xs71" font-size="10">FA2</text>
+
+  <!-- 并行度格点 -->
+  <g fill="#cbd5e1" stroke="#94a3b8" stroke-width="0.8">
+    <rect x="370" y="315" width="9" height="9"/><rect x="383" y="315" width="9" height="9"/><rect x="396" y="315" width="9" height="9"/>
+    <rect x="370" y="328" width="9" height="9"/><rect x="383" y="328" width="9" height="9"/><rect x="396" y="328" width="9" height="9"/>
+  </g>
+  <line x1="412" y1="328" x2="458" y2="328" stroke="#475569" stroke-width="1.5" marker-end="url(#arr71)"/>
+  <g fill="#86efac" stroke="#16a34a" stroke-width="0.8">
+    <rect x="470" y="315" width="9" height="9"/><rect x="483" y="315" width="9" height="9"/><rect x="496" y="315" width="9" height="9"/><rect x="509" y="315" width="9" height="9"/>
+    <rect x="470" y="328" width="9" height="9"/><rect x="483" y="328" width="9" height="9"/><rect x="496" y="328" width="9" height="9"/><rect x="509" y="328" width="9" height="9"/>
+    <rect x="470" y="341" width="9" height="9"/><rect x="483" y="341" width="9" height="9"/><rect x="496" y="341" width="9" height="9"/><rect x="509" y="341" width="9" height="9"/>
+  </g>
+  <text x="460" y="362" text-anchor="middle" class="xs71" font-size="10">并行度 ↑</text>
+
+  <text x="455" y="388" text-anchor="middle" class="t71" font-size="13" font-weight="700">贴近算力平台</text>
+
+  <!-- ================= FA3 ================= -->
+  <rect x="610" y="90" width="270" height="320" fill="#ffedd5" stroke="#ea580c" class="card71"/>
+  <text x="745" y="122" text-anchor="middle" class="t71" font-size="19" font-weight="700">FA3</text>
+  <text x="745" y="146" text-anchor="middle" class="s71" font-size="12">最先见底：闲置的 TMA/WGMMA</text>
+
+  <!-- 串行时间条 -->
+  <text x="625" y="170" class="xs71" font-size="9">串行 · 有气泡</text>
+  <rect x="625" y="176" width="42" height="16" fill="#fef3c7" stroke="#d97706" stroke-width="1.1" rx="3"/>
+  <rect x="667" y="176" width="14" height="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,2" rx="2"/>
+  <rect x="681" y="176" width="40" height="16" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1" rx="3"/>
+  <rect x="721" y="176" width="40" height="16" fill="#ffedd5" stroke="#ea580c" stroke-width="1.1" rx="3"/>
+  <rect x="761" y="176" width="40" height="16" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1" rx="3"/>
+  <g class="xs71" font-size="7" text-anchor="middle">
+    <text x="646" y="187">加载</text><text x="674" y="187">sync</text><text x="701" y="187">QK</text><text x="741" y="187">SM</text><text x="781" y="187">PV</text>
+  </g>
+
+  <!-- 重叠时间条 -->
+  <text x="625" y="226" class="xs71" font-size="9">重叠 · 无气泡</text>
+  <rect x="625" y="232" width="180" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.1" rx="3"/>
+  <rect x="640" y="250" width="165" height="12" fill="#dcfce7" stroke="#16a34a" stroke-width="1.1" rx="3"/>
+  <rect x="655" y="268" width="150" height="12" fill="#ffedd5" stroke="#ea580c" stroke-width="1.1" rx="3"/>
+  <g class="xs71" font-size="8">
+    <text x="632" y="241">TMA</text>
+    <text x="647" y="259">GEMM</text>
+    <text x="662" y="277">softmax</text>
+  </g>
+
+  <!-- FP8 箭头 -->
+  <line x1="820" y1="274" x2="820" y2="230" stroke="#7c3aed" stroke-width="1.8" marker-end="url(#arr71)"/>
+  <text x="826" y="255" class="t71" font-size="10" font-weight="700" fill="#7c3aed">FP8</text>
+  <text x="826" y="268" class="xs71" font-size="8">天花板↑</text>
+
+  <text x="745" y="388" text-anchor="middle" class="t71" font-size="13" font-weight="700">异步重叠 + FP8 抬天花板</text>
+
+  <!-- ================= FA4 ================= -->
+  <rect x="900" y="90" width="270" height="320" fill="#fee2e2" stroke="#dc2626" class="card71"/>
+  <text x="1035" y="122" text-anchor="middle" class="t71" font-size="19" font-weight="700">FA4</text>
+  <text x="1035" y="146" text-anchor="middle" class="s71" font-size="12">最先见底：SFU / SMEM 带宽</text>
+
+  <!-- 资源条 -->
+  <text x="915" y="181" class="xs71" font-size="10">TC</text>
+  <rect x="975" y="170" width="150" height="16" fill="#16a34a" stroke="#15803d" stroke-width="1.2" rx="3"/>
+  <text x="1050" y="182" text-anchor="middle" class="t71" font-size="10" font-weight="700" fill="#ffffff">2.25×</text>
+
+  <text x="915" y="211" class="xs71" font-size="10">SFU</text>
+  <rect x="975" y="200" width="64" height="16" fill="#fca5a5" stroke="#dc2626" stroke-width="1.2" rx="3"/>
+  <text x="1007" y="212" text-anchor="middle" class="t71" font-size="9" font-weight="700">1×</text>
+  <line x1="1043" y1="208" x2="1078" y2="208" stroke="#475569" stroke-width="1.3" marker-end="url(#arr71)"/>
+  <text x="1082" y="212" class="t71" font-size="9" font-weight="700">FMA</text>
+
+  <text x="915" y="241" class="xs71" font-size="10">SMEM</text>
+  <rect x="975" y="230" width="64" height="16" fill="#fca5a5" stroke="#dc2626" stroke-width="1.2" rx="3"/>
+  <text x="1007" y="242" text-anchor="middle" class="t71" font-size="9" font-weight="700">1×</text>
+  <line x1="1043" y1="238" x2="1078" y2="238" stroke="#475569" stroke-width="1.3" marker-end="url(#arr71)"/>
+  <text x="1082" y="242" class="t71" font-size="9" font-weight="700">TMEM</text>
+
+  <!-- 利用率条 -->
+  <text x="915" y="286" class="xs71" font-size="9">BF16 利用率</text>
+  <rect x="915" y="294" width="180" height="14" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" rx="3"/>
+  <rect x="915" y="294" width="128" height="14" fill="#dc2626" opacity="0.8" rx="3"/>
+  <text x="979" y="305" text-anchor="middle" class="t71" font-size="10" font-weight="700">71%</text>
+
+  <text x="1035" y="388" text-anchor="middle" class="t71" font-size="13" font-weight="700">移开非 GEMM 短板</text>
+
+  <!-- ================= 底部资源链 ================= -->
+  <rect x="30" y="430" width="1140" height="150" fill="#f8fafc" stroke="#94a3b8"/>
+  <text x="50" y="460" class="t71" font-size="16" font-weight="700">每一版最先见底的资源</text>
+
+  <rect x="60" y="482" width="150" height="34" fill="#dbeafe" stroke="#2563eb" stroke-width="1.4" rx="6"/>
+  <text x="135" y="504" text-anchor="middle" class="t71" font-size="12" font-weight="700">HBM 带宽</text>
+
+  <line x1="210" y1="499" x2="268" y2="499" stroke="#475569" stroke-width="1.8" marker-end="url(#arr71)"/>
+
+  <rect x="270" y="482" width="170" height="34" fill="#dcfce7" stroke="#16a34a" stroke-width="1.4" rx="6"/>
+  <text x="355" y="504" text-anchor="middle" class="t71" font-size="12" font-weight="700">非 matmul + 并行</text>
+
+  <line x1="440" y1="499" x2="498" y2="499" stroke="#475569" stroke-width="1.8" marker-end="url(#arr71)"/>
+
+  <rect x="500" y="482" width="180" height="34" fill="#ffedd5" stroke="#ea580c" stroke-width="1.4" rx="6"/>
+  <text x="590" y="504" text-anchor="middle" class="t71" font-size="12" font-weight="700">TMA / WGMMA 闲置</text>
+
+  <line x1="680" y1="499" x2="738" y2="499" stroke="#475569" stroke-width="1.8" marker-end="url(#arr71)"/>
+
+  <rect x="740" y="482" width="170" height="34" fill="#fee2e2" stroke="#dc2626" stroke-width="1.4" rx="6"/>
+  <text x="825" y="504" text-anchor="middle" class="t71" font-size="12" font-weight="700">SFU / SMEM</text>
+
+  <line x1="910" y1="499" x2="968" y2="499" stroke="#475569" stroke-width="1.8" marker-end="url(#arr71)"/>
+
+  <rect x="970" y="482" width="170" height="34" fill="#f1f5f9" stroke="#64748b" stroke-width="1.4" rx="6"/>
+  <text x="1055" y="504" text-anchor="middle" class="t71" font-size="12" font-weight="700">下一代的短板</text>
+
+  <text x="60" y="548" class="s71" font-size="13">四个版本共享同一个数学：精确 softmax，不近似。</text>
+  <text x="60" y="570" class="s71" font-size="13">工程史 = 不断重新识别短板，把工作搬到还有余量的单元上。</text>
+</svg>
