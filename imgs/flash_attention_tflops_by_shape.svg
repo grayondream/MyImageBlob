@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1560" height="760" viewBox="0 0 1560 760">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="780.0" y="38" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#1a1a1a">FlashAttention v1-v5 vs naive: throughput</text>
+<text x="780.0" y="62" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#666666" text-anchor="middle">Higher is better. All implementations: FP16 input/output, FP32 accumulation.</text>
+<rect x="92" y="73" width="13" height="13" fill="#8c8c8c" rx="2"/>
+<text x="110" y="84" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#333">naive</text>
+<rect x="194" y="73" width="13" height="13" fill="#3b7dd8" rx="2"/>
+<text x="212" y="84" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#333">FA1</text>
+<rect x="272" y="73" width="13" height="13" fill="#2aa198" rx="2"/>
+<text x="290" y="84" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#333">FA2</text>
+<rect x="350" y="73" width="13" height="13" fill="#e08a1e" rx="2"/>
+<text x="368" y="84" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#333">FA3</text>
+<rect x="428" y="73" width="13" height="13" fill="#8e5cc4" rx="2"/>
+<text x="446" y="84" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#333">FA4</text>
+<rect x="506" y="73" width="13" height="13" fill="#d64545" rx="2"/>
+<text x="524" y="84" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#333">FA5</text>
+<text x="24" y="328.0" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="13" fill="#333" transform="rotate(-90 24 328.0)" text-anchor="middle">TFLOPS</text>
+<line x1="92" y1="560.00" x2="1526" y2="560.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="82" y="560.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#555" text-anchor="end" dominant-baseline="middle">0.000</text>
+<line x1="92" y1="444.00" x2="1526" y2="444.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="82" y="444.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#555" text-anchor="end" dominant-baseline="middle">0.500</text>
+<line x1="92" y1="328.00" x2="1526" y2="328.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="82" y="328.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#555" text-anchor="end" dominant-baseline="middle">1.00</text>
+<line x1="92" y1="212.00" x2="1526" y2="212.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="82" y="212.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#555" text-anchor="end" dominant-baseline="middle">1.50</text>
+<line x1="92" y1="96.00" x2="1526" y2="96.00" stroke="#e6e6e6" stroke-width="1"/>
+<text x="82" y="96.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#555" text-anchor="end" dominant-baseline="middle">2.00</text>
+<text x="191.62" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 191.62 594.00)">B4H8 N1024 D32</text>
+<rect x="108.13" y="518.40" width="21.16" height="41.60" fill="#8c8c8c" rx="2"/>
+<text x="118.71" y="514.40" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.179</text>
+<rect x="133.30" y="424.20" width="21.16" height="135.80" fill="#3b7dd8" rx="2"/>
+<text x="143.88" y="420.20" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.585</text>
+<rect x="158.46" y="423.58" width="21.16" height="136.42" fill="#2aa198" rx="2"/>
+<text x="169.04" y="419.58" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.588</text>
+<rect x="183.62" y="236.79" width="21.16" height="323.21" fill="#e08a1e" rx="2"/>
+<text x="194.21" y="232.79" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.39</text>
+<rect x="208.79" y="250.90" width="21.16" height="309.10" fill="#8e5cc4" rx="2"/>
+<text x="219.37" y="246.90" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.33</text>
+<rect x="233.95" y="247.28" width="21.16" height="312.72" fill="#d64545" rx="2"/>
+<text x="244.54" y="243.28" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.35</text>
+<text x="370.88" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 370.88 594.00)">B4H8 N1024 D64</text>
+<rect x="287.38" y="498.86" width="21.16" height="61.14" fill="#8c8c8c" rx="2"/>
+<text x="297.96" y="494.86" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.264</text>
+<rect x="312.55" y="415.86" width="21.16" height="144.14" fill="#3b7dd8" rx="2"/>
+<text x="323.13" y="411.86" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.621</text>
+<rect x="337.71" y="424.51" width="21.16" height="135.49" fill="#2aa198" rx="2"/>
+<text x="348.29" y="420.51" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.584</text>
+<rect x="362.88" y="264.24" width="21.16" height="295.76" fill="#e08a1e" rx="2"/>
+<text x="373.46" y="260.24" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.27</text>
+<rect x="388.04" y="253.00" width="21.16" height="307.00" fill="#8e5cc4" rx="2"/>
+<text x="398.62" y="249.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.32</text>
+<rect x="413.20" y="256.03" width="21.16" height="303.97" fill="#d64545" rx="2"/>
+<text x="423.79" y="252.03" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.31</text>
+<text x="550.12" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 550.12 594.00)">B1H1 N1024 D64</text>
+<rect x="466.63" y="475.91" width="21.16" height="84.09" fill="#8c8c8c" rx="2"/>
+<text x="477.21" y="471.91" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.362</text>
+<rect x="491.80" y="420.49" width="21.16" height="139.51" fill="#3b7dd8" rx="2"/>
+<text x="502.38" y="416.49" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.601</text>
+<rect x="516.96" y="423.75" width="21.16" height="136.25" fill="#2aa198" rx="2"/>
+<text x="527.54" y="419.75" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.587</text>
+<rect x="542.12" y="381.52" width="21.16" height="178.48" fill="#e08a1e" rx="2"/>
+<text x="552.71" y="377.52" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.769</text>
+<rect x="567.29" y="369.44" width="21.16" height="190.56" fill="#8e5cc4" rx="2"/>
+<text x="577.87" y="365.44" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.821</text>
+<rect x="592.45" y="322.12" width="21.16" height="237.88" fill="#d64545" rx="2"/>
+<text x="603.04" y="318.12" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.03</text>
+<text x="729.38" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 729.38 594.00)">B4H8 N1024 D64 (causal)</text>
+<rect x="645.88" y="528.56" width="21.16" height="31.44" fill="#8c8c8c" rx="2"/>
+<text x="656.46" y="524.56" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.136</text>
+<rect x="671.05" y="421.32" width="21.16" height="138.68" fill="#3b7dd8" rx="2"/>
+<text x="681.63" y="417.32" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.598</text>
+<rect x="696.21" y="422.01" width="21.16" height="137.99" fill="#2aa198" rx="2"/>
+<text x="706.79" y="418.01" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.595</text>
+<rect x="721.38" y="244.36" width="21.16" height="315.64" fill="#e08a1e" rx="2"/>
+<text x="731.96" y="240.36" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.36</text>
+<rect x="746.54" y="229.51" width="21.16" height="330.49" fill="#8e5cc4" rx="2"/>
+<text x="757.12" y="225.51" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.42</text>
+<rect x="771.70" y="230.93" width="21.16" height="329.07" fill="#d64545" rx="2"/>
+<text x="782.29" y="226.93" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.42</text>
+<text x="908.62" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 908.62 594.00)">B4H8 N2048 D64</text>
+<rect x="825.13" y="490.96" width="21.16" height="69.04" fill="#8c8c8c" rx="2"/>
+<text x="835.71" y="486.96" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.298</text>
+<rect x="850.30" y="425.29" width="21.16" height="134.71" fill="#3b7dd8" rx="2"/>
+<text x="860.88" y="421.29" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.581</text>
+<rect x="875.46" y="431.40" width="21.16" height="128.60" fill="#2aa198" rx="2"/>
+<text x="886.04" y="427.40" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.554</text>
+<rect x="900.62" y="243.49" width="21.16" height="316.51" fill="#e08a1e" rx="2"/>
+<text x="911.21" y="239.49" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.36</text>
+<rect x="925.79" y="238.81" width="21.16" height="321.19" fill="#8e5cc4" rx="2"/>
+<text x="936.37" y="234.81" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.38</text>
+<rect x="950.95" y="237.30" width="21.16" height="322.70" fill="#d64545" rx="2"/>
+<text x="961.54" y="233.30" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.39</text>
+<text x="1087.88" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 1087.88 594.00)">B1H1 N2048 D64 (causal)</text>
+<rect x="1004.38" y="510.96" width="21.16" height="49.04" fill="#8c8c8c" rx="2"/>
+<text x="1014.96" y="506.96" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.211</text>
+<rect x="1029.55" y="422.24" width="21.16" height="137.76" fill="#3b7dd8" rx="2"/>
+<text x="1040.13" y="418.24" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.594</text>
+<rect x="1054.71" y="434.17" width="21.16" height="125.83" fill="#2aa198" rx="2"/>
+<text x="1065.29" y="430.17" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.542</text>
+<rect x="1079.88" y="375.62" width="21.16" height="184.38" fill="#e08a1e" rx="2"/>
+<text x="1090.46" y="371.62" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.795</text>
+<rect x="1105.04" y="368.35" width="21.16" height="191.65" fill="#8e5cc4" rx="2"/>
+<text x="1115.62" y="364.35" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.826</text>
+<rect x="1130.20" y="333.80" width="21.16" height="226.20" fill="#d64545" rx="2"/>
+<text x="1140.79" y="329.80" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.975</text>
+<text x="1267.12" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 1267.12 594.00)">B2H4 N4096 D64</text>
+<rect x="1183.63" y="491.30" width="21.16" height="68.70" fill="#8c8c8c" rx="2"/>
+<text x="1194.21" y="487.30" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.296</text>
+<rect x="1208.80" y="425.36" width="21.16" height="134.64" fill="#3b7dd8" rx="2"/>
+<text x="1219.38" y="421.36" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.580</text>
+<rect x="1233.96" y="433.90" width="21.16" height="126.10" fill="#2aa198" rx="2"/>
+<text x="1244.54" y="429.90" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.544</text>
+<rect x="1259.12" y="221.64" width="21.16" height="338.36" fill="#e08a1e" rx="2"/>
+<text x="1269.71" y="217.64" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.46</text>
+<rect x="1284.29" y="192.78" width="21.16" height="367.22" fill="#8e5cc4" rx="2"/>
+<text x="1294.87" y="188.78" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.58</text>
+<rect x="1309.45" y="196.44" width="21.16" height="363.56" fill="#d64545" rx="2"/>
+<text x="1320.04" y="192.44" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.57</text>
+<text x="1446.38" y="594.00" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="12" fill="#222" text-anchor="end" transform="rotate(-32 1446.38 594.00)">B4H8 N1024 D128</text>
+<rect x="1362.88" y="486.64" width="21.16" height="73.36" fill="#8c8c8c" rx="2"/>
+<text x="1373.46" y="482.64" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.316</text>
+<rect x="1388.05" y="424.75" width="21.16" height="135.25" fill="#3b7dd8" rx="2"/>
+<text x="1398.63" y="420.75" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.583</text>
+<rect x="1413.21" y="404.56" width="21.16" height="155.44" fill="#2aa198" rx="2"/>
+<text x="1423.79" y="400.56" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">0.670</text>
+<rect x="1438.38" y="292.60" width="21.16" height="267.40" fill="#e08a1e" rx="2"/>
+<text x="1448.96" y="288.60" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.15</text>
+<rect x="1463.54" y="277.32" width="21.16" height="282.68" fill="#8e5cc4" rx="2"/>
+<text x="1474.12" y="273.32" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.22</text>
+<rect x="1488.70" y="278.71" width="21.16" height="281.29" fill="#d64545" rx="2"/>
+<text x="1499.29" y="274.71" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="9" fill="#333" text-anchor="middle">1.21</text>
+<line x1="92" y1="560" x2="1526" y2="560" stroke="#999" stroke-width="1.2"/>
+<text x="1526" y="748" font-family="DejaVu Sans, Helvetica, Arial, sans-serif" font-size="11" fill="#777" text-anchor="end">GPU: NVIDIA RTX 3050 (sm_86, 20 SM) | FP16 inputs, FP32 accumulate</text>
+</svg>
