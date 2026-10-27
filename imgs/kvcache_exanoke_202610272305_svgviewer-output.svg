@@ -1,0 +1,38 @@
+<svg width="920" height="500" viewBox="0 0 920 500" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="f5_wq" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+    <linearGradient id="f5_wk" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#7c3aed"/></linearGradient>
+    <linearGradient id="f5_wv" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#059669"/></linearGradient>
+    <marker id="f5_arr" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#94a3b8"/></marker>
+    <marker id="f5_arr2" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#a78bfa"/></marker>
+    <marker id="f5_arr3" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#34d399"/></marker>
+  </defs>
+  <text x="80" y="66" font-size="13" fill="#64748b" font-weight="700">X (Prompt 隐状态)</text>
+  <rect x="80" y="85" width="110" height="30" rx="5" fill="#e2e8f0" stroke="#cbd5e1"/><rect x="80" y="121" width="110" height="30" rx="5" fill="#e2e8f0" stroke="#cbd5e1"/><rect x="80" y="157" width="110" height="30" rx="5" fill="#e2e8f0" stroke="#cbd5e1"/>
+  <line x1="195" y1="100" x2="263" y2="100" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="195" y1="136" x2="263" y2="136" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="195" y1="172" x2="263" y2="172" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/>
+  <rect x="270" y="70" width="90" height="102" rx="8" fill="url(#f5_wq)"/><text x="315" y="128" font-size="18" text-anchor="middle" fill="#fff" font-weight="700">W_Q</text>
+  <rect x="270" y="200" width="90" height="102" rx="8" fill="url(#f5_wk)"/><text x="315" y="258" font-size="18" text-anchor="middle" fill="#fff" font-weight="700">W_K</text>
+  <rect x="270" y="330" width="90" height="102" rx="8" fill="url(#f5_wv)"/><text x="315" y="388" font-size="18" text-anchor="middle" fill="#fff" font-weight="700">W_V</text>
+  <line x1="365" y1="100" x2="443" y2="100" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="365" y1="136" x2="443" y2="136" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="365" y1="172" x2="443" y2="172" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/>
+  <rect x="450" y="85" width="110" height="30" rx="5" fill="#dbeafe" stroke="#60a5fa"/><rect x="450" y="121" width="110" height="30" rx="5" fill="#dbeafe" stroke="#60a5fa"/><rect x="450" y="157" width="110" height="30" rx="5" fill="#dbeafe" stroke="#60a5fa"/>
+  <text x="505" y="106" font-size="13" text-anchor="middle" fill="#1e40af" font-weight="600">q₁</text><text x="505" y="142" font-size="13" text-anchor="middle" fill="#1e40af" font-weight="600">q₂</text><text x="505" y="178" font-size="13" text-anchor="middle" fill="#1e40af" font-weight="600">q₃</text>
+  <line x1="365" y1="230" x2="443" y2="230" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="365" y1="266" x2="443" y2="266" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="365" y1="302" x2="443" y2="302" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/>
+  <rect x="450" y="215" width="110" height="30" rx="5" fill="#ede9fe" stroke="#a78bfa"/><rect x="450" y="251" width="110" height="30" rx="5" fill="#ede9fe" stroke="#a78bfa"/><rect x="450" y="287" width="110" height="30" rx="5" fill="#ede9fe" stroke="#a78bfa"/>
+  <text x="505" y="236" font-size="13" text-anchor="middle" fill="#5b21b6" font-weight="600">k₁</text><text x="505" y="272" font-size="13" text-anchor="middle" fill="#5b21b6" font-weight="600">k₂</text><text x="505" y="308" font-size="13" text-anchor="middle" fill="#5b21b6" font-weight="600">k₃</text>
+  <line x1="365" y1="360" x2="443" y2="360" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="365" y1="396" x2="443" y2="396" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/><line x1="365" y1="432" x2="443" y2="432" stroke="#94a3b8" stroke-width="1.8" marker-end="url(#f5_arr)"/>
+  <rect x="450" y="345" width="110" height="30" rx="5" fill="#d1fae5" stroke="#34d399"/><rect x="450" y="381" width="110" height="30" rx="5" fill="#d1fae5" stroke="#34d399"/><rect x="450" y="417" width="110" height="30" rx="5" fill="#d1fae5" stroke="#34d399"/>
+  <text x="505" y="366" font-size="13" text-anchor="middle" fill="#065f46" font-weight="600">v₁</text><text x="505" y="402" font-size="13" text-anchor="middle" fill="#065f46" font-weight="600">v₂</text><text x="505" y="438" font-size="13" text-anchor="middle" fill="#065f46" font-weight="600">v₃</text>
+  <rect x="640" y="170" width="220" height="260" rx="14" fill="#fff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="750" y="198" font-size="14" text-anchor="middle" fill="#334155" font-weight="700">KV Cache</text>
+  <line x1="565" y1="266" x2="633" y2="240" stroke="#a78bfa" stroke-width="2" marker-end="url(#f5_arr2)"/>
+  <line x1="565" y1="396" x2="633" y2="380" stroke="#34d399" stroke-width="2" marker-end="url(#f5_arr3)"/>
+  <text x="680" y="228" font-size="12" fill="#7c3aed" font-weight="700">K</text>
+  <rect x="660" y="238" width="56" height="38" rx="5" fill="#ede9fe" stroke="#a78bfa"/><text x="688" y="262" font-size="12" text-anchor="middle" fill="#5b21b6">k₁</text>
+  <rect x="724" y="238" width="56" height="38" rx="5" fill="#ede9fe" stroke="#a78bfa"/><text x="752" y="262" font-size="12" text-anchor="middle" fill="#5b21b6">k₂</text>
+  <rect x="788" y="238" width="56" height="38" rx="5" fill="#ede9fe" stroke="#a78bfa"/><text x="816" y="262" font-size="12" text-anchor="middle" fill="#5b21b6">k₃</text>
+  <text x="680" y="358" font-size="12" fill="#059669" font-weight="700">V</text>
+  <rect x="660" y="368" width="56" height="38" rx="5" fill="#d1fae5" stroke="#34d399"/><text x="688" y="392" font-size="12" text-anchor="middle" fill="#065f46">v₁</text>
+  <rect x="724" y="368" width="56" height="38" rx="5" fill="#d1fae5" stroke="#34d399"/><text x="752" y="392" font-size="12" text-anchor="middle" fill="#065f46">v₂</text>
+  <rect x="788" y="368" width="56" height="38" rx="5" fill="#d1fae5" stroke="#34d399"/><text x="816" y="392" font-size="12" text-anchor="middle" fill="#065f46">v₃</text>
+  <text x="640" y="455" font-size="12" fill="#64748b">全部历史 K、V 一次性写入</text>
+</svg>
