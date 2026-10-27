@@ -1,0 +1,33 @@
+<svg width="920" height="420" viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <filter id="f4_sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-opacity="0.12"/></filter>
+    <marker id="f4_arr" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#cbd5e1"/></marker>
+    <marker id="f4_arr2" markerWidth="9" markerHeight="9" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#f97316"/></marker>
+  </defs>
+  <rect x="105" y="60" width="90" height="50" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" filter="url(#f4_sh)"/><text x="150" y="91" font-size="16" text-anchor="middle" fill="#475569" font-weight="600">t₁</text>
+  <rect x="215" y="60" width="90" height="50" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" filter="url(#f4_sh)"/><text x="260" y="91" font-size="16" text-anchor="middle" fill="#475569" font-weight="600">t₂</text>
+  <rect x="325" y="60" width="90" height="50" rx="10" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" filter="url(#f4_sh)"/><text x="370" y="91" font-size="16" text-anchor="middle" fill="#475569" font-weight="600">t₃</text>
+  <rect x="435" y="60" width="90" height="50" rx="10" fill="#ffedd5" stroke="#f97316" stroke-width="2" filter="url(#f4_sh)"/><text x="480" y="91" font-size="16" text-anchor="middle" fill="#9a3412" font-weight="700">t₄</text>
+  <text x="570" y="82" font-size="13" fill="#64748b">← 历史 token（已缓存）</text>
+  <text x="570" y="102" font-size="13" fill="#f97316" font-weight="600">← 新 token</text>
+  <line x1="150" y1="115" x2="150" y2="218" stroke="#cbd5e1" stroke-width="1.8" marker-end="url(#f4_arr)"/>
+  <line x1="260" y1="115" x2="260" y2="218" stroke="#cbd5e1" stroke-width="1.8" marker-end="url(#f4_arr)"/>
+  <line x1="370" y1="115" x2="370" y2="218" stroke="#cbd5e1" stroke-width="1.8" marker-end="url(#f4_arr)"/>
+  <line x1="480" y1="115" x2="480" y2="218" stroke="#f97316" stroke-width="2" marker-end="url(#f4_arr2)"/>
+  <rect x="85" y="222" width="470" height="160" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="105" y="248" font-size="14" fill="#334155" font-weight="700">KV Cache</text>
+  <text x="65" y="288" font-size="14" fill="#7c3aed" font-weight="700" text-anchor="end">K</text>
+  <rect x="105" y="265" width="90" height="45" rx="6" fill="#ede9fe" stroke="#a78bfa"/><text x="150" y="293" font-size="14" text-anchor="middle" fill="#5b21b6" font-weight="600">k₁</text>
+  <rect x="215" y="265" width="90" height="45" rx="6" fill="#ede9fe" stroke="#a78bfa"/><text x="260" y="293" font-size="14" text-anchor="middle" fill="#5b21b6" font-weight="600">k₂</text>
+  <rect x="325" y="265" width="90" height="45" rx="6" fill="#ede9fe" stroke="#a78bfa"/><text x="370" y="293" font-size="14" text-anchor="middle" fill="#5b21b6" font-weight="600">k₃</text>
+  <rect x="435" y="265" width="90" height="45" rx="6" fill="#ffedd5" stroke="#f97316" stroke-width="2"/><text x="480" y="293" font-size="14" text-anchor="middle" fill="#9a3412" font-weight="700">k₄</text>
+  <text x="65" y="353" font-size="14" fill="#059669" font-weight="700" text-anchor="end">V</text>
+  <rect x="105" y="330" width="90" height="45" rx="6" fill="#d1fae5" stroke="#34d399"/><text x="150" y="358" font-size="14" text-anchor="middle" fill="#065f46" font-weight="600">v₁</text>
+  <rect x="215" y="330" width="90" height="45" rx="6" fill="#d1fae5" stroke="#34d399"/><text x="260" y="358" font-size="14" text-anchor="middle" fill="#065f46" font-weight="600">v₂</text>
+  <rect x="325" y="330" width="90" height="45" rx="6" fill="#d1fae5" stroke="#34d399"/><text x="370" y="358" font-size="14" text-anchor="middle" fill="#065f46" font-weight="600">v₃</text>
+  <rect x="435" y="330" width="90" height="45" rx="6" fill="#ffedd5" stroke="#f97316" stroke-width="2"/><text x="480" y="358" font-size="14" text-anchor="middle" fill="#9a3412" font-weight="700">v₄</text>
+  <text x="600" y="265" font-size="14" fill="#334155" font-weight="600">历史 token 的 K、V</text>
+  <text x="600" y="288" font-size="14" fill="#334155" font-weight="600">仅计算一次，跨步复用</text>
+  <text x="600" y="340" font-size="14" fill="#f97316" font-weight="600">新 token 的 k、v</text>
+  <text x="600" y="363" font-size="14" fill="#f97316" font-weight="600">计算后追加至缓存尾部</text>
+</svg>
