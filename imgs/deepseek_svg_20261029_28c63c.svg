@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" font-family="system-ui, -apple-system, sans-serif" font-size="12">
+  <defs>
+    <marker id="arr8" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect x="20" y="20" width="180" height="70" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.8"/>
+  <text x="110" y="48" text-anchor="middle" font-weight="700" fill="#5b21b6">Vulkan</text>
+  <text x="110" y="68" text-anchor="middle" fill="#6d28d9" font-size="11">VkDeviceMemory</text>
+  <text x="110" y="82" text-anchor="middle" fill="#6d28d9" font-size="10">external memory fd</text>
+
+  <rect x="220" y="20" width="180" height="70" rx="10" fill="#ffedd5" stroke="#f97316" stroke-width="1.8"/>
+  <text x="310" y="48" text-anchor="middle" font-weight="700" fill="#9a3412">OpenCL</text>
+  <text x="310" y="68" text-anchor="middle" fill="#c2410c" font-size="11">cl_mem</text>
+  <text x="310" y="82" text-anchor="middle" fill="#c2410c" font-size="10">ALLOC_HOST_PTR</text>
+
+  <rect x="420" y="20" width="180" height="70" rx="10" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.8"/>
+  <text x="510" y="48" text-anchor="middle" font-weight="700" fill="#1e40af">CUDA</text>
+  <text x="510" y="68" text-anchor="middle" fill="#2563eb" font-size="11">pinned host memory</text>
+  <text x="510" y="82" text-anchor="middle" fill="#2563eb" font-size="10">cudaHostAlloc</text>
+
+  <rect x="620" y="20" width="180" height="70" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="1.8"/>
+  <text x="710" y="48" text-anchor="middle" font-weight="700" fill="#065f46">OpenGL</text>
+  <text x="710" y="68" text-anchor="middle" fill="#047857" font-size="11">PBO / EGLImage</text>
+  <text x="710" y="82" text-anchor="middle" fill="#047857" font-size="10">EGL_EXT_image_dma_buf</text>
+
+  <path d="M110,90 L110,130 L160,130 L160,160" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr8)"/>
+  <path d="M310,90 L310,130 L400,130 L400,160" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr8)"/>
+  <path d="M510,90 L510,130 L580,130 L580,160" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr8)"/>
+  <path d="M710,90 L710,130 L700,130 L700,160" fill="none" stroke="#64748b" stroke-width="1.5" marker-end="url(#arr8)"/>
+
+  <rect x="80" y="170" width="660" height="60" rx="12" fill="#f1f5f9" stroke="#475569" stroke-width="2"/>
+  <text x="410" y="196" text-anchor="middle" font-weight="600" fill="#1e293b">Linux 内核 DMA 层</text>
+  <text x="410" y="216" text-anchor="middle" fill="#64748b" font-size="11">dma_alloc_coherent / dma_map_sg / IOMMU / CMA</text>
+
+  <rect x="200" y="265" width="420" height="50" rx="10" fill="#fef9c3" stroke="#eab308" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <text x="410" y="288" text-anchor="middle" font-weight="600" fill="#854d0e">dma-buf</text>
+  <text x="410" y="304" text-anchor="middle" fill="#a16207" font-size="11">跨 API 共享的 fd 载体</text>
+
+  <line x1="410" y1="230" x2="410" y2="265" stroke="#eab308" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr8)"/>
+</svg>
