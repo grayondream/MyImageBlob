@@ -1,0 +1,84 @@
+<svg width="760" height="250" viewBox="0 0 760 250" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="plotBg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#fef2f2"/>
+    </linearGradient>
+    <linearGradient id="freqGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="powerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect x="8" y="8" width="744" height="234" rx="8" fill="#ffffff" stroke="#e5e7eb"/>
+
+  <text x="28" y="32" font-size="14" font-weight="700" fill="#111827">持续负载下的频率—功耗—温度耦合</text>
+
+  <!-- 图例 -->
+  <g font-size="10" fill="#374151">
+    <line x1="500" y1="20" x2="522" y2="20" stroke="url(#freqGrad)" stroke-width="3" stroke-linecap="round"/>
+    <text x="530" y="24">频率</text>
+    <line x1="500" y1="36" x2="522" y2="36" stroke="url(#powerGrad)" stroke-width="2.5" stroke-dasharray="7,4" stroke-linecap="round"/>
+    <text x="530" y="40">功耗</text>
+    <line x1="500" y1="52" x2="522" y2="52" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="4,4"/>
+    <text x="530" y="56">温度墙 / PPT</text>
+  </g>
+
+  <!-- 绘图区背景 -->
+  <rect x="68" y="62" width="652" height="130" fill="url(#plotBg)" opacity="0.55"/>
+
+  <!-- 水平网格 -->
+  <g stroke="#e5e7eb" stroke-width="1">
+    <line x1="68" y1="85" x2="720" y2="85"/>
+    <line x1="68" y1="115" x2="720" y2="115"/>
+    <line x1="68" y1="145" x2="720" y2="145"/>
+    <line x1="68" y1="175" x2="720" y2="175"/>
+  </g>
+
+  <!-- 坐标轴 -->
+  <line x1="68" y1="192" x2="720" y2="192" stroke="#6b7280" stroke-width="1.2"/>
+  <line x1="68" y1="192" x2="68" y2="62" stroke="#6b7280" stroke-width="1.2"/>
+  <!-- 箭头 -->
+  <polygon points="720,192 714,189 714,195" fill="#6b7280"/>
+  <polygon points="68,62 65,68 71,68" fill="#6b7280"/>
+
+  <!-- 时间节点参考线 -->
+  <g stroke="#d1d5db" stroke-width="1" stroke-dasharray="3,3">
+    <line x1="140" y1="62" x2="140" y2="192"/>
+    <line x1="600" y1="62" x2="600" y2="192"/>
+  </g>
+
+  <!-- 温度墙 -->
+  <line x1="68" y1="112" x2="720" y2="112" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <rect x="72" y="98" width="92" height="16" rx="3" fill="#ffffff" opacity="0.85"/>
+  <text x="76" y="110" font-size="10" fill="#dc2626" font-weight="600">▲ 温度墙 / PPT</text>
+
+  <!-- 频率曲线 -->
+  <path d="M68,78 C120,78 140,82 190,92 S270,112 330,122 S430,132 500,134 S620,136 720,136"
+        fill="none" stroke="url(#freqGrad)" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)"/>
+
+  <!-- 功耗曲线 -->
+  <path d="M68,168 C120,160 150,150 210,138 S300,118 370,112 S470,106 540,105 S630,105 720,105"
+        fill="none" stroke="url(#powerGrad)" stroke-width="2.8" stroke-dasharray="8,5" stroke-linecap="round" stroke-linejoin="round" filter="url(#softShadow)"/>
+
+  <!-- 冷启动标记点 -->
+  <circle cx="140" cy="82" r="4.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="140" cy="155" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="140" y="212" font-size="10" fill="#4b5563" text-anchor="middle" font-weight="500">冷启动</text>
+
+  <!-- 热稳态标记点 -->
+  <circle cx="600" cy="135" r="4.5" fill="#1d4ed8" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="600" cy="105" r="4.5" fill="#ea580c" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="600" y="212" font-size="10" fill="#4b5563" text-anchor="middle" font-weight="500">热稳态</text>
+
+  <!-- 轴标签 -->
+  <text x="720" y="212" font-size="10" fill="#6b7280" text-anchor="end">时间 →</text>
+  <text x="24" y="127" font-size="10" fill="#6b7280" transform="rotate(-90 24,127)">GHz / W</text>
+</svg>
