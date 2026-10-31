@@ -1,0 +1,96 @@
+<svg width="760" height="310" viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="294" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">SMT 对效率只差 0.07，双物理核效率差 0.25——前端争抢不是主瓶颈</text>
+
+  <!-- 图例 -->
+  <g font-size="9" fill="#333">
+    <rect x="520" y="44" width="12" height="12" fill="#1565c0"/>
+    <text x="538" y="53">small（Op Cache 驻留）</text>
+    <rect x="520" y="60" width="12" height="12" fill="#c62828"/>
+    <text x="538" y="69">large（Op Cache 溢出）</text>
+  </g>
+
+  <!-- 绘图区背景 -->
+  <rect x="80" y="55" width="640" height="200" fill="#f5f5f5"/>
+
+  <!-- 水平网格：0–9× -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="80" y1="232.8" x2="720" y2="232.8"/>
+    <line x1="80" y1="210.6" x2="720" y2="210.6"/>
+    <line x1="80" y1="188.3" x2="720" y2="188.3"/>
+    <line x1="80" y1="166.1" x2="720" y2="166.1"/>
+    <line x1="80" y1="143.9" x2="720" y2="143.9"/>
+    <line x1="80" y1="121.7" x2="720" y2="121.7"/>
+    <line x1="80" y1="99.4" x2="720" y2="99.4"/>
+    <line x1="80" y1="77.2" x2="720" y2="77.2"/>
+  </g>
+
+  <!-- 1.0× 基准线 -->
+  <line x1="80" y1="232.8" x2="720" y2="232.8" stroke="#999" stroke-dasharray="3,3"/>
+  <text x="688" y="228.8" font-size="9" fill="#999">1.0× 单核基准</text>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="255" x2="720" y2="255" stroke="#333"/>
+  <line x1="80" y1="255" x2="80" y2="55" stroke="#333"/>
+  <polygon points="720,255 714,252 714,258" fill="#333"/>
+  <polygon points="80,55 77,61 83,61" fill="#333"/>
+
+  <!-- y 轴刻度 -->
+  <g font-size="9" fill="#555" text-anchor="end">
+    <text x="74" y="258">0</text>
+    <text x="74" y="235.8">1</text>
+    <text x="74" y="213.6">2</text>
+    <text x="74" y="191.3">3</text>
+    <text x="74" y="169.1">4</text>
+    <text x="74" y="146.9">5</text>
+    <text x="74" y="124.7">6</text>
+    <text x="74" y="102.4">7</text>
+    <text x="74" y="80.2">8</text>
+    <text x="74" y="58">9</text>
+  </g>
+
+  <!-- cpu0,6（SMT 对） -->
+  <g>
+    <rect x="120" y="223.0" width="35" height="32.0" fill="#1565c0"/>
+    <rect x="162" y="224.6" width="35" height="30.4" fill="#c62828"/>
+    <text x="137.5" y="242" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">1.44</text>
+    <text x="179.5" y="243" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">1.37</text>
+    <text x="158.5" y="275" font-size="10" fill="#333" text-anchor="middle">cpu0,6</text>
+    <text x="158.5" y="290" font-size="9" fill="#666" text-anchor="middle">SMT 对（差 0.07）</text>
+  </g>
+
+  <!-- cpu0,1（双物理核） -->
+  <g>
+    <rect x="290" y="213.0" width="35" height="42.0" fill="#1565c0"/>
+    <rect x="332" y="218.6" width="35" height="36.4" fill="#c62828"/>
+    <text x="307.5" y="237" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">1.89</text>
+    <text x="349.5" y="240" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">1.64</text>
+    <text x="328.5" y="275" font-size="10" fill="#333" text-anchor="middle">cpu0,1</text>
+    <text x="328.5" y="290" font-size="9" fill="#666" text-anchor="middle">双物理核（差 0.25）</text>
+  </g>
+
+  <!-- cpu0-5（6 核） -->
+  <g>
+    <rect x="460" y="132.3" width="35" height="122.7" fill="#1565c0"/>
+    <rect x="502" y="152.3" width="35" height="102.7" fill="#c62828"/>
+    <text x="477.5" y="196" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">5.52</text>
+    <text x="519.5" y="206" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">4.62</text>
+    <text x="498.5" y="275" font-size="10" fill="#333" text-anchor="middle">cpu0-5</text>
+    <text x="498.5" y="290" font-size="9" fill="#666" text-anchor="middle">6 核</text>
+  </g>
+
+  <!-- cpu0-11（12 线程） -->
+  <g>
+    <rect x="630" y="75.0" width="35" height="180.0" fill="#1565c0"/>
+    <rect x="672" y="96.6" width="35" height="158.4" fill="#c62828"/>
+    <text x="647.5" y="168" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">8.10</text>
+    <text x="689.5" y="178" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">7.13</text>
+    <text x="668.5" y="275" font-size="10" fill="#333" text-anchor="middle">cpu0-11</text>
+    <text x="668.5" y="290" font-size="9" fill="#666" text-anchor="middle">12 线程</text>
+  </g>
+
+  <!-- 轴标题 -->
+  <text x="400" y="306" font-size="10" fill="#555" text-anchor="middle">配置（线程数）→</text>
+  <text x="20" y="155" font-size="10" fill="#555" transform="rotate(-90 20,155)">相对单核效率（×）</text>
+</svg>
