@@ -1,0 +1,26 @@
+<svg width="760" height="290" viewBox="0 0 760 290" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="274" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">PMU 指纹：v1 的缓存引用次数膨胀 7.9 倍，CPI 升到 2.42</text>
+
+  <!-- cache-references -->
+  <text x="30" y="60" font-size="11" font-weight="bold" fill="#333">cache-references（相对 v2 归一化）</text>
+
+  <rect x="220" y="68" width="440" height="30" fill="#c62828"/>
+  <text x="228" y="88" font-size="11" fill="#fff" font-weight="bold">v1: 2.94M（每次 inc 触发 0.147 次 RFO）</text>
+
+  <rect x="220" y="108" width="56" height="30" fill="#2e7d32"/>
+  <text x="286" y="128" font-size="11" fill="#2e7d32" font-weight="bold">v2: 373K</text>
+
+  <!-- CPI -->
+  <text x="30" y="166" font-size="11" font-weight="bold" fill="#333">CPI（cycles / instructions）</text>
+
+  <rect x="220" y="174" width="440" height="30" fill="#c62828"/>
+  <text x="228" y="194" font-size="11" fill="#fff" font-weight="bold">v1: 2.42</text>
+
+  <rect x="220" y="214" width="65" height="30" fill="#2e7d32"/>
+  <text x="295" y="234" font-size="11" fill="#2e7d32" font-weight="bold">v2: 0.358</text>
+
+  <!-- 说明 -->
+  <text x="30" y="268" font-size="10" fill="#666">instructions 几乎相同（196M vs 199M），差异全在等待缓存行所有权迁移。</text>
+</svg>
