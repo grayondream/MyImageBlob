@@ -1,0 +1,76 @@
+<svg width="760" height="300" viewBox="0 0 760 300" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="284" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">CPI 低 ≠ 快：v4 的 CPI 最低，时间却是 v1 的 96 倍</text>
+
+  <!-- 图例 -->
+  <g font-size="10" fill="#333">
+    <rect x="560" y="38" width="12" height="12" fill="#1565c0"/>
+    <text x="578" y="47">cycles（相对 v1）</text>
+    <rect x="560" y="56" width="12" height="12" fill="#c62828"/>
+    <text x="578" y="65">CPI（相对 v1）</text>
+  </g>
+
+  <!-- 绘图区背景 -->
+  <rect x="70" y="75" width="650" height="155" fill="#f5f5f5"/>
+
+  <!-- 水平网格：0.1 / 1 / 10 / 100 -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="70" y1="230" x2="720" y2="230"/>
+    <line x1="70" y1="178.3" x2="720" y2="178.3"/>
+    <line x1="70" y1="126.7" x2="720" y2="126.7"/>
+    <line x1="70" y1="75" x2="720" y2="75"/>
+  </g>
+
+  <!-- y 轴 -->
+  <line x1="70" y1="230" x2="70" y2="75" stroke="#333"/>
+  <g font-size="9" fill="#555" text-anchor="end">
+    <text x="64" y="233">0.1</text>
+    <text x="64" y="181.3">1</text>
+    <text x="64" y="129.7">10</text>
+    <text x="64" y="78">100</text>
+  </g>
+  <text x="20" y="152" font-size="10" fill="#555" transform="rotate(-90 20,152)">相对 v1（对数）</text>
+
+  <!-- x 轴 -->
+  <line x1="70" y1="230" x2="720" y2="230" stroke="#333"/>
+  <text x="395" y="270" font-size="10" fill="#555" text-anchor="middle">版本 →</text>
+
+  <!-- v1 -->
+  <g>
+    <rect x="110" y="178.3" width="30" height="51.7" fill="#1565c0"/>
+    <rect x="150" y="178.3" width="30" height="51.7" fill="#c62828"/>
+    <text x="125" y="174.3" font-size="9" fill="#1565c0" text-anchor="middle">33.6M</text>
+    <text x="165" y="174.3" font-size="9" fill="#c62828" text-anchor="middle">0.41</text>
+    <text x="145" y="250" font-size="10" font-weight="bold" fill="#333" text-anchor="middle">v1</text>
+  </g>
+
+  <!-- v2 -->
+  <g>
+    <rect x="260" y="113.9" width="30" height="116.1" fill="#1565c0"/>
+    <rect x="300" y="121.7" width="30" height="108.3" fill="#c62828"/>
+    <text x="275" y="109.9" font-size="9" fill="#1565c0" text-anchor="middle">593M</text>
+    <text x="315" y="117.7" font-size="9" fill="#c62828" text-anchor="middle">5.12</text>
+    <text x="295" y="250" font-size="10" font-weight="bold" fill="#333" text-anchor="middle">v2</text>
+  </g>
+
+  <!-- v3 -->
+  <g>
+    <rect x="410" y="138.5" width="30" height="91.5" fill="#1565c0"/>
+    <rect x="450" y="179.5" width="30" height="50.5" fill="#c62828"/>
+    <text x="425" y="134.5" font-size="9" fill="#1565c0" text-anchor="middle">198M</text>
+    <text x="465" y="175.5" font-size="9" fill="#c62828" text-anchor="middle">0.39</text>
+    <text x="445" y="250" font-size="10" font-weight="bold" fill="#333" text-anchor="middle">v3</text>
+  </g>
+
+  <!-- v4 -->
+  <g>
+    <rect x="560" y="76" width="30" height="154" fill="#1565c0"/>
+    <rect x="600" y="181.4" width="30" height="48.6" fill="#c62828"/>
+    <text x="575" y="88" font-size="9" fill="#fff" font-weight="bold" text-anchor="middle">3218M</text>
+    <text x="615" y="177.4" font-size="9" fill="#c62828" text-anchor="middle">0.358</text>
+    <text x="595" y="250" font-size="10" font-weight="bold" fill="#333" text-anchor="middle">v4</text>
+  </g>
+
+  <text x="30" y="286" font-size="9" fill="#666">注：纵轴为相对 v1 的对数值；cycles 与 CPI 分别归一化后展示，因此 v1 两柱等高。</text>
+</svg>
