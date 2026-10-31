@@ -1,0 +1,91 @@
+<svg width="760" height="320" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="304" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">Op Cache 命中率：从 0.28% 到 99.2% 的断层在 1799 到 7187 条之间</text>
+
+  <!-- 图例 -->
+  <g font-size="10" fill="#333">
+    <rect x="480" y="45" width="12" height="12" fill="#2e7d32"/>
+    <text x="498" y="54">Op Cache 命中良好</text>
+    <rect x="480" y="63" width="12" height="12" fill="#c62828"/>
+    <text x="498" y="72">Op Cache miss 严重</text>
+  </g>
+
+  <!-- 绘图区背景 -->
+  <rect x="100" y="75" width="615" height="180" fill="#f5f5f5"/>
+
+  <!-- 4096 uop 容量区间 -->
+  <rect x="483" y="75" width="155" height="180" fill="#ede7f6" opacity="0.65"/>
+  <text x="560" y="92" font-size="9" fill="#4527a0" font-weight="bold" text-anchor="middle">4096 uop 规格容量区间</text>
+
+  <!-- y 网格 -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="100" y1="111" x2="715" y2="111"/>
+    <line x1="100" y1="147" x2="715" y2="147"/>
+    <line x1="100" y1="183" x2="715" y2="183"/>
+    <line x1="100" y1="219" x2="715" y2="219"/>
+  </g>
+
+  <!-- 参考线 -->
+  <line x1="100" y1="165" x2="715" y2="165" stroke="#999" stroke-dasharray="3,3"/>
+  <text x="707" y="161" font-size="9" fill="#999" text-anchor="end">50%</text>
+  <line x1="100" y1="237" x2="715" y2="237" stroke="#999" stroke-dasharray="3,3"/>
+  <text x="707" y="233" font-size="9" fill="#999" text-anchor="end">10%</text>
+
+  <!-- 坐标轴 -->
+  <line x1="100" y1="255" x2="715" y2="255" stroke="#333"/>
+  <line x1="100" y1="255" x2="100" y2="75" stroke="#333"/>
+  <polygon points="715,255 709,252 709,258" fill="#333"/>
+  <polygon points="100,75 97,81 103,81" fill="#333"/>
+
+  <!-- y 轴刻度 -->
+  <g font-size="9" fill="#555" text-anchor="end">
+    <text x="94" y="79">100</text>
+    <text x="94" y="115">80</text>
+    <text x="94" y="151">60</text>
+    <text x="94" y="187">40</text>
+    <text x="94" y="223">20</text>
+    <text x="94" y="259">0</text>
+  </g>
+
+  <!-- x 轴对数刻度 -->
+  <g font-size="9" fill="#555" text-anchor="middle">
+    <text x="160.8" y="270">10²</text>
+    <text x="417.6" y="270">10³</text>
+    <text x="674.4" y="270">10⁴</text>
+  </g>
+  <g stroke="#333" stroke-width="1">
+    <line x1="160.8" y1="255" x2="160.8" y2="260"/>
+    <line x1="417.6" y1="255" x2="417.6" y2="260"/>
+    <line x1="674.4" y1="255" x2="674.4" y2="260"/>
+  </g>
+
+  <!-- 轴标题 -->
+  <text x="407" y="315" font-size="10" fill="#555" text-anchor="middle">每迭代 macro-op 数（对数）→</text>
+  <text x="30" y="170" font-size="10" fill="#555" transform="rotate(-90 30,170)">Op Cache miss %</text>
+
+  <!-- 曲线 -->
+  <polyline points="100,254.5 252.2,254.03 483.1,253.67 637.6,103.44 715,76.44"
+            fill="none" stroke="#1565c0" stroke-width="2.5"/>
+
+  <!-- 数据点 -->
+  <circle cx="100" cy="254.5" r="5" fill="#2e7d32"/>
+  <circle cx="252.2" cy="254.03" r="5" fill="#2e7d32"/>
+  <circle cx="483.1" cy="253.67" r="5" fill="#2e7d32"/>
+  <circle cx="637.6" cy="103.44" r="5" fill="#c62828"/>
+  <circle cx="715" cy="76.44" r="5" fill="#c62828"/>
+
+  <!-- 数值标签 -->
+  <text x="100" y="244" font-size="10" fill="#2e7d32" font-weight="bold" text-anchor="middle">0.28%</text>
+  <text x="252" y="236" font-size="10" fill="#2e7d32" font-weight="bold" text-anchor="middle">0.54%</text>
+  <text x="483" y="244" font-size="10" fill="#2e7d32" font-weight="bold" text-anchor="middle">0.74%</text>
+  <text x="638" y="95" font-size="10" fill="#c62828" font-weight="bold" text-anchor="middle">84.2%</text>
+  <text x="710" y="68" font-size="10" fill="#c62828" font-weight="bold" text-anchor="end">99.2%</text>
+
+  <!-- 版本标签 -->
+  <text x="100" y="290" font-size="9" fill="#333" text-anchor="middle">v1 (58)</text>
+  <text x="252" y="290" font-size="9" fill="#333" text-anchor="middle">v2 (227)</text>
+  <text x="483" y="290" font-size="9" fill="#333" text-anchor="middle">v3 (1799)</text>
+  <text x="638" y="290" font-size="9" fill="#333" text-anchor="middle">v4 (7187)</text>
+  <text x="716" y="305" font-size="9" fill="#333" text-anchor="end">v5 (14385)</text>
+</svg>
