@@ -1,0 +1,76 @@
+<svg width="760" height="280" viewBox="0 0 760 280" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="264" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">预取：MAB 排队降 24%，miss 降 13%，cycles 反而升 17%</text>
+  <text x="30" y="48" font-size="9" fill="#666">柱高按相对 baseline 的线性比例绘制；虚线为 100% 基准</text>
+
+  <!-- 绘图区背景 -->
+  <rect x="80" y="58" width="640" height="167" fill="#f5f5f5"/>
+
+  <!-- 水平网格：0 / 20% / 40% / 60% / 80% / 100% / 120% -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="80" y1="200.8" x2="720" y2="200.8"/>
+    <line x1="80" y1="176.7" x2="720" y2="176.7"/>
+    <line x1="80" y1="152.5" x2="720" y2="152.5"/>
+    <line x1="80" y1="128.3" x2="720" y2="128.3"/>
+    <line x1="80" y1="104.2" x2="720" y2="104.2"/>
+    <line x1="80" y1="80.0" x2="720" y2="80.0"/>
+  </g>
+
+  <!-- 100% baseline -->
+  <line x1="80" y1="104.2" x2="720" y2="104.2" stroke="#999" stroke-dasharray="4,3"/>
+  <text x="714" y="100.2" font-size="9" fill="#999" text-anchor="end">100% 基准</text>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="225" x2="720" y2="225" stroke="#333"/>
+  <line x1="80" y1="225" x2="80" y2="58" stroke="#333"/>
+  <polygon points="720,225 714,222 714,228" fill="#333"/>
+  <polygon points="80,58 77,64 83,64" fill="#333"/>
+
+  <!-- y 轴刻度 -->
+  <g font-size="9" fill="#555" text-anchor="end">
+    <text x="74" y="228">0</text>
+    <text x="74" y="203.8">20%</text>
+    <text x="74" y="179.7">40%</text>
+    <text x="74" y="155.5">60%</text>
+    <text x="74" y="131.3">80%</text>
+    <text x="74" y="107.2">100%</text>
+    <text x="74" y="83.0">120%</text>
+  </g>
+
+  <!-- cycles：117% -->
+  <g>
+    <rect x="150" y="83.6" width="60" height="141.4" fill="#c62828"/>
+    <text x="180" y="77.6" font-size="11" fill="#c62828" font-weight="bold" text-anchor="middle">117%</text>
+    <text x="180" y="245" font-size="10" fill="#333" font-weight="bold" text-anchor="middle">cycles</text>
+    <text x="180" y="260" font-size="9" fill="#c62828" text-anchor="middle">+17%</text>
+  </g>
+
+  <!-- cache-refs：111% -->
+  <g>
+    <rect x="300" y="90.9" width="60" height="134.1" fill="#ef6c00"/>
+    <text x="330" y="84.9" font-size="11" fill="#ef6c00" font-weight="bold" text-anchor="middle">111%</text>
+    <text x="330" y="245" font-size="10" fill="#333" font-weight="bold" text-anchor="middle">cache-refs</text>
+    <text x="330" y="260" font-size="9" fill="#ef6c00" text-anchor="middle">+11%</text>
+  </g>
+
+  <!-- cache-misses：87% -->
+  <g>
+    <rect x="450" y="119.9" width="60" height="105.1" fill="#2e7d32"/>
+    <text x="480" y="113.9" font-size="11" fill="#2e7d32" font-weight="bold" text-anchor="middle">87%</text>
+    <text x="480" y="245" font-size="10" fill="#333" font-weight="bold" text-anchor="middle">cache-misses</text>
+    <text x="480" y="260" font-size="9" fill="#2e7d32" text-anchor="middle">−13%</text>
+  </g>
+
+  <!-- ls_mab_alloc：76% -->
+  <g>
+    <rect x="600" y="133.2" width="60" height="91.8" fill="#2e7d32"/>
+    <text x="630" y="127.2" font-size="11" fill="#2e7d32" font-weight="bold" text-anchor="middle">76%</text>
+    <text x="630" y="245" font-size="10" fill="#333" font-weight="bold" text-anchor="middle">ls_mab_alloc</text>
+    <text x="630" y="260" font-size="9" fill="#2e7d32" text-anchor="middle">−24%</text>
+  </g>
+
+  <!-- 轴标题 -->
+  <text x="400" y="262" font-size="10" fill="#555" text-anchor="middle">指标 →</text>
+  <text x="22" y="140" font-size="10" fill="#555" transform="rotate(-90 22,140)">相对 baseline</text>
+</svg>
