@@ -1,0 +1,63 @@
+<svg width="760" height="310" viewBox="0 0 760 310" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="294" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="34" font-size="13" font-weight="bold" fill="#333">两个比值把 CPI 拆成四个方向</text>
+
+  <!-- 图例 -->
+  <g transform="translate(500,45)">
+    <rect x="0" y="0" width="12" height="12" fill="#1565c0"/>
+    <text x="18" y="11" font-size="10" fill="#333">cache-miss %</text>
+    <rect x="120" y="0" width="12" height="12" fill="#c62828"/>
+    <text x="138" y="11" font-size="10" fill="#333">brn-misp %</text>
+  </g>
+
+  <!-- 绘图区背景 -->
+  <rect x="70" y="55" width="650" height="195" fill="#f5f5f5"/>
+
+  <!-- 50% 参考线 -->
+  <line x1="70" y1="150" x2="720" y2="150" stroke="#999" stroke-dasharray="3,3"/>
+  <text x="690" y="146" font-size="9" fill="#999">50%</text>
+
+  <!-- 坐标轴 -->
+  <line x1="70" y1="250" x2="720" y2="250" stroke="#333"/>
+  <line x1="70" y1="250" x2="70" y2="55" stroke="#333"/>
+
+  <text x="380" y="285" font-size="10" fill="#555" text-anchor="middle">版本 →</text>
+  <text x="22" y="155" font-size="10" fill="#555" transform="rotate(-90 22,155)">比值</text>
+
+  <!-- v1：11% / 0.6% -->
+  <g transform="translate(120,0)">
+    <rect x="0" y="228" width="30" height="22" fill="#1565c0"/>
+    <rect x="40" y="248.8" width="30" height="1.2" fill="#c62828"/>
+    <text x="2" y="223" font-size="9" fill="#1565c0" font-weight="bold">11%</text>
+    <text x="42" y="243.8" font-size="9" fill="#c62828" font-weight="bold">0.6%</text>
+    <text x="18" y="268" font-size="10" fill="#333" font-weight="bold">v1</text>
+  </g>
+
+  <!-- v2：48% / 3.1% -->
+  <g transform="translate(270,0)">
+    <rect x="0" y="154" width="30" height="96" fill="#1565c0"/>
+    <rect x="40" y="243.8" width="30" height="6.2" fill="#c62828"/>
+    <text x="2" y="149" font-size="9" fill="#1565c0" font-weight="bold">48%</text>
+    <text x="42" y="238.8" font-size="9" fill="#c62828" font-weight="bold">3.1%</text>
+    <text x="18" y="268" font-size="10" fill="#333" font-weight="bold">v2</text>
+  </g>
+
+  <!-- v3：6.3% / 2.2% -->
+  <g transform="translate(420,0)">
+    <rect x="0" y="237.4" width="30" height="12.6" fill="#1565c0"/>
+    <rect x="40" y="245.6" width="30" height="4.4" fill="#c62828"/>
+    <text x="2" y="232.4" font-size="9" fill="#1565c0" font-weight="bold">6.3%</text>
+    <text x="42" y="240.6" font-size="9" fill="#c62828" font-weight="bold">2.2%</text>
+    <text x="18" y="268" font-size="10" fill="#333" font-weight="bold">v3</text>
+  </g>
+
+  <!-- v4：4.1% / 2.5% -->
+  <g transform="translate(570,0)">
+    <rect x="0" y="241.8" width="30" height="8.2" fill="#1565c0"/>
+    <rect x="40" y="245" width="30" height="5" fill="#c62828"/>
+    <text x="2" y="236.8" font-size="9" fill="#1565c0" font-weight="bold">4.1%</text>
+    <text x="42" y="240" font-size="9" fill="#c62828" font-weight="bold">2.5%</text>
+    <text x="18" y="268" font-size="10" fill="#333" font-weight="bold">v4</text>
+  </g>
+</svg>
