@@ -1,0 +1,120 @@
+<svg width="760" height="330" viewBox="0 0 760 330" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="314" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">逐 1 MB 扫描：L3 有效边界不是 32 MB，而是 22–33 MB 的过渡带</text>
+  <text x="30" y="48" font-size="9" fill="#666">实测数据：16–40 MB，步长 1 MB；纵轴为每次访问延迟 ns</text>
+
+  <!-- 绘图区背景 -->
+  <rect x="80" y="55" width="640" height="210" fill="#f5f5f5"/>
+
+  <!-- 三分区底色 -->
+  <rect x="80" y="55" width="160" height="210" fill="#c8e6c9" opacity="0.35"/>
+  <rect x="240" y="55" width="293.3" height="210" fill="#fff3e0" opacity="0.65"/>
+  <rect x="533.3" y="55" width="186.7" height="210" fill="#ffcdd2" opacity="0.45"/>
+
+  <!-- 分区标签 -->
+  <text x="110" y="76" font-size="11" fill="#2e7d32" font-weight="bold">L3 驻留</text>
+  <text x="110" y="92" font-size="9" fill="#2e7d32">14–16 ns</text>
+  <text x="300" y="76" font-size="11" fill="#ef6c00" font-weight="bold">过渡带</text>
+  <text x="300" y="92" font-size="9" fill="#ef6c00">18–27 ns</text>
+  <text x="580" y="76" font-size="11" fill="#c62828" font-weight="bold">DRAM（经 IF）</text>
+  <text x="580" y="92" font-size="9" fill="#c62828">34–41 ns</text>
+
+  <!-- 边界线 -->
+  <line x1="240" y1="55" x2="240" y2="265" stroke="#ef6c00" stroke-dasharray="4,3"/>
+  <text x="240" y="112" font-size="9" fill="#ef6c00" text-anchor="middle">22 MB</text>
+  <line x1="533.3" y1="55" x2="533.3" y2="265" stroke="#c62828" stroke-dasharray="4,3"/>
+  <text x="533.3" y="112" font-size="9" fill="#c62828" text-anchor="middle">33 MB</text>
+
+  <!-- 水平网格：0 / 10 / 20 / 30 / 40 / 50 ns -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="80" y1="223" x2="720" y2="223"/>
+    <line x1="80" y1="181" x2="720" y2="181"/>
+    <line x1="80" y1="139" x2="720" y2="139"/>
+    <line x1="80" y1="97" x2="720" y2="97"/>
+  </g>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="265" x2="720" y2="265" stroke="#333"/>
+  <line x1="80" y1="265" x2="80" y2="55" stroke="#333"/>
+  <polygon points="720,265 714,262 714,268" fill="#333"/>
+  <polygon points="80,55 77,61 83,61" fill="#333"/>
+
+  <!-- y 轴刻度 -->
+  <g font-size="9" fill="#555" text-anchor="end">
+    <text x="74" y="268">0</text>
+    <text x="74" y="226">10</text>
+    <text x="74" y="184">20</text>
+    <text x="74" y="142">30</text>
+    <text x="74" y="100">40</text>
+    <text x="74" y="58">50</text>
+  </g>
+
+  <!-- x 轴刻度 -->
+  <g font-size="9" fill="#555" text-anchor="middle">
+    <text x="80" y="282">16</text>
+    <text x="186.7" y="282">20</text>
+    <text x="293.3" y="282">24</text>
+    <text x="400" y="282">28</text>
+    <text x="506.7" y="282">32</text>
+    <text x="613.3" y="282">36</text>
+    <text x="720" y="282">40</text>
+  </g>
+  <g stroke="#333" stroke-width="1">
+    <line x1="80" y1="265" x2="80" y2="270"/>
+    <line x1="186.7" y1="265" x2="186.7" y2="270"/>
+    <line x1="293.3" y1="265" x2="293.3" y2="270"/>
+    <line x1="400" y1="265" x2="400" y2="270"/>
+    <line x1="506.7" y1="265" x2="506.7" y2="270"/>
+    <line x1="613.3" y1="265" x2="613.3" y2="270"/>
+    <line x1="720" y1="265" x2="720" y2="270"/>
+  </g>
+
+  <!-- 实测折线：16–40 MB -->
+  <polyline points="
+    80,204.86 106.7,205.40 133.3,204.56 160,202.88 186.7,200.74
+    213.3,199.69 240,197.93 266.7,188.73 293.3,183.10 320,186.04
+    346.7,164.87 373.3,175.29 400,174.53 426.7,170.16 453.3,166.13
+    480,151.39 506.7,154.88 533.3,120.65 560,112.88 586.7,108.42
+    613.3,123.84 640,104.18 666.7,108.51 693.3,108.55 720,93.47"
+    fill="none" stroke="#1565c0" stroke-width="2.5"/>
+
+  <!-- 数据点 -->
+  <g fill="#1565c0">
+    <circle cx="80" cy="204.86" r="2.5"/>
+    <circle cx="106.7" cy="205.40" r="2.5"/>
+    <circle cx="133.3" cy="204.56" r="2.5"/>
+    <circle cx="160" cy="202.88" r="2.5"/>
+    <circle cx="186.7" cy="200.74" r="2.5"/>
+    <circle cx="213.3" cy="199.69" r="2.5"/>
+    <circle cx="240" cy="197.93" r="4" fill="#ef6c00"/>
+    <circle cx="266.7" cy="188.73" r="2.5"/>
+    <circle cx="293.3" cy="183.10" r="2.5"/>
+    <circle cx="320" cy="186.04" r="2.5"/>
+    <circle cx="346.7" cy="164.87" r="2.5"/>
+    <circle cx="373.3" cy="175.29" r="2.5"/>
+    <circle cx="400" cy="174.53" r="2.5"/>
+    <circle cx="426.7" cy="170.16" r="2.5"/>
+    <circle cx="453.3" cy="166.13" r="2.5"/>
+    <circle cx="480" cy="151.39" r="2.5"/>
+    <circle cx="506.7" cy="154.88" r="2.5"/>
+    <circle cx="533.3" cy="120.65" r="4" fill="#c62828"/>
+    <circle cx="560" cy="112.88" r="2.5"/>
+    <circle cx="586.7" cy="108.42" r="2.5"/>
+    <circle cx="613.3" cy="123.84" r="2.5"/>
+    <circle cx="640" cy="104.18" r="2.5"/>
+    <circle cx="666.7" cy="108.51" r="2.5"/>
+    <circle cx="693.3" cy="108.55" r="2.5"/>
+    <circle cx="720" cy="93.47" r="4" fill="#c62828"/>
+  </g>
+
+  <!-- 关键数值标注 -->
+  <text x="80" y="199" font-size="9" fill="#2e7d32" font-weight="bold" text-anchor="middle">14.32</text>
+  <text x="240" y="192" font-size="9" fill="#ef6c00" font-weight="bold" text-anchor="middle">15.97</text>
+  <text x="533.3" y="115" font-size="9" fill="#c62828" font-weight="bold" text-anchor="middle">34.37</text>
+  <text x="720" y="88" font-size="9" fill="#c62828" font-weight="bold" text-anchor="end">40.84</text>
+
+  <!-- 轴标题 -->
+  <text x="400" y="306" font-size="10" fill="#555" text-anchor="middle">工作集（MB）→</text>
+  <text x="20" y="165" font-size="10" fill="#555" transform="rotate(-90 20,165)">ns / access</text>
+</svg>
