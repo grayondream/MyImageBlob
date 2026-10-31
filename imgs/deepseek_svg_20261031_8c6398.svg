@@ -1,0 +1,110 @@
+<svg width="760" height="360" viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="344" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">5600X：6 个物理核与 12 个逻辑线程的 SMT 映射</text>
+  <text x="30" y="50" font-size="10" fill="#666">物理核 0–5 的主线程为 cpu0–5；SMT 兄弟为 cpu6–11；映射为 cpu0↔cpu6、cpu1↔cpu7 … cpu5↔cpu11。</text>
+
+  <!-- 物理核 0 -->
+  <g>
+    <rect x="30" y="70" width="112" height="205" fill="#fff" stroke="#333"/>
+    <text x="86" y="90" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">物理核 0</text>
+    <rect x="40" y="105" width="92" height="36" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="86" y="128" font-size="10" fill="#1565c0" text-anchor="middle">cpu0（主）</text>
+    <rect x="40" y="155" width="92" height="28" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="86" y="173" font-size="9" fill="#2e7d32" text-anchor="middle">共享执行单元</text>
+    <rect x="40" y="195" width="92" height="36" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="86" y="218" font-size="10" fill="#ef6c00" text-anchor="middle">cpu6（SMT）</text>
+    <line x1="86" y1="141" x2="86" y2="155" stroke="#666" stroke-width="1.5"/>
+    <line x1="86" y1="183" x2="86" y2="195" stroke="#666" stroke-width="1.5"/>
+    <text x="86" y="250" font-size="9" fill="#333" text-anchor="middle">cpu0 ↔ cpu6</text>
+  </g>
+
+  <!-- 物理核 1 -->
+  <g>
+    <rect x="150" y="70" width="112" height="205" fill="#fff" stroke="#333"/>
+    <text x="206" y="90" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">物理核 1</text>
+    <rect x="160" y="105" width="92" height="36" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="206" y="128" font-size="10" fill="#1565c0" text-anchor="middle">cpu1（主）</text>
+    <rect x="160" y="155" width="92" height="28" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="206" y="173" font-size="9" fill="#2e7d32" text-anchor="middle">共享执行单元</text>
+    <rect x="160" y="195" width="92" height="36" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="206" y="218" font-size="10" fill="#ef6c00" text-anchor="middle">cpu7（SMT）</text>
+    <line x1="206" y1="141" x2="206" y2="155" stroke="#666" stroke-width="1.5"/>
+    <line x1="206" y1="183" x2="206" y2="195" stroke="#666" stroke-width="1.5"/>
+    <text x="206" y="250" font-size="9" fill="#333" text-anchor="middle">cpu1 ↔ cpu7</text>
+  </g>
+
+  <!-- 物理核 2 -->
+  <g>
+    <rect x="270" y="70" width="112" height="205" fill="#fff" stroke="#333"/>
+    <text x="326" y="90" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">物理核 2</text>
+    <rect x="280" y="105" width="92" height="36" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="326" y="128" font-size="10" fill="#1565c0" text-anchor="middle">cpu2（主）</text>
+    <rect x="280" y="155" width="92" height="28" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="326" y="173" font-size="9" fill="#2e7d32" text-anchor="middle">共享执行单元</text>
+    <rect x="280" y="195" width="92" height="36" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="326" y="218" font-size="10" fill="#ef6c00" text-anchor="middle">cpu8（SMT）</text>
+    <line x1="326" y1="141" x2="326" y2="155" stroke="#666" stroke-width="1.5"/>
+    <line x1="326" y1="183" x2="326" y2="195" stroke="#666" stroke-width="1.5"/>
+    <text x="326" y="250" font-size="9" fill="#333" text-anchor="middle">cpu2 ↔ cpu8</text>
+  </g>
+
+  <!-- 物理核 3 -->
+  <g>
+    <rect x="390" y="70" width="112" height="205" fill="#fff" stroke="#333"/>
+    <text x="446" y="90" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">物理核 3</text>
+    <rect x="400" y="105" width="92" height="36" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="446" y="128" font-size="10" fill="#1565c0" text-anchor="middle">cpu3（主）</text>
+    <rect x="400" y="155" width="92" height="28" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="446" y="173" font-size="9" fill="#2e7d32" text-anchor="middle">共享执行单元</text>
+    <rect x="400" y="195" width="92" height="36" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="446" y="218" font-size="10" fill="#ef6c00" text-anchor="middle">cpu9（SMT）</text>
+    <line x1="446" y1="141" x2="446" y2="155" stroke="#666" stroke-width="1.5"/>
+    <line x1="446" y1="183" x2="446" y2="195" stroke="#666" stroke-width="1.5"/>
+    <text x="446" y="250" font-size="9" fill="#333" text-anchor="middle">cpu3 ↔ cpu9</text>
+  </g>
+
+  <!-- 物理核 4 -->
+  <g>
+    <rect x="510" y="70" width="112" height="205" fill="#fff" stroke="#333"/>
+    <text x="566" y="90" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">物理核 4</text>
+    <rect x="520" y="105" width="92" height="36" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="566" y="128" font-size="10" fill="#1565c0" text-anchor="middle">cpu4（主）</text>
+    <rect x="520" y="155" width="92" height="28" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="566" y="173" font-size="9" fill="#2e7d32" text-anchor="middle">共享执行单元</text>
+    <rect x="520" y="195" width="92" height="36" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="566" y="218" font-size="10" fill="#ef6c00" text-anchor="middle">cpu10（SMT）</text>
+    <line x1="566" y1="141" x2="566" y2="155" stroke="#666" stroke-width="1.5"/>
+    <line x1="566" y1="183" x2="566" y2="195" stroke="#666" stroke-width="1.5"/>
+    <text x="566" y="250" font-size="9" fill="#333" text-anchor="middle">cpu4 ↔ cpu10</text>
+  </g>
+
+  <!-- 物理核 5 -->
+  <g>
+    <rect x="630" y="70" width="112" height="205" fill="#fff" stroke="#333"/>
+    <text x="686" y="90" font-size="11" font-weight="bold" fill="#333" text-anchor="middle">物理核 5</text>
+    <rect x="640" y="105" width="92" height="36" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="686" y="128" font-size="10" fill="#1565c0" text-anchor="middle">cpu5（主）</text>
+    <rect x="640" y="155" width="92" height="28" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="686" y="173" font-size="9" fill="#2e7d32" text-anchor="middle">共享执行单元</text>
+    <rect x="640" y="195" width="92" height="36" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="686" y="218" font-size="10" fill="#ef6c00" text-anchor="middle">cpu11（SMT）</text>
+    <line x1="686" y1="141" x2="686" y2="155" stroke="#666" stroke-width="1.5"/>
+    <line x1="686" y1="183" x2="686" y2="195" stroke="#666" stroke-width="1.5"/>
+    <text x="686" y="250" font-size="9" fill="#333" text-anchor="middle">cpu5 ↔ cpu11</text>
+  </g>
+
+  <!-- 图例 -->
+  <g font-size="10" fill="#333">
+    <rect x="30" y="300" width="12" height="12" fill="#e3f2fd" stroke="#1565c0"/>
+    <text x="48" y="310">主线程 cpu0–5</text>
+
+    <rect x="180" y="300" width="12" height="12" fill="#fff3e0" stroke="#ef6c00"/>
+    <text x="198" y="310">SMT 兄弟 cpu6–11</text>
+
+    <rect x="350" y="300" width="12" height="12" fill="#e8f5e9" stroke="#2e7d32"/>
+    <text x="368" y="310">同一物理核的共享执行资源</text>
+  </g>
+
+  <text x="30" y="338" font-size="9" fill="#666">OS 看到 12 个逻辑 CPU；每对 SMT 线程共享该物理核的前端与执行单元。cpu0–5 是主线程，cpu6–11 是对应 SMT 兄弟。</text>
+</svg>
