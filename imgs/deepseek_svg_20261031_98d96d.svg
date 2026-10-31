@@ -1,0 +1,102 @@
+<svg width="760" height="320" viewBox="0 0 760 320" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica,Arial,sans-serif">
+  <rect x="8" y="8" width="744" height="304" fill="#fafafa" stroke="#ccc"/>
+
+  <text x="30" y="32" font-size="13" font-weight="bold" fill="#333">5600X 单核 Roofline：实测拐点在 AI≈2–4，峰值 37.4 GFLOP/s</text>
+  <text x="30" y="48" font-size="9" fill="#666">数据点按表格实测；虚线为理想 Roofline（斜坡 18.45 GB/s，平台 37.4 GFLOP/s）</text>
+
+  <!-- 绘图区背景 -->
+  <rect x="80" y="55" width="640" height="205" fill="#f5f5f5"/>
+
+  <!-- y 轴水平网格：0 / 10 / 20 / 30 / 40 -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="80" y1="208.75" x2="720" y2="208.75"/>
+    <line x1="80" y1="157.5" x2="720" y2="157.5"/>
+    <line x1="80" y1="106.25" x2="720" y2="106.25"/>
+    <line x1="80" y1="55" x2="720" y2="55"/>
+  </g>
+
+  <!-- x 轴对数网格：0.25 / 0.5 / 1 / 2 / 4 / 8 / 16 / 32 -->
+  <g stroke="#ddd" stroke-width="1">
+    <line x1="171.4" y1="55" x2="171.4" y2="260"/>
+    <line x1="262.9" y1="55" x2="262.9" y2="260"/>
+    <line x1="354.3" y1="55" x2="354.3" y2="260"/>
+    <line x1="445.7" y1="55" x2="445.7" y2="260"/>
+    <line x1="537.1" y1="55" x2="537.1" y2="260"/>
+    <line x1="628.6" y1="55" x2="628.6" y2="260"/>
+  </g>
+
+  <!-- 理想 Roofline 参考线 -->
+  <line x1="80" y1="236.4" x2="446.2" y2="68.3" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="446.2" y1="68.3" x2="720" y2="68.3" stroke="#999" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- 拐点 -->
+  <line x1="446.2" y1="55" x2="446.2" y2="260" stroke="#c62828" stroke-dasharray="4,3"/>
+  <text x="446.2" y="76" font-size="9" fill="#c62828" font-weight="bold" text-anchor="middle">拐点 AI≈2.03</text>
+
+  <!-- 实测折线 -->
+  <polyline points="80,237.3 171.4,212.7 262.9,165.5 354.3,109.0 445.7,68.3 537.1,97.6 628.6,132.7 720,155.9"
+            fill="none" stroke="#1565c0" stroke-width="2.5"/>
+
+  <!-- 数据点 -->
+  <g>
+    <circle cx="80" cy="237.3" r="4.5" fill="#1565c0"/>
+    <circle cx="171.4" cy="212.7" r="4.5" fill="#1565c0"/>
+    <circle cx="262.9" cy="165.5" r="4.5" fill="#1565c0"/>
+    <circle cx="354.3" cy="109.0" r="4.5" fill="#ef6c00"/>
+    <circle cx="445.7" cy="68.3" r="6" fill="#2e7d32"/>
+    <circle cx="537.1" cy="97.6" r="4.5" fill="#ef6c00"/>
+    <circle cx="628.6" cy="132.7" r="4.5" fill="#ef6c00"/>
+    <circle cx="720" cy="155.9" r="4.5" fill="#ef6c00"/>
+  </g>
+
+  <!-- 数据点标签（K 与 GFLOP/s） -->
+  <text x="88" y="232" font-size="9" fill="#333">K=1 · 4.43</text>
+  <text x="179" y="207" font-size="9" fill="#333">K=2 · 9.23</text>
+  <text x="270" y="160" font-size="9" fill="#333">K=4 · 18.44</text>
+  <text x="362" y="103" font-size="9" fill="#333">K=8 · 29.47</text>
+  <text x="454" y="62" font-size="9" fill="#2e7d32" font-weight="bold">K=16 · 37.40 峰值</text>
+  <text x="545" y="91" font-size="9" fill="#333">K=32 · 31.69</text>
+  <text x="636" y="126" font-size="9" fill="#333">K=64 · 24.84</text>
+  <text x="720" y="149" font-size="9" fill="#333" text-anchor="end">K=128 · 20.32</text>
+
+  <!-- 区域标签 -->
+  <rect x="88" y="60" width="108" height="18" fill="#e3f2fd"/>
+  <text x="94" y="73" font-size="9" fill="#1565c0" font-weight="bold">内存受限斜坡（AI&lt;2）</text>
+
+  <rect x="500" y="60" width="210" height="18" fill="#fff3e0"/>
+  <text x="506" y="73" font-size="9" fill="#ef6c00" font-weight="bold">计算受限（AI&gt;2，随 K 下降）</text>
+
+  <!-- 坐标轴 -->
+  <line x1="80" y1="260" x2="720" y2="260" stroke="#333"/>
+  <line x1="80" y1="260" x2="80" y2="55" stroke="#333"/>
+  <polygon points="720,260 714,257 714,263" fill="#333"/>
+  <polygon points="80,55 77,61 83,61" fill="#333"/>
+
+  <!-- y 轴刻度 -->
+  <g font-size="9" fill="#555" text-anchor="end">
+    <text x="74" y="263">0</text>
+    <text x="74" y="211.75">10</text>
+    <text x="74" y="160.5">20</text>
+    <text x="74" y="109.25">30</text>
+    <text x="74" y="58">40</text>
+  </g>
+
+  <!-- x 轴刻度 -->
+  <g font-size="9" fill="#555" text-anchor="middle">
+    <text x="80" y="278">0.25</text>
+    <text x="171.4" y="278">0.5</text>
+    <text x="262.9" y="278">1</text>
+    <text x="354.3" y="278">2</text>
+    <text x="445.7" y="278">4</text>
+    <text x="537.1" y="278">8</text>
+    <text x="628.6" y="278">16</text>
+    <text x="720" y="278">32</text>
+  </g>
+
+  <!-- 轴标题 -->
+  <text x="400" y="300" font-size="10" fill="#555" text-anchor="middle">算术强度 AI（FLOP/Byte，对数）→</text>
+  <text x="20" y="160" font-size="10" fill="#555" transform="rotate(-90 20,160)">GFLOP/s</text>
+
+  <!-- 底部说明 -->
+  <text x="30" y="318" font-size="9" fill="#666">实测：K=1–4 位于斜坡（BW≈18.4 GB/s）；K=8 接近拐点；K=16 达峰值 37.40；K≥32 进入计算受限但效率随 K 下降。</text>
+</svg>
