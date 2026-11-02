@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 270" width="760" height="270"
+     font-family="'Noto Sans CJK SC','PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f5f7fb"/>
+    </linearGradient>
+    <linearGradient id="blueBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <linearGradient id="redBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dc2626"/>
+      <stop offset="1" stop-color="#f87171"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="270" rx="16" fill="url(#bg)" stroke="#e2e8f0"/>
+  <text x="380" y="30" text-anchor="middle" font-size="15" font-weight="bold" fill="#0f172a">
+    图 1  PMU 的两种使用模式
+  </text>
+
+  <g filter="url(#shadow)">
+    <rect x="24" y="50" width="344" height="198" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+    <rect x="392" y="50" width="344" height="198" rx="14" fill="#ffffff" stroke="#e2e8f0"/>
+  </g>
+
+  <line x1="380" y1="66" x2="380" y2="232" stroke="#e2e8f0" stroke-dasharray="4 4"/>
+
+  <circle cx="48" cy="74" r="4" fill="#2563eb"/>
+  <text x="58" y="79" font-size="13" font-weight="bold" fill="#1e40af">
+    计数模式（counting）→ perf stat
+  </text>
+
+  <circle cx="416" cy="74" r="4" fill="#dc2626"/>
+  <text x="426" y="79" font-size="13" font-weight="bold" fill="#b91c1c">
+    采样模式（sampling）→ perf record
+  </text>
+
+  <!-- 左侧：计数模式柱状图 -->
+  <g>
+    <rect x="56" y="106" width="240" height="12" rx="6" fill="#eef2f7"/>
+    <rect x="56" y="124" width="240" height="12" rx="6" fill="#eef2f7"/>
+    <rect x="56" y="142" width="240" height="12" rx="6" fill="#eef2f7"/>
+    <rect x="56" y="160" width="240" height="12" rx="6" fill="#eef2f7"/>
+
+    <rect x="56" y="106" width="40" height="12" rx="6" fill="url(#blueBar)" opacity="0.65"/>
+    <rect x="56" y="124" width="90" height="12" rx="6" fill="url(#blueBar)" opacity="0.78"/>
+    <rect x="56" y="142" width="150" height="12" rx="6" fill="url(#blueBar)" opacity="0.9"/>
+    <rect x="56" y="160" width="215" height="12" rx="6" fill="url(#blueBar)"/>
+  </g>
+
+  <text x="56" y="204" font-size="12" fill="#475569">计数器持续累加，结束时读出总量</text>
+  <text x="56" y="224" font-size="12" fill="#94a3b8">回答：发生了多少次</text>
+
+  <!-- 右侧：采样模式时间线 -->
+  <text x="424" y="100" font-size="11" fill="#dc2626">计数器溢出 → PMI 中断</text>
+  <line x1="424" y1="122" x2="704" y2="122" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <g fill="#ef4444">
+    <circle cx="444" cy="122" r="4"/>
+    <circle cx="504" cy="122" r="4"/>
+    <circle cx="564" cy="122" r="4"/>
+    <circle cx="624" cy="122" r="4"/>
+    <circle cx="684" cy="122" r="4"/>
+  </g>
+
+  <g stroke="#fca5a5" stroke-width="1.2">
+    <line x1="444" y1="122" x2="444" y2="148"/>
+    <line x1="504" y1="122" x2="504" y2="148"/>
+    <line x1="564" y1="122" x2="564" y2="148"/>
+    <line x1="624" y1="122" x2="624" y2="148"/>
+    <line x1="684" y1="122" x2="684" y2="148"/>
+  </g>
+
+  <g fill="#fff1f2" stroke="#fca5a5">
+    <rect x="422" y="148" width="44" height="28" rx="6"/>
+    <rect x="482" y="148" width="44" height="28" rx="6"/>
+    <rect x="542" y="148" width="44" height="28" rx="6"/>
+    <rect x="602" y="148" width="44" height="28" rx="6"/>
+    <rect x="662" y="148" width="44" height="28" rx="6"/>
+  </g>
+
+  <g font-size="10" fill="#b91c1c" text-anchor="middle">
+    <text x="444" y="166">IP+栈</text>
+    <text x="504" y="166">IP+栈</text>
+    <text x="564" y="166">IP+栈</text>
+    <text x="624" y="166">IP+栈</text>
+    <text x="684" y="166">IP+栈</text>
+  </g>
+
+  <text x="424" y="204" font-size="12" fill="#475569">每次溢出记录一个样本，形成时间分布画像</text>
+  <text x="424" y="224" font-size="12" fill="#94a3b8">回答：时间花在哪里</text>
+</svg>
