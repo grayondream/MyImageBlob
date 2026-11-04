@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" font-family="Inter, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <!-- 箭头定义 -->
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#C24B4B"/>
+    </marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,1 L9,5 L0,9 Z" fill="#2E6C9E"/>
+    </marker>
+
+    <!-- 斜线图案（表示消除） -->
+    <pattern id="hatchRed" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#C24B4B" stroke-width="2" opacity="0.4"/>
+    </pattern>
+
+    <!-- 轻微阴影 -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="960" height="540" fill="#F8FAFC"/>
+
+  <!-- ==================== 顶部：带宽对比堆叠图 ==================== -->
+  <text x="480" y="34" text-anchor="middle" font-size="13" font-weight="700" fill="#1E293B" letter-spacing="0.5">带宽写回对比</text>
+
+  <!-- 左侧：传统 TBDR（60 ~ 340） -->
+  <text x="200" y="64" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">传统 TBDR</text>
+  <rect x="60" y="76" width="280" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="60" y="76" width="186" height="24" rx="4" fill="#2E6C9E"/>
+  <rect x="246" y="76" width="94" height="24" rx="0" fill="#C24B4B" opacity="0.9"/>
+
+  <!-- 右侧：glInvalidateFramebuffer（620 ~ 900） -->
+  <text x="760" y="64" text-anchor="middle" font-size="11" font-weight="600" fill="#475569">glInvalidateFramebuffer</text>
+  <rect x="620" y="76" width="280" height="24" rx="4" fill="#E2E8F0"/>
+  <rect x="620" y="76" width="186" height="24" rx="4" fill="#2E6C9E"/>
+  <rect x="806" y="76" width="94" height="24" rx="0" fill="#C24B4B" opacity="0.15"/>
+  <rect x="806" y="76" width="94" height="24" rx="0" fill="url(#hatchRed)"/>
+
+  <!-- 图例 -->
+  <g transform="translate(60,118)">
+    <rect x="0" y="0" width="14" height="12" rx="2" fill="#2E6C9E"/>
+    <text x="20" y="10" font-size="10" fill="#475569">颜色写回</text>
+    <rect x="140" y="0" width="14" height="12" rx="2" fill="#C24B4B" opacity="0.9"/>
+    <text x="160" y="10" font-size="10" fill="#475569">深度/模板（瞬态）</text>
+    <rect x="340" y="0" width="14" height="12" rx="2" fill="url(#hatchRed)"/>
+    <text x="360" y="10" font-size="10" fill="#C24B4B" font-weight="600">已消除</text>
+  </g>
+
+  <!-- 带宽节省标注 -->
+  <line x1="853" y1="102" x2="853" y2="112" stroke="#C24B4B" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <text x="853" y="126" text-anchor="middle" font-size="11" font-weight="700" fill="#C24B4B">≈ 0</text>
+
+  <!-- 分隔线 -->
+  <line x1="40" y1="150" x2="920" y2="150" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="8,4"/>
+
+  <!-- ==================== 下方：流程线框对比 ==================== -->
+
+  <!-- 左侧流程：传统 TBDR（框 60 ~ 340） -->
+  <g transform="translate(40, 170)">
+    <text x="160" y="0" text-anchor="middle" font-size="11" font-weight="700" fill="#475569" letter-spacing="1">传统方案</text>
+
+    <rect x="20" y="20" width="280" height="120" rx="8" fill="#FFFFFF" stroke="#C9D4DE" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="160" y="46" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">Tile Buffer（片上）</text>
+
+    <rect x="48" y="62" width="64" height="30" rx="4" fill="#2E6C9E"/>
+    <text x="80" y="81" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">颜色</text>
+
+    <rect x="128" y="62" width="64" height="30" rx="4" fill="#C24B4B"/>
+    <text x="160" y="81" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">深度</text>
+
+    <rect x="208" y="62" width="64" height="30" rx="4" fill="#C24B4B"/>
+    <text x="240" y="81" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">模板</text>
+
+    <text x="160" y="118" text-anchor="middle" font-size="9" fill="#64748B">解析 / 写回</text>
+
+    <!-- 三路正常写回箭头（无叉号） -->
+    <line x1="80" y1="140" x2="80" y2="182" stroke="#2E6C9E" stroke-width="2.2" marker-end="url(#arrowBlue)"/>
+    <line x1="160" y1="140" x2="160" y2="182" stroke="#C24B4B" stroke-width="2.2" marker-end="url(#arrowRed)"/>
+    <line x1="240" y1="140" x2="240" y2="182" stroke="#C24B4B" stroke-width="2.2" marker-end="url(#arrowRed)"/>
+
+    <rect x="20" y="192" width="280" height="84" rx="8" fill="#FFFFFF" stroke="#C9D4DE" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="160" y="216" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">系统内存（DDR）</text>
+
+    <rect x="48" y="230" width="64" height="28" rx="4" fill="#2E6C9E" opacity="0.85"/>
+    <text x="80" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#FFFFFF">颜色</text>
+
+    <rect x="128" y="230" width="64" height="28" rx="4" fill="#C24B4B" opacity="0.6"/>
+    <text x="160" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#FFFFFF">深度</text>
+
+    <rect x="208" y="230" width="64" height="28" rx="4" fill="#C24B4B" opacity="0.6"/>
+    <text x="240" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#FFFFFF">模板</text>
+  </g>
+
+  <!-- 中间 VS 标记 -->
+  <g transform="translate(480, 270)">
+    <line x1="0" y1="-70" x2="0" y2="70" stroke="#CBD5E1" stroke-width="1.5"/>
+    <circle cx="0" cy="0" r="20" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1.5"/>
+    <text x="0" y="5" text-anchor="middle" font-size="11" font-weight="800" fill="#64748B">VS</text>
+  </g>
+
+  <!-- 右侧流程：glInvalidateFBO（框 620 ~ 900，组内 x 平移 600） -->
+  <g transform="translate(600, 170)">
+    <text x="160" y="0" text-anchor="middle" font-size="11" font-weight="700" fill="#2E6C9E" letter-spacing="1">无效化方案</text>
+
+    <rect x="20" y="20" width="280" height="120" rx="8" fill="#FFFFFF" stroke="#C9D4DE" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="160" y="46" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">Tile Buffer（片上）</text>
+
+    <rect x="48" y="62" width="64" height="30" rx="4" fill="#2E6C9E"/>
+    <text x="80" y="81" text-anchor="middle" font-size="10" font-weight="600" fill="#FFFFFF">颜色</text>
+
+    <rect x="128" y="62" width="64" height="30" rx="4" fill="#C24B4B" opacity="0.18" stroke="#C24B4B" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="160" y="81" text-anchor="middle" font-size="10" font-weight="600" fill="#C24B4B">深度</text>
+
+    <rect x="208" y="62" width="64" height="30" rx="4" fill="#C24B4B" opacity="0.18" stroke="#C24B4B" stroke-width="1.5" stroke-dasharray="4,2"/>
+    <text x="240" y="81" text-anchor="middle" font-size="10" font-weight="600" fill="#C24B4B">模板</text>
+
+    <text x="160" y="118" text-anchor="middle" font-size="9" fill="#64748B">解析 / 写回</text>
+
+    <line x1="80" y1="140" x2="80" y2="182" stroke="#2E6C9E" stroke-width="2.2" marker-end="url(#arrowBlue)"/>
+
+    <g transform="translate(160,160)">
+      <line x1="-10" y1="-10" x2="10" y2="10" stroke="#C24B4B" stroke-width="3.2" stroke-linecap="round"/>
+      <line x1="-10" y1="10" x2="10" y2="-10" stroke="#C24B4B" stroke-width="3.2" stroke-linecap="round"/>
+    </g>
+    <g transform="translate(240,160)">
+      <line x1="-10" y1="-10" x2="10" y2="10" stroke="#C24B4B" stroke-width="3.2" stroke-linecap="round"/>
+      <line x1="-10" y1="10" x2="10" y2="-10" stroke="#C24B4B" stroke-width="3.2" stroke-linecap="round"/>
+    </g>
+
+    <text x="160" y="182" text-anchor="middle" font-size="9" font-weight="600" fill="#C24B4B">跳过写回</text>
+
+    <rect x="20" y="192" width="280" height="84" rx="8" fill="#FFFFFF" stroke="#C9D4DE" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="160" y="216" text-anchor="middle" font-size="11" font-weight="600" fill="#1E293B">系统内存（DDR）</text>
+
+    <rect x="48" y="230" width="64" height="28" rx="4" fill="#2E6C9E" opacity="0.85"/>
+    <text x="80" y="248" text-anchor="middle" font-size="9" font-weight="600" fill="#FFFFFF">颜色</text>
+
+    <rect x="128" y="230" width="64" height="28" rx="4" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="208" y="230" width="64" height="28" rx="4" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="160" y="248" text-anchor="middle" font-size="10" font-weight="600" fill="#94A3B8">—</text>
+    <text x="240" y="248" text-anchor="middle" font-size="10" font-weight="600" fill="#94A3B8">—</text>
+  </g>
+
+  <!-- ==================== 底部：机制说明 ==================== -->
+  <g transform="translate(480, 490)">
+    <rect x="-300" y="-16" width="600" height="32" rx="6" fill="#F1F5F9" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="0" y="5" text-anchor="middle" font-size="11" fill="#475569">
+      <tspan font-weight="700" fill="#2E6C9E">glInvalidateFramebuffer</tspan>
+      <tspan fill="#64748B"> 将 </tspan>
+      <tspan font-weight="700" fill="#C24B4B">DEPTH / STENCIL</tspan>
+      <tspan fill="#64748B"> 标记为瞬态 → 省略 Tile Buffer 到 DDR 的写回</tspan>
+    </text>
+  </g>
+
+  <!-- 右下角图例补充 -->
+  <g transform="translate(760, 515)">
+    <line x1="0" y1="0" x2="20" y2="0" stroke="#C24B4B" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="26" y="4" font-size="9" fill="#C24B4B" font-weight="600">冗余写回</text>
+    <line x1="90" y1="0" x2="110" y2="0" stroke="#2E6C9E" stroke-width="2.2"/>
+    <text x="116" y="4" font-size="9" fill="#2E6C9E" font-weight="600">保留写回</text>
+  </g>
+</svg>
