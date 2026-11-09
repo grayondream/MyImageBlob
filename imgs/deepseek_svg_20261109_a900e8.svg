@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fda4af"/>
+      <stop offset="1" stop-color="#e11d48"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fde68a"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6ee7b7"/>
+      <stop offset="1" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#93c5fd"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="460" fill="#f8fafc"/>
+
+  <text x="460" y="40" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">
+    图 7 一次 400 µs 停顿的阶段分解
+  </text>
+  <text x="460" y="64" text-anchor="middle" font-size="12" fill="#64748b">
+    示意，时间为典型值量级；四个阶段耗时之和为 400 µs
+  </text>
+
+  <!-- 绘图背景卡片 -->
+  <rect x="60" y="90" width="800" height="270" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+
+  <!-- 垂直网格线 -->
+  <g stroke="#f1f5f9" stroke-width="1">
+    <line x1="150" y1="130" x2="150" y2="320"/>
+    <line x1="290" y1="130" x2="290" y2="320"/>
+    <line x1="430" y1="130" x2="430" y2="320"/>
+    <line x1="570" y1="130" x2="570" y2="320"/>
+    <line x1="710" y1="130" x2="710" y2="320"/>
+    <line x1="820" y1="130" x2="820" y2="320"/>
+  </g>
+
+  <!-- 分段条形 -->
+  <g filter="url(#shadow)">
+    <!-- ① 20 µs / 400 µs = 5% -->
+    <rect x="150" y="170" width="28" height="70" rx="6" fill="url(#g1)"/>
+    <!-- ② 137 µs / 400 µs = 34.25% -->
+    <rect x="178" y="170" width="192" height="70" rx="0" fill="url(#g2)"/>
+    <!-- ③ 200 µs / 400 µs = 50% -->
+    <rect x="370" y="170" width="280" height="70" rx="0" fill="url(#g3)"/>
+    <!-- ④ 43 µs / 400 µs = 10.75% -->
+    <rect x="650" y="170" width="60" height="70" rx="6" fill="url(#g4)"/>
+  </g>
+
+  <!-- 阶段内标签 -->
+  <text x="164" y="209" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">①</text>
+  <text x="274" y="209" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">②</text>
+  <text x="510" y="209" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">③</text>
+  <text x="680" y="209" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">④</text>
+
+  <!-- 阶段耗时标注（条形上方） -->
+  <text x="164" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#be123c">20 µs</text>
+  <text x="274" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">137 µs</text>
+  <text x="510" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">200 µs</text>
+  <text x="680" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#1d4ed8">43 µs</text>
+
+  <!-- 阶段描述（条形下方） -->
+  <text x="164" y="266" text-anchor="middle" font-size="11" fill="#475569">unmap</text>
+  <text x="164" y="282" text-anchor="middle" font-size="11" fill="#475569">+ 改 PMD</text>
+
+  <text x="274" y="266" text-anchor="middle" font-size="11" fill="#475569">342 次</text>
+  <text x="274" y="282" text-anchor="middle" font-size="11" fill="#475569">minor fault</text>
+
+  <text x="510" y="266" text-anchor="middle" font-size="11" fill="#475569">IPI 发送</text>
+  <text x="510" y="282" text-anchor="middle" font-size="11" fill="#475569">+ 等待 ack</text>
+
+  <text x="680" y="266" text-anchor="middle" font-size="11" fill="#475569">重映射</text>
+
+  <!-- X 轴 -->
+  <line x1="150" y1="300" x2="830" y2="300" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#axisArrow)"/>
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <line x1="150" y1="300" x2="150" y2="308"/>
+    <line x1="370" y1="300" x2="370" y2="308"/>
+    <line x1="650" y1="300" x2="650" y2="308"/>
+    <line x1="830" y1="300" x2="830" y2="308"/>
+  </g>
+  <g text-anchor="middle" font-size="11" fill="#64748b">
+    <text x="150" y="326">0 µs</text>
+    <text x="370" y="326">157 µs</text>
+    <text x="650" y="326">357 µs</text>
+    <text x="830" y="326">400 µs</text>
+  </g>
+
+  <!-- 阶段分界虚线 -->
+  <g stroke="#94a3b8" stroke-width="1" stroke-dasharray="4 4" opacity="0.7">
+    <line x1="178" y1="145" x2="178" y2="300"/>
+    <line x1="370" y1="145" x2="370" y2="300"/>
+    <line x1="650" y1="145" x2="650" y2="300"/>
+  </g>
+
+  <!-- 底部说明条 -->
+  <rect x="60" y="388" width="800" height="52" rx="26" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <g font-size="11" fill="#334155">
+    <circle cx="96" cy="414" r="4" fill="#e11d48"/>
+    <text x="108" y="418">① unmap + 修改 PMD</text>
+
+    <circle cx="290" cy="414" r="4" fill="#d97706"/>
+    <text x="302" y="418">② 342 次 minor fault</text>
+
+    <circle cx="474" cy="414" r="4" fill="#047857"/>
+    <text x="486" y="418">③ IPI 发送与等待 ack</text>
+
+    <circle cx="672" cy="414" r="4" fill="#1d4ed8"/>
+    <text x="684" y="418">④ 重映射</text>
+  </g>
+</svg>
