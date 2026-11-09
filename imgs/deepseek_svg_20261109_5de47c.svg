@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 600" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="7" flood-color="#0f172a" flood-opacity="0.09"/>
+    </filter>
+    <linearGradient id="areaRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ef4444" stop-opacity="0.10"/>
+      <stop offset="1" stop-color="#ef4444" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="areaGreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </linearGradient>
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="600" fill="#f8fafc"/>
+
+  <!-- 标题 -->
+  <text x="460" y="40" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">
+    图 12　TLB shootdown 延迟随目标核数增长
+  </text>
+  <text x="460" y="64" text-anchor="middle" font-size="11.5" fill="#64748b">
+    mprotect 权限切换　｜　4 KB 范围 vs 2 MB 范围　｜　p50 与 p99
+  </text>
+
+  <!-- 图例 -->
+  <g font-size="11">
+    <line x1="120" y1="98" x2="152" y2="98" stroke="#ef4444" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="160" y="102" fill="#334155" font-weight="600">4 KB 范围 p50</text>
+
+    <line x1="290" y1="98" x2="322" y2="98" stroke="#ef4444" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 4"/>
+    <text x="330" y="102" fill="#334155" font-weight="600">4 KB 范围 p99</text>
+
+    <line x1="490" y1="98" x2="522" y2="98" stroke="#10b981" stroke-width="2.6" stroke-linecap="round"/>
+    <text x="530" y="102" fill="#334155" font-weight="600">2 MB 范围 p50</text>
+
+    <line x1="660" y1="98" x2="692" y2="98" stroke="#10b981" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 4"/>
+    <text x="700" y="102" fill="#334155" font-weight="600">2 MB 范围 p99</text>
+  </g>
+
+  <!-- 绘图卡片 -->
+  <rect x="50" y="122" width="820" height="350" rx="16" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+
+  <!-- ===== 绘图区域 ===== -->
+  <g transform="translate(0 0)">
+    <!-- 水平网格 -->
+    <g stroke="#f1f5f9" stroke-width="1">
+      <line x1="130" y1="166" x2="840" y2="166"/>
+      <line x1="130" y1="226" x2="840" y2="226"/>
+      <line x1="130" y1="286" x2="840" y2="286"/>
+      <line x1="130" y1="346" x2="840" y2="346"/>
+      <line x1="130" y1="406" x2="840" y2="406"/>
+    </g>
+
+    <!-- Y 轴 -->
+    <line x1="130" y1="166" x2="130" y2="420" stroke="#cbd5e1" stroke-width="1.2"/>
+    <g text-anchor="end" font-size="11" fill="#64748b">
+      <text x="122" y="170">15</text>
+      <text x="122" y="230">10</text>
+      <text x="122" y="290">5</text>
+      <text x="122" y="350">0</text>
+    </g>
+    <text x="70" y="293" text-anchor="middle" font-size="11.5" fill="#64748b" transform="rotate(-90 70 293)">mprotect 延迟（µs）</text>
+
+    <!-- X 轴 -->
+    <line x1="130" y1="420" x2="850" y2="420" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#axisArrow)"/>
+    <g stroke="#94a3b8" stroke-width="1">
+      <line x1="130" y1="420" x2="130" y2="428"/>
+      <line x1="200" y1="420" x2="200" y2="428"/>
+      <line x1="270" y1="420" x2="270" y2="428"/>
+      <line x1="340" y1="420" x2="340" y2="428"/>
+      <line x1="410" y1="420" x2="410" y2="428"/>
+      <line x1="480" y1="420" x2="480" y2="428"/>
+      <line x1="550" y1="420" x2="550" y2="428"/>
+      <line x1="620" y1="420" x2="620" y2="428"/>
+      <line x1="690" y1="420" x2="690" y2="428"/>
+      <line x1="760" y1="420" x2="760" y2="428"/>
+      <line x1="830" y1="420" x2="830" y2="428"/>
+    </g>
+    <g text-anchor="middle" font-size="11" fill="#64748b">
+      <text x="130" y="446">0</text>
+      <text x="200" y="446">1</text>
+      <text x="270" y="446">2</text>
+      <text x="340" y="446">3</text>
+      <text x="410" y="446">4</text>
+      <text x="480" y="446">5</text>
+      <text x="550" y="446">6</text>
+      <text x="620" y="446">7</text>
+      <text x="690" y="446">8</text>
+      <text x="760" y="446">9</text>
+      <text x="830" y="446">10</text>
+    </g>
+    <text x="490" y="470" text-anchor="middle" font-size="11.5" fill="#64748b">参与共享地址空间的 worker 线程数</text>
+
+    <!-- SMT 分界 -->
+    <line x1="550" y1="166" x2="550" y2="420" stroke="#8b5cf6" stroke-width="1.6" stroke-dasharray="6 4"/>
+    <rect x="560" y="176" width="196" height="24" rx="12" fill="#f5f3ff" stroke="#c4b5fd"/>
+    <text x="658" y="192" text-anchor="middle" font-size="10.5" font-weight="700" fill="#6d28d9">6 个物理核后加入 SMT 兄弟</text>
+
+    <!-- ===== 数据曲线 =====
+         原始坐标映射：
+         x 原 88→846 (0→10)，y 原 92→366 (15→0)
+         新坐标：x = 130 + (原x - 88) / 758 * 700
+                 y = 166 + (原y - 92) / 274 * 260
+    -->
+
+    <!-- 4 KB p50 面积 -->
+    <path d="M130,385 L200,363 L270,358 L340,354 L410,350 L480,342 L550,328 L620,329 L690,326 L760,318 L830,318 L830,420 L130,420 Z"
+          fill="url(#areaRed)"/>
+
+    <!-- 2 KB p50 面积 -->
+    <path d="M130,387 L200,375 L270,371 L340,366 L410,365 L480,357 L550,349 L620,346 L690,340 L760,339 L830,338 L830,420 L130,420 Z"
+          fill="url(#areaGreen)"/>
+
+    <!-- 4 KB p50 -->
+    <polyline fill="none" stroke="#ef4444" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+              points="130,385 200,363 270,358 340,354 410,350 480,342 550,328 620,329 690,326 760,318 830,318"/>
+    <g fill="#ef4444" stroke="#ffffff" stroke-width="1.4">
+      <circle cx="130" cy="385" r="3.5"/>
+      <circle cx="200" cy="363" r="3.5"/>
+      <circle cx="270" cy="358" r="3.5"/>
+      <circle cx="340" cy="354" r="3.5"/>
+      <circle cx="410" cy="350" r="3.5"/>
+      <circle cx="480" cy="342" r="3.5"/>
+      <circle cx="550" cy="328" r="3.5"/>
+      <circle cx="620" cy="329" r="3.5"/>
+      <circle cx="690" cy="326" r="3.5"/>
+      <circle cx="760" cy="318" r="3.5"/>
+      <circle cx="830" cy="318" r="3.5"/>
+    </g>
+
+    <!-- 4 KB p99 -->
+    <polyline fill="none" stroke="#ef4444" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 4"
+              points="130,374 200,338 270,336 340,326 410,322 480,286 550,245 620,266 690,284 760,255 830,228"/>
+    <g fill="#ef4444" stroke="#ffffff" stroke-width="1.4">
+      <circle cx="130" cy="374" r="3"/>
+      <circle cx="200" cy="338" r="3"/>
+      <circle cx="270" cy="336" r="3"/>
+      <circle cx="340" cy="326" r="3"/>
+      <circle cx="410" cy="322" r="3"/>
+      <circle cx="480" cy="286" r="3"/>
+      <circle cx="550" cy="245" r="3"/>
+      <circle cx="620" cy="266" r="3"/>
+      <circle cx="690" cy="284" r="3"/>
+      <circle cx="760" cy="255" r="3"/>
+      <circle cx="830" cy="228" r="3"/>
+    </g>
+
+    <!-- 2 MB p50 -->
+    <polyline fill="none" stroke="#10b981" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+              points="130,387 200,375 270,371 340,366 410,365 480,357 550,349 620,346 690,340 760,339 830,338"/>
+    <g fill="#10b981" stroke="#ffffff" stroke-width="1.4">
+      <circle cx="130" cy="387" r="3.5"/>
+      <circle cx="200" cy="375" r="3.5"/>
+      <circle cx="270" cy="371" r="3.5"/>
+      <circle cx="340" cy="366" r="3.5"/>
+      <circle cx="410" cy="365" r="3.5"/>
+      <circle cx="480" cy="357" r="3.5"/>
+      <circle cx="550" cy="349" r="3.5"/>
+      <circle cx="620" cy="346" r="3.5"/>
+      <circle cx="690" cy="340" r="3.5"/>
+      <circle cx="760" cy="339" r="3.5"/>
+      <circle cx="830" cy="338" r="3.5"/>
+    </g>
+
+    <!-- 2 MB p99 -->
+    <polyline fill="none" stroke="#10b981" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 4"
+              points="130,376 200,360 270,361 340,352 410,338 480,344 550,318 620,302 690,329 760,289 830,290"/>
+    <g fill="#10b981" stroke="#ffffff" stroke-width="1.4">
+      <circle cx="130" cy="376" r="3"/>
+      <circle cx="200" cy="360" r="3"/>
+      <circle cx="270" cy="361" r="3"/>
+      <circle cx="340" cy="352" r="3"/>
+      <circle cx="410" cy="338" r="3"/>
+      <circle cx="480" cy="344" r="3"/>
+      <circle cx="550" cy="318" r="3"/>
+      <circle cx="620" cy="302" r="3"/>
+      <circle cx="690" cy="329" r="3"/>
+      <circle cx="760" cy="289" r="3"/>
+      <circle cx="830" cy="290" r="3"/>
+    </g>
+
+    <!-- 关键数据点标注 -->
+    <!-- 4 KB p99 在 10 核处 ~11.5 µs -->
+    <rect x="766" y="210" width="78" height="22" rx="11" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="805" y="225" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b91c1c">≈ 11.5 µs</text>
+
+    <!-- 2 MB p99 在 10 核处 ~8.3 µs -->
+    <rect x="766" y="275" width="78" height="22" rx="11" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="805" y="290" text-anchor="middle" font-size="10.5" font-weight="700" fill="#047857">≈ 8.3 µs</text>
+
+    <!-- 起点标注 -->
+    <rect x="82" y="394" width="46" height="22" rx="11" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="105" y="409" text-anchor="middle" font-size="10" font-weight="700" fill="#b91c1c">1.9 µs</text>
+
+    <rect x="82" y="372" width="46" height="22" rx="11" fill="#ecfdf5" stroke="#a7f3d0"/>
+    <text x="105" y="387" text-anchor="middle" font-size="10" font-weight="700" fill="#047857">1.4 µs</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <rect x="50" y="514" width="820" height="60" rx="14" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <circle cx="80" cy="536" r="4" fill="#8b5cf6"/>
+  <text x="94" y="540" font-size="11" fill="#334155">主线程固定在 CPU 11；worker 依次占用 0–5 号物理核，再占用 6–10 号 SMT 兄弟</text>
+  <circle cx="80" cy="558" r="4" fill="#ef4444"/>
+  <text x="94" y="562" font-size="11" fill="#334155">每点 2000 次权限切换；p99 尾部尖峰来自 IPI 等待与调度抖动</text>
+</svg>
