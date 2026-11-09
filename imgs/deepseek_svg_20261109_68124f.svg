@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="areaBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b82f6" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#3b82f6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gSpike" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#ef4444"/>
+      <stop offset="1" stop-color="#fca5a5"/>
+    </linearGradient>
+    <marker id="axisArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="500" fill="#f8fafc"/>
+
+  <text x="460" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">
+    均值 / P99 掩盖长尾，max 暴露尖峰
+  </text>
+  <text x="460" y="62" text-anchor="middle" font-size="12" fill="#64748b">
+    同一段负载：均值与 P99 平坦在 22 µs，但 max 捕获到一次 400 µs 停顿
+  </text>
+
+  <!-- ===== 左侧：均值 / P99 ===== -->
+  <g>
+    <rect x="40" y="90" width="400" height="300" rx="16" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+    <text x="240" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">均值 / P99：看不见长尾</text>
+
+    <!-- Y 轴 -->
+    <text x="58" y="180" text-anchor="end" font-size="10" fill="#94a3b8">50µs</text>
+    <text x="58" y="248" text-anchor="end" font-size="10" fill="#94a3b8">25</text>
+    <text x="58" y="316" text-anchor="end" font-size="10" fill="#94a3b8">0</text>
+
+    <!-- 网格线 -->
+    <g stroke="#f1f5f9" stroke-width="1">
+      <line x1="70" y1="174" x2="420" y2="174"/>
+      <line x1="70" y1="242" x2="420" y2="242"/>
+      <line x1="70" y1="310" x2="420" y2="310"/>
+    </g>
+
+    <!-- 面积 -->
+    <path d="M70 220 L140 220 L210 220 L280 220 L350 220 L420 220 L420 310 L70 310 Z" fill="url(#areaBlue)"/>
+
+    <!-- 平坦线 -->
+    <polyline fill="none" stroke="#3b82f6" stroke-width="2.6" stroke-linecap="round"
+              points="70,220 140,220 210,220 280,220 350,220 420,220"/>
+
+    <!-- 数据点 -->
+    <g fill="#3b82f6" stroke="#ffffff" stroke-width="1.5">
+      <circle cx="70" cy="220" r="4"/>
+      <circle cx="140" cy="220" r="4"/>
+      <circle cx="210" cy="220" r="4"/>
+      <circle cx="280" cy="220" r="4"/>
+      <circle cx="350" cy="220" r="4"/>
+      <circle cx="420" cy="220" r="4"/>
+    </g>
+
+    <!-- 标注 -->
+    <rect x="228" y="196" width="124" height="22" rx="11" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="290" y="211" text-anchor="middle" font-size="11" font-weight="700" fill="#1e40af">平坦在 22 µs</text>
+
+    <!-- X 轴 -->
+    <line x1="70" y1="310" x2="430" y2="310" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#axisArrow)"/>
+    <text x="250" y="338" text-anchor="middle" font-size="11" fill="#94a3b8">时间 →</text>
+
+    <!-- 说明 -->
+    <text x="240" y="370" text-anchor="middle" font-size="11" fill="#64748b">均值与 P99 对偶发尖峰不敏感</text>
+  </g>
+
+  <!-- ===== 右侧：max ===== -->
+  <g>
+    <rect x="480" y="90" width="400" height="300" rx="16" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+    <text x="680" y="120" text-anchor="middle" font-size="14" font-weight="700" fill="#b91c1c">max：捕获 400 µs 尖峰</text>
+
+    <!-- Y 轴 -->
+    <text x="498" y="180" text-anchor="end" font-size="10" fill="#94a3b8">500µs</text>
+    <text x="498" y="248" text-anchor="end" font-size="10" fill="#94a3b8">250</text>
+    <text x="498" y="316" text-anchor="end" font-size="10" fill="#94a3b8">0</text>
+
+    <!-- 网格线 -->
+    <g stroke="#f1f5f9" stroke-width="1">
+      <line x1="510" y1="174" x2="860" y2="174"/>
+      <line x1="510" y1="242" x2="860" y2="242"/>
+      <line x1="510" y1="310" x2="860" y2="310"/>
+    </g>
+
+    <!-- 基线 -->
+    <polyline fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"
+              points="510,304 570,304 630,304 690,304 750,304 860,304"/>
+
+    <!-- 尖峰 -->
+    <polygon points="690,304 706,142 722,304" fill="url(#gSpike)" opacity="0.9"/>
+    <polyline fill="none" stroke="#ef4444" stroke-width="2.2" stroke-linecap="round"
+              points="690,304 706,142 722,304"/>
+    <circle cx="706" cy="142" r="5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8"/>
+
+    <!-- 尖峰标注 -->
+    <rect x="648" y="108" width="116" height="24" rx="12" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="706" y="124" text-anchor="middle" font-size="12" font-weight="700" fill="#b91c1c">400 µs</text>
+
+    <!-- X 轴 -->
+    <line x1="510" y1="310" x2="870" y2="310" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#axisArrow)"/>
+    <text x="690" y="338" text-anchor="middle" font-size="11" fill="#94a3b8">时间 →</text>
+
+    <!-- 说明 -->
+    <text x="680" y="370" text-anchor="middle" font-size="11" fill="#64748b">max 暴露偶发但不可忽略的停顿</text>
+  </g>
+
+  <!-- 对比箭头 -->
+  <line x1="440" y1="240" x2="480" y2="240" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <circle cx="460" cy="240" r="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+  <text x="460" y="244" text-anchor="middle" font-size="9" font-weight="700" fill="#64748b">VS</text>
+
+  <!-- 底部结论 -->
+  <rect x="60" y="424" width="800" height="52" rx="26" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <circle cx="94" cy="450" r="4" fill="#3b82f6"/>
+  <text x="108" y="454" font-size="11" fill="#334155">均值 / P99 适合看常态，但会低估尾延迟</text>
+  <circle cx="478" cy="450" r="4" fill="#ef4444"/>
+  <text x="492" y="454" font-size="11" fill="#334155">max / P99.9 才能暴露偶发停顿，指导优化方向</text>
+</svg>
