@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b5cf6"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="540" fill="#f8fafc"/>
+
+  <text x="460" y="36" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">
+    虚拟地址 → TLB 条目 → 物理地址
+  </text>
+
+  <!-- 虚拟地址 -->
+  <text x="80" y="76" fill="#475569" font-size="12" font-weight="700">虚拟地址（48 bit）</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="88" width="130" height="52" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="145" y="119" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">PML4</text>
+
+    <rect x="210" y="88" width="130" height="52" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="275" y="119" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">PDPT</text>
+
+    <rect x="340" y="88" width="130" height="52" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="405" y="119" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">PD</text>
+
+    <rect x="470" y="88" width="130" height="52" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="535" y="119" text-anchor="middle" font-size="13" font-weight="600" fill="#1e40af">PT</text>
+
+    <rect x="600" y="88" width="180" height="52" rx="8" fill="#ffedd5" stroke="#f97316" stroke-width="1.2"/>
+    <text x="690" y="119" text-anchor="middle" font-size="13" font-weight="600" fill="#9a3412">Offset</text>
+  </g>
+
+  <text x="145" y="158" text-anchor="middle" font-size="11" fill="#64748b">9</text>
+  <text x="275" y="158" text-anchor="middle" font-size="11" fill="#64748b">9</text>
+  <text x="405" y="158" text-anchor="middle" font-size="11" fill="#64748b">9</text>
+  <text x="535" y="158" text-anchor="middle" font-size="11" fill="#64748b">9</text>
+  <text x="690" y="158" text-anchor="middle" font-size="11" fill="#64748b">12</text>
+
+  <!-- VPN 查 tag -->
+  <line x1="405" y1="140" x2="405" y2="198" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <text x="415" y="174" fill="#6d28d9" font-size="11" font-weight="700">VPN 查 tag</text>
+
+  <!-- TLB 条目 -->
+  <text x="80" y="190" fill="#475569" font-size="12" font-weight="700">TLB 条目</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="200" width="300" height="60" rx="10" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+    <text x="230" y="236" text-anchor="middle" font-size="13" font-weight="700" fill="#9a3412">VPN tag</text>
+
+    <rect x="380" y="200" width="220" height="60" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="490" y="236" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">PFN</text>
+
+    <rect x="600" y="200" width="140" height="60" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.2"/>
+    <text x="670" y="236" text-anchor="middle" font-size="12" fill="#475569">权限 / 脏位</text>
+  </g>
+
+  <!-- 拼接 offset -->
+  <line x1="490" y1="260" x2="490" y2="318" stroke="#10b981" stroke-width="2" marker-end="url(#arrowGreen)"/>
+  <text x="500" y="294" fill="#047857" font-size="11" font-weight="700">拼接 offset</text>
+
+  <!-- 物理地址 -->
+  <text x="80" y="326" fill="#475569" font-size="12" font-weight="700">物理地址</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="336" width="520" height="56" rx="10" fill="#d1fae5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="340" y="370" text-anchor="middle" font-size="13" font-weight="700" fill="#047857">PFN（40 bit）</text>
+
+    <rect x="600" y="336" width="180" height="56" rx="10" fill="#ffedd5" stroke="#f97316" stroke-width="1.5"/>
+    <text x="690" y="370" text-anchor="middle" font-size="13" font-weight="700" fill="#9a3412">Offset（12 bit）</text>
+  </g>
+
+  <!-- 底部说明 -->
+  <rect x="80" y="430" width="700" height="54" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <circle cx="106" cy="457" r="4" fill="#8b5cf6"/>
+  <text x="120" y="461" fill="#334155" font-size="11">虚拟地址高 36 位作为 VPN，用于查询 TLB tag</text>
+  <circle cx="430" cy="457" r="4" fill="#10b981"/>
+  <text x="444" y="461" fill="#334155" font-size="11">命中后得到 PFN，与页内 Offset 拼接为物理地址</text>
+</svg>
