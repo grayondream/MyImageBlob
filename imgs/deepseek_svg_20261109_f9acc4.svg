@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 520" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="gradRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fb7185"/>
+      <stop offset="1" stop-color="#e11d48"/>
+    </linearGradient>
+    <linearGradient id="gradGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="920" height="520" fill="#f8fafc"/>
+
+  <text x="460" y="38" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">
+    L2 TLB 覆盖面积（1536 条目，对数轴）
+  </text>
+  <text x="460" y="62" text-anchor="middle" font-size="12" fill="#64748b">
+    页大小从 4 KB 提升到 2 MB，TLB 可覆盖的地址空间跃升两个数量级
+  </text>
+
+  <!-- 网格线 -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="100" y1="120" x2="800" y2="120"/>
+    <line x1="100" y1="170" x2="800" y2="170"/>
+    <line x1="100" y1="220" x2="800" y2="220"/>
+    <line x1="100" y1="270" x2="800" y2="270"/>
+    <line x1="100" y1="320" x2="800" y2="320"/>
+  </g>
+
+  <!-- 4 KB 页条形 -->
+  <text x="100" y="182" font-size="12" font-weight="600" fill="#9f1239">4 KB 页：1536 × 4 KB = 6 MB</text>
+  <rect x="100" y="190" width="129" height="50" rx="8" fill="url(#gradRed)" filter="url(#shadow)"/>
+  <text x="215" y="222" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">6 MB</text>
+
+  <!-- 中缝对比提示 -->
+  <text x="100" y="266" font-size="11" fill="#94a3b8">相同条目数下，覆盖面积相差 512 倍</text>
+
+  <!-- 2 MB 页条形 -->
+  <text x="100" y="272" font-size="12" font-weight="600" fill="#065f46">2 MB 页：1536 × 2 MB = 3 GB</text>
+  <rect x="100" y="280" width="579" height="50" rx="8" fill="url(#gradGreen)" filter="url(#shadow)"/>
+  <text x="665" y="312" text-anchor="end" font-size="13" font-weight="700" fill="#ffffff">3 GB</text>
+
+  <!-- 工作集虚线 -->
+  <line x1="410.5" y1="150" x2="410.5" y2="380" stroke="#8b5cf6" stroke-width="1.8" stroke-dasharray="6 4"/>
+  <rect x="330" y="128" width="161" height="24" rx="12" fill="#f5f3ff" stroke="#c4b5fd"/>
+  <text x="410.5" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#6d28d9">示例工作集 74 MB</text>
+
+  <!-- X 轴 -->
+  <line x1="100" y1="380" x2="800" y2="380" stroke="#94a3b8" stroke-width="1.5"/>
+  <g stroke="#94a3b8" stroke-width="1.5">
+    <line x1="100" y1="380" x2="100" y2="388"/>
+    <line x1="200" y1="380" x2="200" y2="388"/>
+    <line x1="300" y1="380" x2="300" y2="388"/>
+    <line x1="400" y1="380" x2="400" y2="388"/>
+    <line x1="500" y1="380" x2="500" y2="388"/>
+    <line x1="600" y1="380" x2="600" y2="388"/>
+    <line x1="700" y1="380" x2="700" y2="388"/>
+    <line x1="800" y1="380" x2="800" y2="388"/>
+  </g>
+  <g text-anchor="middle" font-size="11" fill="#64748b">
+    <text x="100" y="406">1M</text>
+    <text x="200" y="406">4M</text>
+    <text x="300" y="406">16M</text>
+    <text x="400" y="406">64M</text>
+    <text x="500" y="406">256M</text>
+    <text x="600" y="406">1G</text>
+    <text x="700" y="406">4G</text>
+    <text x="800" y="406">16G</text>
+  </g>
+  <text x="450" y="428" text-anchor="middle" font-size="11" fill="#94a3b8">覆盖地址空间上限（每级 4 倍，log₄ 刻度）</text>
+
+  <!-- 底部说明 -->
+  <rect x="60" y="446" width="800" height="58" rx="12" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <circle cx="86" cy="466" r="4" fill="#e11d48"/>
+  <text x="100" y="470" font-size="11" fill="#334155">条形右端 = 该页大小下 1536 个条目可覆盖的地址上限</text>
+  <circle cx="86" cy="488" r="4" fill="#8b5cf6"/>
+  <text x="100" y="492" font-size="11" fill="#334155">工作集 74 MB 远小于 3 GB 覆盖范围，2 MB 页下 L2 TLB 可全部容纳</text>
+</svg>
