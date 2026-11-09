@@ -1,0 +1,216 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="12">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="areaRed" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ef4444" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ef4444" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="areaGreen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#10b981" stop-opacity="0.14"/>
+      <stop offset="1" stop-color="#10b981" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="920" height="540" fill="#f8fafc"/>
+
+  <!-- 标题 -->
+  <text x="460" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">
+    图 9　实测 TLB 台阶：4 KB 页 vs 2 MB THP
+  </text>
+  <text x="460" y="62" text-anchor="middle" font-size="11" fill="#64748b">
+    stride = 4 KB，单线程　｜　左：每次依赖解引用延迟　右：L2 TLB 未命中率
+  </text>
+
+  <!-- ==================== 左面板 ==================== -->
+  <rect x="40" y="88" width="420" height="336" rx="16" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <text x="250" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">每次依赖解引用延迟</text>
+
+  <!-- 网格 -->
+  <g stroke="#f1f5f9" stroke-width="1">
+    <line x1="100" y1="130" x2="430" y2="130"/>
+    <line x1="100" y1="197.5" x2="430" y2="197.5"/>
+    <line x1="100" y1="265" x2="430" y2="265"/>
+    <line x1="100" y1="332.5" x2="430" y2="332.5"/>
+    <line x1="100" y1="400" x2="430" y2="400"/>
+  </g>
+
+  <!-- Y 轴 -->
+  <g text-anchor="end" font-size="10" fill="#94a3b8">
+    <text x="92" y="134">120</text>
+    <text x="92" y="201.5">90</text>
+    <text x="92" y="269">60</text>
+    <text x="92" y="336.5">30</text>
+    <text x="92" y="404">0</text>
+  </g>
+  <text x="54" y="267" text-anchor="middle" font-size="11" fill="#94a3b8" transform="rotate(-90 54 267)">ns / deref</text>
+
+  <!-- X 轴 -->
+  <line x1="100" y1="400" x2="430" y2="400" stroke="#cbd5e1" stroke-width="1.2"/>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="100" y1="400" x2="100" y2="406"/>
+    <line x1="133" y1="400" x2="133" y2="406"/>
+    <line x1="166" y1="400" x2="166" y2="406"/>
+    <line x1="199" y1="400" x2="199" y2="406"/>
+    <line x1="232" y1="400" x2="232" y2="406"/>
+    <line x1="265" y1="400" x2="265" y2="406"/>
+    <line x1="298" y1="400" x2="298" y2="406"/>
+    <line x1="364" y1="400" x2="364" y2="406"/>
+    <line x1="430" y1="400" x2="430" y2="406"/>
+  </g>
+  <g text-anchor="middle" font-size="9.5" fill="#64748b">
+    <text x="100" y="420">256K</text>
+    <text x="133" y="420">512K</text>
+    <text x="166" y="420">1M</text>
+    <text x="199" y="420">2M</text>
+    <text x="232" y="420">4M</text>
+    <text x="265" y="420">8M</text>
+    <text x="298" y="420">16M</text>
+    <text x="364" y="420">64M</text>
+    <text x="430" y="420">256M</text>
+  </g>
+
+  <!-- 8 MB 参考线 -->
+  <line x1="265" y1="130" x2="265" y2="400" stroke="#8b5cf6" stroke-width="1.4" stroke-dasharray="5 4" opacity="0.8"/>
+  <text x="272" y="152" font-size="9.5" fill="#7c3aed">≈ 8 MB（2048 条目 × 4 KB）</text>
+
+  <!-- 面积 -->
+  <path d="M100,400 L100,391 L133,388.75 L166,388.75 L199,387.6 L232,379.75 L265,377.5 L298,366.25 L331,364 L364,358.4 L397,298.75 L430,148 L430,400 Z" fill="url(#areaRed)"/>
+  <path d="M199,400 L199,378.4 L232,378.6 L265,377.95 L298,378.2 L331,377.5 L364,377.05 L397,337 L430,188.5 L430,400 Z" fill="url(#areaGreen)"/>
+
+  <!-- 曲线 -->
+  <polyline fill="none" stroke="#ef4444" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+            points="100,391 133,388.75 166,388.75 199,387.6 232,379.75 265,377.5 298,366.25 331,364 364,358.4 397,298.75 430,148"/>
+  <polyline fill="none" stroke="#10b981" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+            points="199,378.4 232,378.6 265,377.95 298,378.2 331,377.5 364,377.05 397,337 430,188.5"/>
+
+  <!-- 数据点 -->
+  <g fill="#ef4444" stroke="#ffffff" stroke-width="1.4">
+    <circle cx="100" cy="391" r="3.2"/>
+    <circle cx="133" cy="388.75" r="3.2"/>
+    <circle cx="166" cy="388.75" r="3.2"/>
+    <circle cx="199" cy="387.6" r="3.2"/>
+    <circle cx="232" cy="379.75" r="3.2"/>
+    <circle cx="265" cy="377.5" r="3.2"/>
+    <circle cx="298" cy="366.25" r="3.2"/>
+    <circle cx="331" cy="364" r="3.2"/>
+    <circle cx="364" cy="358.4" r="3.2"/>
+    <circle cx="397" cy="298.75" r="3.2"/>
+    <circle cx="430" cy="148" r="3.5"/>
+  </g>
+  <g fill="#10b981" stroke="#ffffff" stroke-width="1.4">
+    <circle cx="199" cy="378.4" r="3.2"/>
+    <circle cx="232" cy="378.6" r="3.2"/>
+    <circle cx="265" cy="377.95" r="3.2"/>
+    <circle cx="298" cy="378.2" r="3.2"/>
+    <circle cx="331" cy="377.5" r="3.2"/>
+    <circle cx="364" cy="377.05" r="3.2"/>
+    <circle cx="397" cy="337" r="3.2"/>
+    <circle cx="430" cy="188.5" r="3.5"/>
+  </g>
+
+  <!-- 左注释 -->
+  <text x="108" y="176" font-size="9.5" fill="#dc2626">4 KB：10–64 MB 平台 12–19 ns</text>
+  <text x="108" y="194" font-size="9.5" fill="#047857">2 MB：同区间 9.6–10.4 ns</text>
+
+  <!-- ==================== 右面板 ==================== -->
+  <rect x="480" y="88" width="400" height="336" rx="16" fill="#ffffff" stroke="#e2e8f0" filter="url(#shadow)"/>
+  <text x="680" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">L2 TLB 未命中率（触发 page walk）</text>
+
+  <!-- 网格 -->
+  <g stroke="#f1f5f9" stroke-width="1">
+    <line x1="540" y1="130" x2="860" y2="130"/>
+    <line x1="540" y1="197.5" x2="860" y2="197.5"/>
+    <line x1="540" y1="265" x2="860" y2="265"/>
+    <line x1="540" y1="332.5" x2="860" y2="332.5"/>
+    <line x1="540" y1="400" x2="860" y2="400"/>
+  </g>
+
+  <!-- Y 轴 -->
+  <g text-anchor="end" font-size="10" fill="#94a3b8">
+    <text x="532" y="134">100%</text>
+    <text x="532" y="201.5">75%</text>
+    <text x="532" y="269">50%</text>
+    <text x="532" y="336.5">25%</text>
+    <text x="532" y="404">0%</text>
+  </g>
+  <text x="506" y="267" text-anchor="middle" font-size="11" fill="#94a3b8" transform="rotate(-90 506 267)">miss rate</text>
+
+  <!-- X 轴 -->
+  <line x1="540" y1="400" x2="860" y2="400" stroke="#cbd5e1" stroke-width="1.2"/>
+  <g stroke="#cbd5e1" stroke-width="1">
+    <line x1="540" y1="400" x2="540" y2="406"/>
+    <line x1="572" y1="400" x2="572" y2="406"/>
+    <line x1="604" y1="400" x2="604" y2="406"/>
+    <line x1="636" y1="400" x2="636" y2="406"/>
+    <line x1="668" y1="400" x2="668" y2="406"/>
+    <line x1="700" y1="400" x2="700" y2="406"/>
+    <line x1="732" y1="400" x2="732" y2="406"/>
+    <line x1="796" y1="400" x2="796" y2="406"/>
+    <line x1="860" y1="400" x2="860" y2="406"/>
+  </g>
+  <g text-anchor="middle" font-size="9.5" fill="#64748b">
+    <text x="540" y="420">256K</text>
+    <text x="572" y="420">512K</text>
+    <text x="604" y="420">1M</text>
+    <text x="636" y="420">2M</text>
+    <text x="668" y="420">4M</text>
+    <text x="700" y="420">8M</text>
+    <text x="732" y="420">16M</text>
+    <text x="796" y="420">64M</text>
+    <text x="860" y="420">256M</text>
+  </g>
+
+  <!-- 8 MB 参考线 -->
+  <line x1="700" y1="130" x2="700" y2="400" stroke="#8b5cf6" stroke-width="1.4" stroke-dasharray="5 4" opacity="0.8"/>
+
+  <!-- 4 KB 面积 -->
+  <path d="M540,400 L540,400 L572,400 L604,400 L636,400 L668,399.87 L700,392.2 L712.5,232.6 L722.4,133.2 L732,133.2 L796,132.7 L860,130 L860,400 Z" fill="url(#areaRed)"/>
+
+  <!-- 曲线 -->
+  <polyline fill="none" stroke="#ef4444" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+            points="540,400 572,400 604,400 636,400 668,399.87 700,392.2 712.5,232.6 722.4,133.2 732,133.2 796,132.7 860,130"/>
+  <polyline fill="none" stroke="#10b981" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"
+            points="636,399 668,399 700,399 732,399 764,399 796,399 828,398.9 860,398.6"/>
+
+  <!-- 数据点 -->
+  <g fill="#ef4444" stroke="#ffffff" stroke-width="1.4">
+    <circle cx="540" cy="400" r="3.2"/>
+    <circle cx="572" cy="400" r="3.2"/>
+    <circle cx="604" cy="400" r="3.2"/>
+    <circle cx="636" cy="400" r="3.2"/>
+    <circle cx="668" cy="399.87" r="3.2"/>
+    <circle cx="700" cy="392.2" r="3.2"/>
+    <circle cx="712.5" cy="232.6" r="3.2"/>
+    <circle cx="722.4" cy="133.2" r="3.2"/>
+    <circle cx="732" cy="133.2" r="3.2"/>
+    <circle cx="796" cy="132.7" r="3.2"/>
+    <circle cx="860" cy="130" r="3.5"/>
+  </g>
+  <g fill="#10b981" stroke="#ffffff" stroke-width="1.4">
+    <circle cx="636" cy="399" r="3.2"/>
+    <circle cx="668" cy="399" r="3.2"/>
+    <circle cx="700" cy="399" r="3.2"/>
+    <circle cx="732" cy="399" r="3.2"/>
+    <circle cx="764" cy="399" r="3.2"/>
+    <circle cx="796" cy="399" r="3.2"/>
+    <circle cx="828" cy="398.9" r="3.2"/>
+    <circle cx="860" cy="398.6" r="3.5"/>
+  </g>
+
+  <!-- 右注释 -->
+  <text x="560" y="176" font-size="9.5" fill="#dc2626">4 KB：≈ 12 MB 后接近 100%</text>
+  <text x="560" y="194" font-size="9.5" fill="#047857">2 MB：全区间 &lt; 0.16%</text>
+
+  <!-- 图例 -->
+  <line x1="300" y1="462" x2="330" y2="462" stroke="#ef4444" stroke-width="2.6"/>
+  <text x="338" y="466" font-size="11" fill="#334155">4 KB 页（MADV_NOHUGEPAGE）</text>
+  <line x1="560" y1="462" x2="590" y2="462" stroke="#10b981" stroke-width="2.6"/>
+  <text x="598" y="466" font-size="11" fill="#334155">2 MB THP（MADV_HUGEPAGE）</text>
+
+  <!-- 脚注 -->
+  <text x="460" y="510" text-anchor="middle" font-size="9.5" fill="#94a3b8">
+    AMD Ryzen 5 5600X / Zen 3，单核绑定；每点 7×10⁵ 次依赖解引用；miss 由 perf 硬件计数器采集（与 l2_dtlb_misses 一致）。
+  </text>
+</svg>
