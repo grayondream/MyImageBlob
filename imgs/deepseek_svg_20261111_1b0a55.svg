@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 310" width="560" height="310"
+     font-family="sans-serif" role="img" aria-labelledby="chartTitle chartDesc">
+  <title id="chartTitle">图 2　寄存器用量与占用率的阶跃关系</title>
+  <desc id="chartDesc">寄存器用量增加时，占用率呈阶跃下降，并标注 64 warp、32 warp、16 warp 与悬崖点。</desc>
+
+  <!-- 坐标轴 -->
+  <line x1="60" y1="230" x2="520" y2="230" stroke="#333" stroke-width="1.5"/>
+  <line x1="60" y1="230" x2="60" y2="40" stroke="#333" stroke-width="1.5"/>
+
+  <!-- 轴标题 -->
+  <text x="290" y="265" text-anchor="middle" font-size="12">每线程寄存器数</text>
+  <text x="22" y="135" text-anchor="middle" font-size="12"
+        transform="rotate(-90,22,135)">占用率</text>
+
+  <!-- X 轴刻度 -->
+  <text x="60" y="248" text-anchor="middle" font-size="10">0</text>
+  <text x="150" y="248" text-anchor="middle" font-size="10">32</text>
+  <text x="270" y="248" text-anchor="middle" font-size="10">64</text>
+  <text x="400" y="248" text-anchor="middle" font-size="10">128</text>
+  <text x="510" y="248" text-anchor="middle" font-size="10">255</text>
+
+  <!-- Y 轴刻度 -->
+  <text x="52" y="66" text-anchor="end" font-size="10">100%</text>
+  <text x="52" y="148" text-anchor="end" font-size="10">50%</text>
+  <text x="52" y="230" text-anchor="end" font-size="10">0</text>
+
+  <!-- 阶跃曲线 -->
+  <path d="M60,60 L270,60 L270,145 L400,145 L400,200 L510,200"
+        fill="none" stroke="#2980b9" stroke-width="3"/>
+
+  <!-- 区间标注 -->
+  <text x="165" y="52" text-anchor="middle" font-size="11" fill="#2980b9">64 warp</text>
+  <text x="335" y="138" text-anchor="middle" font-size="11" fill="#2980b9">32 warp</text>
+  <text x="455" y="193" text-anchor="middle" font-size="11" fill="#2980b9">16 warp</text>
+
+  <!-- 悬崖标注 -->
+  <line x1="270" y1="60" x2="270" y2="145" stroke="#e74c3c" stroke-width="1.5"
+        stroke-dasharray="4,3"/>
+  <text x="278" y="108" font-size="10" fill="#e74c3c">悬崖</text>
+
+  <!-- 图注 -->
+  <text x="280" y="298" text-anchor="middle" font-size="12" font-style="italic"
+        fill="#555">图 2　寄存器用量与占用率的阶跃关系</text>
+</svg>
