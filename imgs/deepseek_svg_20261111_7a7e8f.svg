@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="760" height="528.5" viewBox="0 0 474.552 330"
+     style="max-width:100%;height:auto"
+     role="img" aria-labelledby="chartTitle chartDesc">
+ <title id="chartTitle">图 12　K2 B=48 的本地溢出 vs 手工共享内存暂存</title>
+ <desc id="chartDesc">相同 2 block/SM 下，C1-manual 把 9.76 ms 降到 3.81 ms；C0 满占用率反而更慢。</desc>
+
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 285.834375 
+L 474.551987 285.834375 
+L 474.551987 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 38.653203 239.226992 
+L 436.586863 239.226992 
+L 436.586863 20.038594 
+L 38.653203 20.038594 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 56.741097 239.226992 
+L 140.223683 239.226992 
+L 140.223683 69.434891 
+L 56.741097 69.434891 
+z
+" clip-path="url(#p41691b7214)" style="fill: #2b6cb0"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 195.87874 239.226992 
+L 279.361326 239.226992 
+L 279.361326 150.058814 
+L 195.87874 150.058814 
+z
+" clip-path="url(#p41691b7214)" style="fill: #718096"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 335.016383 239.226992 
+L 418.498969 239.226992 
+L 418.498969 204.385973 
+L 335.016383 204.385973 
+z
+" clip-path="url(#p41691b7214)" style="fill: #2f855a"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 98.48239 239.226992 
+L 98.48239 20.038594 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2">
+      <defs>
+       <path id="m0b1a2c55d1" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m0b1a2c55d1" x="98.48239" y="239.226992" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(80.56114 253.966465)">C0 local</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(79.220983 264.768926)">5 blk/SM</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 237.620033 239.226992 
+L 237.620033 20.038594 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m0b1a2c55d1" x="237.620033" y="239.226992" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(219.698783 253.966465)">C0 local</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(218.358627 264.768926)">2 blk/SM</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(214.251674 275.571387)">(matched)</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 376.757676 239.226992 
+L 376.757676 20.038594 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m0b1a2c55d1" x="376.757676" y="239.226992" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(337.159786 253.966465)">C1 manual smem</text>
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(357.49627 264.768926)">2 blk/SM</text>
+     </g>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_7">
+      <path d="M 38.653203 239.226992 
+L 436.586863 239.226992 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8">
+      <defs>
+       <path id="meca620a86f" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#meca620a86f" x="38.653203" y="239.226992" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="31.653203" y="242.645937" transform="rotate(-0 31.653203 242.645937)">0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_9">
+      <path d="M 38.653203 193.562743 
+L 436.586863 193.562743 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10">
+      <g>
+       <use xlink:href="#meca620a86f" x="38.653203" y="193.562743" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="31.653203" y="196.981688" transform="rotate(-0 31.653203 196.981688)">5</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_11">
+      <path d="M 38.653203 147.898493 
+L 436.586863 147.898493 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12">
+      <g>
+       <use xlink:href="#meca620a86f" x="38.653203" y="147.898493" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="31.653203" y="151.317438" transform="rotate(-0 31.653203 151.317438)">10</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_13">
+      <path d="M 38.653203 102.234243 
+L 436.586863 102.234243 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14">
+      <g>
+       <use xlink:href="#meca620a86f" x="38.653203" y="102.234243" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="31.653203" y="105.653188" transform="rotate(-0 31.653203 105.653188)">15</text>
+     </g>
+    </g>
+    <g id="ytick_5">
+     <g id="line2d_15">
+      <path d="M 38.653203 56.569993 
+L 436.586863 56.569993 
+" clip-path="url(#p41691b7214)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16">
+      <g>
+       <use xlink:href="#meca620a86f" x="38.653203" y="56.569993" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="31.653203" y="59.988939" transform="rotate(-0 31.653203 59.988939)">20</text>
+     </g>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="14.038594" y="129.632793" transform="rotate(-90 14.038594 129.632793)">Median kernel time (ms)</text>
+    </g>
+   </g>
+   <g id="patch_6">
+    <path d="M 38.653203 239.226992 
+L 38.653203 20.038594 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 38.653203 239.226992 
+L 436.586863 239.226992 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(80.948796 44.31246)">18.59 ms</text>
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(57.384733 53.314511)">64B local / 0KB smem</text>
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(82.537273 62.315976)">83% occ</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(222.472377 124.936383)">9.76 ms</text>
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(196.522377 133.938434)">64B local / 0KB smem</text>
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(221.674916 142.939898)">33% occ</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(361.61002 179.263543)">3.81 ms</text>
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(335.66002 188.265593)">0B local / 48KB smem</text>
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'" transform="translate(360.812559 197.267058)">33% occ</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #2f855a" x="314.145737" y="136.359539" transform="rotate(-0 314.145737 136.359539)">equal occupancy: 9.8 -&gt; 3.8 ms (2.6x)</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="237.620033" y="14.038594" transform="rotate(-0 237.620033 14.038594)">K2 B=48: local spill vs manual shared-memory staging</text>
+   </g>
+  </g>
+ </g>
+
+ <defs>
+  <clipPath id="p41691b7214">
+   <rect x="38.653203" y="20.038594" width="397.93366" height="219.188398"/>
+  </clipPath>
+ </defs>
+
+ <!-- 图注 -->
+ <text x="237.276" y="300" text-anchor="middle" font-size="8"
+       font-family="'Microsoft YaHei','PingFang SC',system-ui,-apple-system,'Segoe UI',sans-serif"
+       font-style="italic" fill="#555555">图 12　K2 B=48 的本地溢出 vs 手工共享内存暂存：</text>
+ <text x="237.276" y="316" text-anchor="middle" font-size="8"
+       font-family="'Microsoft YaHei','PingFang SC',system-ui,-apple-system,'Segoe UI',sans-serif"
+       font-style="italic" fill="#555555">相同 2 block/SM 下，C1-manual 把 9.76 ms 降到 3.81 ms；C0 满占用率反而更慢。</text>
+</svg>
