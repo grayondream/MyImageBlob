@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 330" width="560" height="330"
+     font-family="sans-serif" role="img" aria-labelledby="chartTitle chartDesc">
+  <title id="chartTitle">图 1　GPU 存储层次与溢出路径</title>
+  <desc id="chartDesc">从寄存器到共享内存/L1、L2 缓存、DRAM 的存储层次与访问延迟，以及寄存器溢出到本地内存的路径。</desc>
+
+  <defs>
+    <marker id="arr1" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <!-- 寄存器 -->
+  <rect x="120" y="20" width="240" height="44" rx="4" fill="#2ecc71"/>
+  <text x="240" y="47" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">寄存器</text>
+  <text x="380" y="47" font-size="12" fill="#27ae60">&lt; 5 cyc</text>
+
+  <!-- 共享内存 / L1 -->
+  <rect x="120" y="74" width="240" height="44" rx="4" fill="#f1c40f"/>
+  <text x="240" y="101" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">共享内存 / L1</text>
+  <text x="380" y="101" font-size="12" fill="#b7950b">~30 cyc</text>
+
+  <!-- L2 缓存 -->
+  <rect x="120" y="128" width="240" height="44" rx="4" fill="#e67e22"/>
+  <text x="240" y="155" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">L2 缓存</text>
+  <text x="380" y="155" font-size="12" fill="#ca6f1e">~200 cyc</text>
+
+  <!-- DRAM / 本地内存 -->
+  <rect x="120" y="182" width="240" height="44" rx="4" fill="#c0392b"/>
+  <text x="240" y="209" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">DRAM / 本地内存</text>
+  <text x="380" y="209" font-size="12" fill="#a93226">~400 cyc</text>
+
+  <!-- 溢出路径 -->
+  <line x1="240" y1="226" x2="240" y2="262" stroke="#888" stroke-width="2"
+        marker-end="url(#arr1)"/>
+  <text x="252" y="278" font-size="11" fill="#c0392b">寄存器溢出 → 本地内存</text>
+
+  <!-- 图注 -->
+  <text x="280" y="315" text-anchor="middle" font-size="12" font-style="italic"
+        fill="#555">图 1　GPU 存储层次与溢出路径</text>
+</svg>
