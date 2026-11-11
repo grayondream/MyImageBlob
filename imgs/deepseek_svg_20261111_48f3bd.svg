@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 290" width="560" height="290"
+     font-family="sans-serif" role="img" aria-labelledby="chartTitle chartDesc">
+  <title id="chartTitle">图 3　PRP 曲线与 APRP 上界</title>
+  <desc id="chartDesc">PRP 随程序执行点变化的曲线，以及 APRP 上界虚线和峰值点。</desc>
+
+  <!-- 坐标轴 -->
+  <line x1="50" y1="215" x2="530" y2="215" stroke="#333" stroke-width="1.5"/>
+  <line x1="50" y1="215" x2="50" y2="40" stroke="#333" stroke-width="1.5"/>
+
+  <!-- 轴标签 -->
+  <text x="290" y="245" text-anchor="middle" font-size="12">程序执行点</text>
+  <text x="20" y="128" text-anchor="middle" font-size="12"
+        transform="rotate(-90,20,128)">寄存器数</text>
+
+  <!-- APRP 上界 -->
+  <line x1="50" y1="75" x2="530" y2="75" stroke="#95a5a6" stroke-width="1.5"
+        stroke-dasharray="5,4"/>
+  <text x="525" y="68" text-anchor="end" font-size="10" fill="#7f8c8d">APRP 上界</text>
+
+  <!-- PRP 曲线 -->
+  <path d="M50,190 Q110,180 150,115 Q190,65 240,85 Q290,105 330,95
+           Q380,85 420,135 Q470,180 530,190"
+        fill="none" stroke="#8e44ad" stroke-width="2.5"/>
+  <text x="360" y="78" font-size="11" fill="#8e44ad">PRP</text>
+
+  <!-- 峰值点 -->
+  <circle cx="195" cy="72" r="4" fill="#e74c3c"/>
+  <text x="205" y="66" font-size="10" fill="#e74c3c">峰值</text>
+
+  <!-- 图注 -->
+  <text x="280" y="278" text-anchor="middle" font-size="12" font-style="italic"
+        fill="#555">图 3　PRP 曲线与 APRP 上界</text>
+</svg>
