@@ -1,0 +1,401 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="760" height="366.1" viewBox="0 0 684.991 330"
+     style="max-width:100%;height:auto"
+     role="img" aria-labelledby="chartTitle chartDesc">
+ <title id="chartTitle">图 14　B：Theoretical 100% 对照（实测 device 76.99% / 62.60%）时 1 链与 4 链几乎相同；16.7% occupancy 时 4 链把 0.209 ms 降到 0.140 ms（1.49×）。</title>
+ <desc id="chartDesc">左图 Theoretical 100% 对照下 1 链与 4 链耗时几乎相同；右图 16.7% occupancy 下 4 链明显快于 1 链。</desc>
+
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+
+ <g id="fig14_figure_1">
+  <g id="fig14_patch_1">
+   <path d="M 0 330 
+L 684.991406 330 
+L 684.991406 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="fig14_axes_1">
+   <g id="fig14_patch_2">
+    <path d="M 41.513516 257.596484 
+L 334.171406 257.596484 
+L 334.171406 31.74123 
+L 41.513516 31.74123 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="fig14_patch_3">
+    <path d="M 54.816147 257.596484 
+L 149.221918 257.596484 
+L 149.221918 72.469227 
+L 54.816147 72.469227 
+z
+" clip-path="url(#fig14_p2276537069)" style="fill: #dd6b20"/>
+   </g>
+   <g id="fig14_patch_4">
+    <path d="M 226.463004 257.596484 
+L 320.868775 257.596484 
+L 320.868775 72.930316 
+L 226.463004 72.930316 
+z
+" clip-path="url(#fig14_p2276537069)" style="fill: #2f855a"/>
+   </g>
+   <g id="fig14_matplotlib.axis_1">
+    <g id="fig14_xtick_1">
+     <g id="fig14_line2d_1">
+      <path d="M 102.019033 257.596484 
+L 102.019033 31.74123 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_2">
+      <defs>
+       <path id="fig14_m552306dd06" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#fig14_m552306dd06" x="102.019033" y="257.596484" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="102.019033" y="271.435078" transform="rotate(-0 102.019033 271.435078)">1 chain</text>
+     </g>
+    </g>
+    <g id="fig14_xtick_2">
+     <g id="fig14_line2d_3">
+      <path d="M 273.665889 257.596484 
+L 273.665889 31.74123 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_4">
+      <g>
+       <use xlink:href="#fig14_m552306dd06" x="273.665889" y="257.596484" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="273.665889" y="271.435078" transform="rotate(-0 273.665889 271.435078)">4 chains</text>
+     </g>
+    </g>
+   </g>
+   <g id="fig14_matplotlib.axis_2">
+    <g id="fig14_ytick_1">
+     <g id="fig14_line2d_5">
+      <path d="M 41.513516 257.596484 
+L 334.171406 257.596484 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_6">
+      <defs>
+       <path id="fig14_m54be0f894d" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="41.513516" y="257.596484" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="34.513516" y="261.01543" transform="rotate(-0 34.513516 261.01543)">0.0</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_2">
+     <g id="fig14_line2d_7">
+      <path d="M 41.513516 212.568256 
+L 334.171406 212.568256 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_8">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="41.513516" y="212.568256" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="34.513516" y="215.987201" transform="rotate(-0 34.513516 215.987201)">0.2</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_3">
+     <g id="fig14_line2d_9">
+      <path d="M 41.513516 167.540027 
+L 334.171406 167.540027 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_10">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="41.513516" y="167.540027" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="34.513516" y="170.958973" transform="rotate(-0 34.513516 170.958973)">0.4</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_4">
+     <g id="fig14_line2d_11">
+      <path d="M 41.513516 122.511799 
+L 334.171406 122.511799 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_12">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="41.513516" y="122.511799" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="34.513516" y="125.930744" transform="rotate(-0 34.513516 125.930744)">0.6</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_5">
+     <g id="fig14_line2d_13">
+      <path d="M 41.513516 77.483571 
+L 334.171406 77.483571 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_14">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="41.513516" y="77.483571" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="34.513516" y="80.902516" transform="rotate(-0 34.513516 80.902516)">0.8</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_6">
+     <g id="fig14_line2d_15">
+      <path d="M 41.513516 32.455342 
+L 334.171406 32.455342 
+" clip-path="url(#fig14_p2276537069)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_16">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="41.513516" y="32.455342" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="34.513516" y="35.874287" transform="rotate(-0 34.513516 35.874287)">1.0</text>
+     </g>
+    </g>
+    <g id="fig14_text_9">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="14.038594" y="144.668857" transform="rotate(-90 14.038594 144.668857)">Median time (ms)</text>
+    </g>
+   </g>
+   <g id="fig14_patch_5">
+    <path d="M 41.513516 257.596484 
+L 41.513516 31.74123 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="fig14_patch_6">
+    <path d="M 41.513516 257.596484 
+L 334.171406 257.596484 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="fig14_text_10">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="102.019033" y="68.766682" transform="rotate(-0 102.019033 68.766682)">0.822 ms</text>
+   </g>
+   <g id="fig14_text_11">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="273.665889" y="69.227771" transform="rotate(-0 273.665889 69.227771)">0.820 ms</text>
+   </g>
+   <g id="fig14_text_12">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #718096" x="187.842461" y="58.843861" transform="rotate(-0 187.842461 58.843861)">device occ 77.0% (1 chain)</text>
+   </g>
+   <g id="fig14_text_13">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(125.346602 14.939473)">B: Theoretical 100% control</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(175.159492 25.74123)">1.00x</text>
+   </g>
+  </g>
+  <g id="fig14_axes_2">
+   <g id="fig14_patch_7">
+    <path d="M 385.133516 257.596484 
+L 677.791406 257.596484 
+L 677.791406 31.74123 
+L 385.133516 31.74123 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="fig14_patch_8">
+    <path d="M 398.436147 257.596484 
+L 492.841918 257.596484 
+L 492.841918 72.469227 
+L 398.436147 72.469227 
+z
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: #dd6b20"/>
+   </g>
+   <g id="fig14_patch_9">
+    <path d="M 570.083004 257.596484 
+L 664.488775 257.596484 
+L 664.488775 133.270826 
+L 570.083004 133.270826 
+z
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: #2f855a"/>
+   </g>
+   <g id="fig14_matplotlib.axis_3">
+    <g id="fig14_xtick_3">
+     <g id="fig14_line2d_17">
+      <path d="M 445.639033 257.596484 
+L 445.639033 31.74123 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_18">
+      <g>
+       <use xlink:href="#fig14_m552306dd06" x="445.639033" y="257.596484" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_14">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="445.639033" y="271.435078" transform="rotate(-0 445.639033 271.435078)">1 chain</text>
+     </g>
+    </g>
+    <g id="fig14_xtick_4">
+     <g id="fig14_line2d_19">
+      <path d="M 617.285889 257.596484 
+L 617.285889 31.74123 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_20">
+      <g>
+       <use xlink:href="#fig14_m552306dd06" x="617.285889" y="257.596484" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_15">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="617.285889" y="271.435078" transform="rotate(-0 617.285889 271.435078)">4 chains</text>
+     </g>
+    </g>
+   </g>
+   <g id="fig14_matplotlib.axis_4">
+    <g id="fig14_ytick_7">
+     <g id="fig14_line2d_21">
+      <path d="M 385.133516 257.596484 
+L 677.791406 257.596484 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_22">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="385.133516" y="257.596484" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_16">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="378.133516" y="261.01543" transform="rotate(-0 378.133516 261.01543)">0.00</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_8">
+     <g id="fig14_line2d_23">
+      <path d="M 385.133516 213.285617 
+L 677.791406 213.285617 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_24">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="385.133516" y="213.285617" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_17">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="378.133516" y="216.704563" transform="rotate(-0 378.133516 216.704563)">0.05</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_9">
+     <g id="fig14_line2d_25">
+      <path d="M 385.133516 168.97475 
+L 677.791406 168.97475 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_26">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="385.133516" y="168.97475" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_18">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="378.133516" y="172.393696" transform="rotate(-0 378.133516 172.393696)">0.10</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_10">
+     <g id="fig14_line2d_27">
+      <path d="M 385.133516 124.663883 
+L 677.791406 124.663883 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_28">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="385.133516" y="124.663883" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_19">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="378.133516" y="128.082829" transform="rotate(-0 378.133516 128.082829)">0.15</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_11">
+     <g id="fig14_line2d_29">
+      <path d="M 385.133516 80.353017 
+L 677.791406 80.353017 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_30">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="385.133516" y="80.353017" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_20">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="378.133516" y="83.771962" transform="rotate(-0 378.133516 83.771962)">0.20</text>
+     </g>
+    </g>
+    <g id="fig14_ytick_12">
+     <g id="fig14_line2d_31">
+      <path d="M 385.133516 36.04215 
+L 677.791406 36.04215 
+" clip-path="url(#fig14_p1bb327e96a)" style="fill: none; stroke: #b0b0b0; stroke-opacity: 0.28; stroke-width: 0.8; stroke-linecap: square"/>
+     </g>
+     <g id="fig14_line2d_32">
+      <g>
+       <use xlink:href="#fig14_m54be0f894d" x="385.133516" y="36.04215" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="fig14_text_21">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: end" x="378.133516" y="39.461095" transform="rotate(-0 378.133516 39.461095)">0.25</text>
+     </g>
+    </g>
+    <g id="fig14_text_22">
+     <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle" x="351.932344" y="144.668857" transform="rotate(-90 351.932344 144.668857)">Median time (ms)</text>
+    </g>
+   </g>
+   <g id="fig14_patch_10">
+    <path d="M 385.133516 257.596484 
+L 385.133516 31.74123 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="fig14_patch_11">
+    <path d="M 385.133516 257.596484 
+L 677.791406 257.596484 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="fig14_text_23">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="445.639033" y="68.766682" transform="rotate(-0 445.639033 68.766682)">0.209 ms</text>
+   </g>
+   <g id="fig14_text_24">
+    <text style="font-size: 8px; font-family: 'DejaVu Sans'; text-anchor: middle" x="617.285889" y="129.568281" transform="rotate(-0 617.285889 129.568281)">0.140 ms</text>
+   </g>
+   <g id="fig14_text_25">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #718096" x="531.462461" y="58.843861" transform="rotate(-0 531.462461 58.843861)">device occ 16.7% (1 chain)</text>
+   </g>
+   <g id="fig14_text_26">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(485.545586 14.939473)">B: 16.7% occupancy</text>
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'" transform="translate(518.779492 25.74123)">1.49x</text>
+   </g>
+  </g>
+ </g>
+
+ <defs>
+  <clipPath id="fig14_p2276537069">
+   <rect x="41.513516" y="31.74123" width="292.657891" height="225.855254"/>
+  </clipPath>
+  <clipPath id="fig14_p1bb327e96a">
+   <rect x="385.133516" y="31.74123" width="292.657891" height="225.855254"/>
+  </clipPath>
+ </defs>
+
+ <!-- 图注 -->
+ <text x="342.496" y="300" text-anchor="middle" font-size="8"
+       font-family="'Microsoft YaHei','PingFang SC',system-ui,-apple-system,'Segoe UI',sans-serif"
+       font-style="italic" fill="#555555">图 14　B：Theoretical 100% 对照（实测 device 76.99% / 62.60%）时 1 链与 4 链几乎相同；</text>
+ <text x="342.496" y="316" text-anchor="middle" font-size="8"
+       font-family="'Microsoft YaHei','PingFang SC',system-ui,-apple-system,'Segoe UI',sans-serif"
+       font-style="italic" fill="#555555">16.7% occupancy 时 4 链把 0.209 ms 降到 0.140 ms（1.49×）。</text>
+</svg>
