@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 780" width="100%" height="100%" style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.07"/>
+    </filter>
+    <filter id="shadow-sm" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+
+    <!-- 各层渐变 -->
+    <linearGradient id="grad-module" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eef2ff"/>
+      <stop offset="100%" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <linearGradient id="grad-func" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#f3e8ff"/>
+    </linearGradient>
+    <linearGradient id="grad-bb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ecfeff"/>
+      <stop offset="100%" stop-color="#cffafe"/>
+    </linearGradient>
+    <linearGradient id="grad-inst" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="480" y="38" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">LLVM IR（.ll）的四层结构</text>
+  <text x="480" y="62" font-size="13" fill="#64748b" text-anchor="middle">Module → Function → BasicBlock → Instruction（自上而下的嵌套关系）</text>
+
+  <!-- ================= 第 1 层：Module ================= -->
+  <rect x="70" y="95" width="800" height="640" rx="18" fill="url(#grad-module)" stroke="#6366f1" stroke-width="2" filter="url(#shadow)"/>
+  
+  <circle cx="102" cy="128" r="15" fill="#6366f1"/>
+  <text x="102" y="134" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="128" y="134" font-size="18" font-weight="bold" fill="#3730a3">Module</text>
+  <text x="128" y="157" font-size="12" fill="#6366f1">.ll 文件 = 一个编译单元（翻译单元）</text>
+
+  <!-- 第 2 层：Function -->
+  <rect x="100" y="170" width="740" height="530" rx="14" fill="url(#grad-func)" stroke="#a855f7" stroke-width="1.8" filter="url(#shadow-sm)"/>
+  
+  <circle cx="132" cy="203" r="13" fill="#a855f7"/>
+  <text x="132" y="209" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="156" y="209" font-size="16" font-weight="bold" fill="#6b21a8">Function</text>
+  <text x="240" y="209" font-size="14" fill="#7e22ce" font-family="'SF Mono', Menlo, Consolas, monospace">@main</text>
+  <text x="300" y="209" font-size="11" fill="#a855f7">一个函数对应一个 Function</text>
+
+  <!-- ================= 第 3 层：BasicBlock (entry) ================= -->
+  <rect x="130" y="240" width="680" height="230" rx="10" fill="url(#grad-bb)" stroke="#06b6d4" stroke-width="1.6" filter="url(#shadow-sm)"/>
+  
+  <circle cx="160" cy="268" r="11" fill="#06b6d4"/>
+  <text x="160" y="273" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="182" y="273" font-size="14" font-weight="bold" fill="#155e75">BasicBlock</text>
+  <text x="280" y="273" font-size="13" fill="#0e7490" font-family="'SF Mono', Menlo, Consolas, monospace">entry</text>
+
+  <!-- 第 4 层：Instruction -->
+  <circle cx="160" cy="313" r="10" fill="#f59e0b"/>
+  <text x="160" y="318" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+
+  <!-- 指令 1 -->
+  <rect x="180" y="298" width="605" height="30" rx="6" fill="url(#grad-inst)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="195" y="318" font-size="13" fill="#78350f" font-family="'SF Mono', Menlo, Consolas, monospace">%1 = alloca i32, align 4</text>
+
+  <!-- 指令 2 -->
+  <rect x="180" y="336" width="605" height="30" rx="6" fill="url(#grad-inst)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="195" y="356" font-size="13" fill="#78350f" font-family="'SF Mono', Menlo, Consolas, monospace">store i32 42, ptr %1, align 4</text>
+
+  <!-- 指令 3 -->
+  <rect x="180" y="374" width="605" height="30" rx="6" fill="url(#grad-inst)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="195" y="394" font-size="13" fill="#78350f" font-family="'SF Mono', Menlo, Consolas, monospace">%cmp = icmp sgt i32 42, 0</text>
+
+  <!-- 指令 4 -->
+  <rect x="180" y="412" width="605" height="30" rx="6" fill="url(#grad-inst)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="195" y="432" font-size="13" fill="#78350f" font-family="'SF Mono', Menlo, Consolas, monospace">br i1 %cmp, label %then, label %end</text>
+
+  <!-- ================= 第 3 层：BasicBlock (then) ================= -->
+  <rect x="130" y="490" width="680" height="170" rx="10" fill="url(#grad-bb)" stroke="#06b6d4" stroke-width="1.6" filter="url(#shadow-sm)"/>
+  
+  <circle cx="160" cy="518" r="11" fill="#06b6d4"/>
+  <text x="160" y="523" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="182" y="523" font-size="14" font-weight="bold" fill="#155e75">BasicBlock</text>
+  <text x="280" y="523" font-size="13" fill="#0e7490" font-family="'SF Mono', Menlo, Consolas, monospace">then</text>
+
+  <!-- 第 4 层：Instruction -->
+  <circle cx="160" cy="565" r="10" fill="#f59e0b"/>
+  <text x="160" y="570" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">4</text>
+
+  <!-- 指令 1 -->
+  <rect x="180" y="550" width="605" height="30" rx="6" fill="url(#grad-inst)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="195" y="570" font-size="13" fill="#78350f" font-family="'SF Mono', Menlo, Consolas, monospace">%v = add nsw i32 42, 1</text>
+
+  <!-- 指令 2 -->
+  <rect x="180" y="588" width="605" height="30" rx="6" fill="url(#grad-inst)" stroke="#fbbf24" stroke-width="1"/>
+  <text x="195" y="608" font-size="13" fill="#78350f" font-family="'SF Mono', Menlo, Consolas, monospace">ret i32 %v</text>
+
+  <!-- Module 底部注释 -->
+  <text x="128" y="722" font-size="11" fill="#6366f1" opacity="0.85">模块还可以包含：更多 Function、全局变量、类型定义、元数据、属性组等</text>
+
+</svg>
