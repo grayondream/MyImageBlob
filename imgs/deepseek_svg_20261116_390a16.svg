@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 360" width="100%" height="100%" style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- 阴影 -->
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="2" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    
+    <!-- 箭头标记 -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+
+    <!-- 各阶段渐变 -->
+    <linearGradient id="grad-c" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+    <linearGradient id="grad-clang" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7"/>
+      <stop offset="100%" stop-color="#fcd34d"/>
+    </linearGradient>
+    <linearGradient id="grad-ir" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#d8b4fe"/>
+    </linearGradient>
+    <linearGradient id="grad-opt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dcfce7"/>
+      <stop offset="100%" stop-color="#86efac"/>
+    </linearGradient>
+    <linearGradient id="grad-llc" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fee2e2"/>
+      <stop offset="100%" stop-color="#fca5a5"/>
+    </linearGradient>
+    <linearGradient id="grad-asm" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="grad-bin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="750" y="35" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">LLVM 编译流水线</text>
+  <text x="750" y="60" font-size="13" fill="#64748b" text-anchor="middle">从 C 源码到机器码的完整旅程</text>
+
+  <!-- ================= 阶段 1：C 源码 ================= -->
+  <g transform="translate(30, 120)">
+    <rect x="0" y="0" width="150" height="100" rx="10" fill="url(#grad-c)" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="75" y="42" font-size="16" font-weight="bold" fill="#1e3a8a" text-anchor="middle">C 源码</text>
+    <text x="75" y="68" font-size="11" fill="#2563eb" text-anchor="middle">main.c</text>
+  </g>
+
+  <!-- 箭头 1→2 -->
+  <line x1="180" y1="170" x2="245" y2="170" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="212" y="195" font-size="9" fill="#64748b" font-family="monospace" text-anchor="middle">clang -emit-llvm</text>
+
+  <!-- ================= 阶段 2：Clang 前端 ================= -->
+  <g transform="translate(245, 120)">
+    <rect x="0" y="0" width="150" height="100" rx="10" fill="url(#grad-clang)" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="75" y="40" font-size="15" font-weight="bold" fill="#78350f" text-anchor="middle">Clang 前端</text>
+    <text x="75" y="62" font-size="10" fill="#b45309" text-anchor="middle">词法 / 语法</text>
+    <text x="75" y="78" font-size="10" fill="#b45309" text-anchor="middle">语义分析</text>
+  </g>
+
+  <!-- 箭头 2→3 -->
+  <line x1="395" y1="170" x2="460" y2="170" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ================= 阶段 3：LLVM IR ================= -->
+  <g transform="translate(460, 120)">
+    <rect x="0" y="0" width="150" height="100" rx="10" fill="url(#grad-ir)" stroke="#a855f7" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="75" y="42" font-size="16" font-weight="bold" fill="#4c1d95" text-anchor="middle">LLVM IR</text>
+    <text x="75" y="68" font-size="11" fill="#7e22ce" text-anchor="middle">.ll / .bc</text>
+  </g>
+
+  <!-- 箭头 3→4 -->
+  <line x1="610" y1="170" x2="675" y2="170" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="642" y="195" font-size="9" fill="#64748b" font-family="monospace" text-anchor="middle">opt -O2</text>
+
+  <!-- ================= 阶段 4：中端优化（opt） ================= -->
+  <g transform="translate(675, 120)">
+    <rect x="0" y="0" width="150" height="100" rx="10" fill="url(#grad-opt)" stroke="#22c55e" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="75" y="40" font-size="15" font-weight="bold" fill="#14532d" text-anchor="middle">中端优化</text>
+    <text x="75" y="62" font-size="10" fill="#15803d" text-anchor="middle">内联 / DCE</text>
+    <text x="75" y="78" font-size="10" fill="#15803d" text-anchor="middle">循环优化</text>
+  </g>
+
+  <!-- 箭头 4→5 -->
+  <line x1="825" y1="170" x2="890" y2="170" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="857" y="195" font-size="9" fill="#64748b" font-family="monospace" text-anchor="middle">llc -O2</text>
+
+  <!-- ================= 阶段 5：后端（llc） ================= -->
+  <g transform="translate(890, 120)">
+    <rect x="0" y="0" width="150" height="100" rx="10" fill="url(#grad-llc)" stroke="#ef4444" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="75" y="40" font-size="15" font-weight="bold" fill="#7f1d1d" text-anchor="middle">后端</text>
+    <text x="75" y="62" font-size="10" fill="#b91c1c" text-anchor="middle">指令选择</text>
+    <text x="75" y="78" font-size="10" fill="#b91c1c" text-anchor="middle">寄存器分配</text>
+  </g>
+
+  <!-- 箭头 5→6 -->
+  <line x1="1040" y1="170" x2="1105" y2="170" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1072" y="195" font-size="9" fill="#64748b" font-family="monospace" text-anchor="middle">as</text>
+
+  <!-- ================= 阶段 6：汇编码 ================= -->
+  <g transform="translate(1105, 120)">
+    <rect x="0" y="0" width="150" height="100" rx="10" fill="url(#grad-asm)" stroke="#64748b" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="75" y="42" font-size="16" font-weight="bold" fill="#1e293b" text-anchor="middle">汇编码</text>
+    <text x="75" y="68" font-size="11" fill="#475569" text-anchor="middle">.s</text>
+  </g>
+
+  <!-- 箭头 6→7 -->
+  <line x1="1255" y1="170" x2="1320" y2="170" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="1287" y="195" font-size="9" fill="#64748b" font-family="monospace" text-anchor="middle">ld</text>
+
+  <!-- ================= 阶段 7：机器码 ================= -->
+  <g transform="translate(1320, 120)">
+    <rect x="0" y="0" width="150" height="100" rx="10" fill="url(#grad-bin)" stroke="#334155" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="75" y="42" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">机器码</text>
+    <text x="75" y="68" font-size="11" fill="#334155" text-anchor="middle">可执行文件</text>
+  </g>
+
+  <!-- 底部时间线 -->
+  <line x1="80" y1="290" x2="1420" y2="290" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4"/>
+  <circle cx="105" cy="290" r="4" fill="#3b82f6"/>
+  <circle cx="320" cy="290" r="4" fill="#f59e0b"/>
+  <circle cx="535" cy="290" r="4" fill="#a855f7"/>
+  <circle cx="750" cy="290" r="4" fill="#22c55e"/>
+  <circle cx="965" cy="290" r="4" fill="#ef4444"/>
+  <circle cx="1180" cy="290" r="4" fill="#64748b"/>
+  <circle cx="1395" cy="290" r="4" fill="#334155"/>
+
+  <!-- 底部说明 -->
+  <text x="750" y="330" font-size="11" fill="#94a3b8" text-anchor="middle">前端 → 中间表示 → 中端优化 → 后端 → 汇编 → 链接 → 机器码</text>
+</svg>
