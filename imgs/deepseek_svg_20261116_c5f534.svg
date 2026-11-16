@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 780" width="100%" height="100%" style="background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- 阴影 -->
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.08"/>
+    </filter>
+    <filter id="shadow-sm" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000000" flood-opacity="0.06"/>
+    </filter>
+
+    <!-- 各基本块渐变 -->
+    <linearGradient id="grad-bb3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#bfdbfe"/>
+    </linearGradient>
+    <linearGradient id="grad-bb12" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#e9d5ff"/>
+    </linearGradient>
+    <linearGradient id="grad-bb14" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="grad-bb16" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#bbf7d0"/>
+    </linearGradient>
+
+    <!-- 箭头标记 -->
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#22c55e"/>
+    </marker>
+  </defs>
+
+  <!-- 标题 -->
+  <text x="480" y="36" font-size="22" font-weight="bold" fill="#1e293b" text-anchor="middle">CFG（控制流图）：if-else 结构</text>
+  <text x="480" y="60" font-size="13" fill="#64748b" text-anchor="middle">基于 LLVM IR 基本块 3 / 12 / 14 / 16</text>
+
+  <!-- ================= 边（先画，确保在节点下方） ================= -->
+
+  <!-- 3 → 12（true 分支） -->
+  <path d="M 370 200 C 370 270, 250 250, 250 320" fill="none" stroke="#a855f7" stroke-width="2" marker-end="url(#arrow-purple)" opacity="0.7"/>
+
+  <!-- 3 → 14（false 分支） -->
+  <path d="M 590 200 C 590 270, 710 250, 710 320" fill="none" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrow-orange)" opacity="0.7"/>
+
+  <!-- 12 → 16 -->
+  <path d="M 250 460 C 250 530, 430 510, 430 590" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)" opacity="0.7"/>
+
+  <!-- 14 → 16 -->
+  <path d="M 710 460 C 710 530, 530 510, 530 590" fill="none" stroke="#22c55e" stroke-width="2" marker-end="url(#arrow-green)" opacity="0.7"/>
+
+  <!-- ================= 基本块 3 ================= -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="90" width="400" height="110" rx="12" fill="url(#grad-bb3)" stroke="#3b82f6" stroke-width="2"/>
+    <circle cx="308" cy="118" r="14" fill="#3b82f6"/>
+    <text x="308" y="123" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="330" y="123" font-size="15" font-weight="bold" fill="#1e40af">entry</text>
+    <text x="308" y="152" font-size="12.5" fill="#1e3a8a" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">%11 = icmp sgt i32 %9, %10</text>
+    <text x="308" y="176" font-size="12.5" fill="#1e3a8a" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">br i1 %11, label %12, label %14</text>
+  </g>
+
+  <!-- true / false 标签 -->
+  <g>
+    <rect x="248" y="228" width="46" height="22" rx="11" fill="#e9d5ff" stroke="#a855f7" stroke-width="1.2"/>
+    <text x="271" y="243" font-size="11" font-weight="bold" fill="#6b21a8" text-anchor="middle">true</text>
+  </g>
+  <g>
+    <rect x="666" y="228" width="50" height="22" rx="11" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="691" y="243" font-size="11" font-weight="bold" fill="#92400e" text-anchor="middle">false</text>
+  </g>
+
+  <!-- ================= 基本块 12 ================= -->
+  <g filter="url(#shadow)">
+    <rect x="100" y="320" width="300" height="140" rx="12" fill="url(#grad-bb12)" stroke="#a855f7" stroke-width="2"/>
+    <circle cx="128" cy="348" r="13" fill="#a855f7"/>
+    <text x="128" y="353" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">12</text>
+    <text x="148" y="353" font-size="14" font-weight="bold" fill="#6b21a8">then</text>
+    <text x="128" y="382" font-size="12" fill="#4c1d95" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">%13 = load i32, ptr %5, align 4</text>
+    <text x="128" y="406" font-size="12" fill="#4c1d95" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">store i32 %13, ptr %4, align 4</text>
+    <text x="128" y="430" font-size="12" fill="#4c1d95" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">br label %16</text>
+  </g>
+
+  <!-- ================= 基本块 14 ================= -->
+  <g filter="url(#shadow)">
+    <rect x="560" y="320" width="300" height="140" rx="12" fill="url(#grad-bb14)" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="588" cy="348" r="13" fill="#f59e0b"/>
+    <text x="588" y="353" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">14</text>
+    <text x="608" y="353" font-size="14" font-weight="bold" fill="#92400e">else</text>
+    <text x="588" y="382" font-size="12" fill="#78350f" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">%15 = load i32, ptr %6, align 4</text>
+    <text x="588" y="406" font-size="12" fill="#78350f" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">store i32 %15, ptr %4, align 4</text>
+    <text x="588" y="430" font-size="12" fill="#78350f" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">br label %16</text>
+  </g>
+
+  <!-- ================= 基本块 16 ================= -->
+  <g filter="url(#shadow)">
+    <rect x="330" y="590" width="300" height="110" rx="12" fill="url(#grad-bb16)" stroke="#22c55e" stroke-width="2"/>
+    <circle cx="358" cy="618" r="13" fill="#22c55e"/>
+    <text x="358" y="623" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">16</text>
+    <text x="378" y="623" font-size="14" font-weight="bold" fill="#166534">merge</text>
+    <text x="358" y="652" font-size="12" fill="#14532d" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">%17 = load i32, ptr %4, align 4</text>
+    <text x="358" y="676" font-size="12" fill="#14532d" font-family="'SF Mono', 'Menlo', 'Consolas', monospace">ret i32 %17</text>
+  </g>
+
+  <!-- 退出标记 -->
+  <g>
+    <rect x="640" y="636" width="46" height="20" rx="10" fill="#dcfce7" stroke="#22c55e" stroke-width="1"/>
+    <text x="663" y="650" font-size="10" font-weight="bold" fill="#166534" text-anchor="middle">EXIT</text>
+  </g>
+  <line x1="630" y1="646" x2="640" y2="646" stroke="#22c55e" stroke-width="1" stroke-dasharray="3"/>
+
+  <!-- 底部说明 -->
+  <text x="480" y="740" font-size="12" fill="#94a3b8" text-anchor="middle">条件分支：%11 = icmp sgt i32 %9, %10　→　true 走 %12，false 走 %14，最终汇合到 %16</text>
+
+</svg>
